@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AccelerationMovementLogic : MonoBehaviour
+public class Move_CharUtama : MonoBehaviour
 {
     [SerializeField] private float _acceleration = 5f;
     [SerializeField] private float _maxSpeed = 10f;
