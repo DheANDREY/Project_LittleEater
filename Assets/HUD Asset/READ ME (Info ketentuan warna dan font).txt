@@ -1,0 +1,8 @@
+Ketentuan font angka generation point:
+Jura Regular 22 pt
+
+Warna dot enemy pada mini map :
+Hex code #d84141 atau R:216 G:65 B:65 (warna merah)
+
+Warna background mini map :
+Hex code #052451 atau R:5 G:36 B:81 (warna biru)
