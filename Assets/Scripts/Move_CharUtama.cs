@@ -1,4 +1,4 @@
-using DragonBones;
+
 using UnityEngine;
 
 public class Move_CharUtama : MonoBehaviour
@@ -8,23 +8,17 @@ public class Move_CharUtama : MonoBehaviour
 
     private Rigidbody2D _rigidBody;
     private Animator anim;
+    private SpriteRenderer sr;
 
-    private void Awake()
-    {
-        UnityArmatureComponent armatureComponent = GetComponent<UnityArmatureComponent>();
-        _rigidBody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-
-    }
-
-    private UnityArmatureComponent _armature;
     public Fillbar fb;
     private void Start()
     {
+        _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
-        _armature = GetComponent<UnityArmatureComponent>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
 
-    }
+     }
     // Update is called once per frame
     void Update()
     {
@@ -42,20 +36,37 @@ public class Move_CharUtama : MonoBehaviour
             velocity.y = (velocity.y > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
         }
         _rigidBody.velocity = velocity;
-        dash();
+        Debug.Log(_rigidBody.velocity);
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _armature.animation.Play("move", 1);
-            return;
+            //  sr.flipX = false;
+            anim.SetBool("isWalking", true);
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else
         {
-            _armature.animation.Play("move", 1);
+            anim.SetBool("isWalking", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            //sr.flipX = true;
+            anim.SetBool("isWalking2", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking2", false);
+        }
+
+
+
+        dash();
     }
+
     private bool boostUsed = false;
     private float spdDash = 100f;
+
+ 
 
     private void dash()
     {
@@ -67,4 +78,5 @@ public class Move_CharUtama : MonoBehaviour
             boostUsed = true;
         }
     }
+
 }
