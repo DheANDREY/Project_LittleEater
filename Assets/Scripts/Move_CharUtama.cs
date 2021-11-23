@@ -36,27 +36,20 @@ public class Move_CharUtama : MonoBehaviour
             velocity.y = (velocity.y > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
         }
         _rigidBody.velocity = velocity;
-        Debug.Log(_rigidBody.velocity);
+        
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) )
         {
-            //  sr.flipX = false;
-            anim.SetBool("isWalking", true);
+            anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));
+            Debug.Log(Input.GetAxis("Horizontal"));
         }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
+
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //sr.flipX = true;
-            anim.SetBool("isWalking2", true);
+            anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));
         }
-        else
-        {
-            anim.SetBool("isWalking2", false);
-        }
+
 
 
 
