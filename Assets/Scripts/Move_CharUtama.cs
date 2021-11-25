@@ -10,6 +10,7 @@ public class Move_CharUtama : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
 
+    bool makan;
     public Fillbar fb;
     private void Start()
     {
@@ -38,29 +39,39 @@ public class Move_CharUtama : MonoBehaviour
         _rigidBody.velocity = velocity;
         
 
-        if (Input.GetKeyDown(KeyCode.A) )
+        if (Input.GetKeyDown(KeyCode.A) ||  Input.GetKeyDown(KeyCode.LeftArrow))
         {
+        
             anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));
             Debug.Log(Input.GetAxis("Horizontal"));
+           
         }
 
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {           
+            anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));           
         }
 
-
-
-
-        dash();
+         dash();
     }
 
     private bool boostUsed = false;
     private float spdDash = 100f;
 
- 
-
+    private void OnTriggerEnter2D(Collider2D food)
+    {
+        if (food.isTrigger == false)
+        {
+            makan = true;
+            anim.SetBool("makan", true);
+        }
+        Destroy(food.gameObject);
+    }
+    private void OnTriggerExit2D(Collider2D food)
+    {
+        anim.SetBool("makan", true);
+    }
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
