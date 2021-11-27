@@ -6471,7 +6471,7 @@ GameObject:
   - component: {fileID: 784702512}
   - component: {fileID: 784702511}
   m_Layer: 0
-  m_Name: armatureName
+  m_Name: AnimasiBacteria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
