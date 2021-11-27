@@ -4,46 +4,147 @@ using UnityEngine;
 
 public class Bacteria : MonoBehaviour
 {
-    private Rigidbody2D rigidBody2D;
-    public float x;
-    public float y;
+    public Transform[] patrolPoints; //buat 
+    public GameObject Character;
+    public float speed;
+    Transform currentPatrolPoint;
+    int currentPatrolIndex;
 
-    void ResetBacteria()
-    {
-        transform.position = Vector2.zero;
-        rigidBody2D.velocity = Vector2.zero;
-    }
+    float attackCooldown; //fase berhenti dulu
+    [SerializeField] private float _attackDuration = 2;
 
-    void PushBacteria()
-    {
-        float yRandomForce = Random.Range(-y, y);
-        float randomDirection = Random.Range(0, 2);
-        if (randomDirection < 1.0f)
-        {
-            rigidBody2D.AddForce(new Vector2(-x, y));
-        }
-        else
-        {
-            rigidBody2D.AddForce(new Vector2(x, y));
-        }
-    }
-
-    void RestartGame()
-    {
-        ResetBacteria();
-        Invoke("PushBacteria", 1);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (FoodBar.mCurrentValue <= 300)
-        {
-            RestartGame();
-        }
-    }
+    private bool _isStunned; //cek mau stun apa ga
+    private float _stunDuration = 10;
+    private float _stunCooldown;
 
     void Start()
     {
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        currentPatrolIndex = 0;
+        currentPatrolPoint = patrolPoints[currentPatrolIndex];
+        attackCooldown = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /*if (_isStunned)
+        {
+            if (_stunCooldown > 0)
+            {
+                _stunCooldown -= Time.deltaTime;
+            }
+            else
+            {
+                _isStunned = false;
+            }
+        }
+        else
+        {*/
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            float bacteriaToPlayerDistance = Vector3.Distance(Character.transform.position, transform.position);
+            if (bacteriaToPlayerDistance > 5)
+            {
+                // idle, karena masih jauh
+            }
+            else if (bacteriaToPlayerDistance < 1f)
+            {
+                if (!Character.GetComponent<Move_CharUtama>())//.boostUsed)
+                {
+                    rb.velocity = Vector3.zero;
+
+                    if (attackCooldown <= 0)
+                    {
+                        attackCooldown = _attackDuration;
+                        Debug.Log("damage player");
+                    }
+                }
+            }
+            else if (bacteriaToPlayerDistance < 5f)
+            {
+                // chase, kejer player
+                Vector3 bacteriaToPlayerDir = transform.position - Character.transform.position;
+                /*Debug.Log(bacteriaToPlayerDir.x > 0 ? "hadap kanan" : "hadap kiri");
+                if (bacteriaToPlayerDir.x > 0)
+                {
+                    // flip sprite ke kanan
+                    Debug.Log("hadap kanan");
+                }
+                else
+                {
+                    // flip sprite ke kiri
+                    Debug.Log("hadap kiri");
+                }*/
+
+                rb.velocity = bacteriaToPlayerDir.normalized * speed;
+            }
+
+            if (attackCooldown > 0)
+            {
+                attackCooldown -= Time.deltaTime;
+            }
+        /*}*/
+
+        // if(Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Stun();
+        // }
+
+        // transform.Translate(Vector3.up * Time.deltaTime * speed);
+
+        // if (Vector2.Distance(transform.position, Character.transform.position) < 3)
+        // {
+        //     transform.position = Vector2.MoveTowards(transform.position, Character.transform.position, speed * Time.deltaTime);
+        // }else if (Vector3.Distance (transform.position, currentPatrolPoint.position) < .1f)
+
+        // {
+        //     if(currentPatrolIndex + 1 < patrolPoints.Length)
+        //     {
+        //         currentPatrolIndex++;
+        //     } else
+        //     {
+        //         currentPatrolIndex = 0;
+        //     }
+        //     currentPatrolPoint = patrolPoints[currentPatrolIndex];
+        // }
+        // Vector3 patrolPointDir = currentPatrolPoint.position - transform.position;
+
+        // float angle = Mathf.Atan2(patrolPointDir.y, patrolPointDir.x) * Mathf.Rad2Deg - 90f;
+        // Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        // transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 180f);
+    }
+
+    /*public void Stun()
+    {
+        _isStunned = true;
+        _stunCooldown = _stunDuration;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (this.tag == "food5_bacteria")
+        {
+            //if (other.tag == "Player")
+            //{
+                if (FoodBar.mCurrentValue <= 300)
+                {
+                    int value = 8;
+                    Destroy(gameObject);
+                    FoodBar.mCurrentValue += value;
+                    if (FoodBar.mCurrentValue >= 300)
+                        FoodBar.mCurrentValue = 300;
+                    FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
+                }
+                else if (FoodBar.mCurrentValue >= 300)
+                {
+                    FoodBar.mCurrentValue = 300;
+                }
+            //}
+        }
+        //Move_CharUtama move = collider.GetComponent<Move_CharUtama>();
+        //if (move != null && move.boostUsed)    // checking player atau bukan, dan lagi dash atau engga
+        //{
+        //  Stun();
+        //}
     }
 }
