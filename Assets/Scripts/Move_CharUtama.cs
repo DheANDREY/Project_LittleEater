@@ -8,7 +8,10 @@ public class Move_CharUtama : MonoBehaviour
 
     private Rigidbody2D _rigidBody;
     private Animator anim;
+
     private SpriteRenderer sr;
+    private bool isWalk;
+    public SoundController soC;
 
     bool makan;
     public Fillbar fb;
@@ -17,6 +20,7 @@ public class Move_CharUtama : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
         anim = GetComponent<Animator>();
+        
         sr = GetComponent<SpriteRenderer>();
 
      }
@@ -37,23 +41,36 @@ public class Move_CharUtama : MonoBehaviour
             velocity.y = (velocity.y > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
         }
         _rigidBody.velocity = velocity;
-        
 
-        if (Input.GetKeyDown(KeyCode.A) ||  Input.GetKeyDown(KeyCode.LeftArrow))
+        if (move.x > 0)
         {
-        
-            anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));
-            Debug.Log(Input.GetAxis("Horizontal"));
-           
+            sr.flipX = true;
+        }
+        if (move.x < 0)
+        {
+            sr.flipX = false;
+        }
+        //else
+        //{
+        //    sr.flipX = false;
+        //}
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            anim.SetBool("isWalk", true);
+            Debug.Log(velocity.x);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            anim.SetBool("isWalk", true);
+        }
+        else
+        {
+            anim.SetBool("isWalk", false);
         }
 
 
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {           
-            anim.SetFloat("Horizon", Input.GetAxis("Horizontal"));           
-        }
-
-         dash();
+        dash();
     }
 
     private bool boostUsed = false;
@@ -64,22 +81,27 @@ public class Move_CharUtama : MonoBehaviour
         if (food.isTrigger == false)
         {
             makan = true;
-            anim.SetBool("makan", true);
+            anim.SetTrigger("isMakan");
         }
         Destroy(food.gameObject);
     }
     private void OnTriggerExit2D(Collider2D food)
     {
-        anim.SetBool("makan", true);
+        anim.ResetTrigger("isMakan");
     }
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
-
             Fillbar.instance.kurang(50);
+            anim.SetBool("isDash", true);
             _rigidBody.AddForce(_rigidBody.velocity * spdDash);
-            boostUsed = true;
+            soC.sfxDash();
+            boostUsed = true;            
+        }
+        else
+        {
+            anim.SetBool("isDash", false);
         }
     }
 
