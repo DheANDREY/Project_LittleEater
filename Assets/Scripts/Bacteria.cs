@@ -124,8 +124,8 @@ public class Bacteria : MonoBehaviour
     {
         if (this.tag == "food5_bacteria")
         {
-            if (other.tag == "Player")
-            {
+            //if (other.tag == "Player")
+            //{
                 if (FoodBar.mCurrentValue <= 300)
                 {
                     int value = 8;
@@ -139,7 +139,7 @@ public class Bacteria : MonoBehaviour
                 {
                     FoodBar.mCurrentValue = 300;
                 }
-            }
+            //}
         }
         //Move_CharUtama move = collider.GetComponent<Move_CharUtama>();
         //if (move != null && move.boostUsed)    // checking player atau bukan, dan lagi dash atau engga
