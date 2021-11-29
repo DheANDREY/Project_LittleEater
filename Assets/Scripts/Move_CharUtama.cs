@@ -64,6 +64,14 @@ public class Move_CharUtama : MonoBehaviour
         {
             anim.SetBool("isWalk", true);
         }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            anim.SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            anim.SetBool("isWalk", true);
+        }
         else
         {
             anim.SetBool("isWalk", false);
@@ -74,7 +82,7 @@ public class Move_CharUtama : MonoBehaviour
     }
 
     private bool boostUsed = false;
-    private float spdDash = 100f;
+    private float spdDash = 900f;
 
     private void OnTriggerEnter2D(Collider2D food)
     {
@@ -85,16 +93,25 @@ public class Move_CharUtama : MonoBehaviour
         }
         Destroy(food.gameObject);
     }
-    private void OnTriggerExit2D(Collider2D food)
-    {
-        anim.ResetTrigger("isMakan");
-    }
+    //private void OnTriggerExit2D(Collider2D food)
+    //{
+    //    anim.ResetTrigger("isMakan");
+    //}
+    bool ngedash = true;
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
             Fillbar.instance.kurang(50);
-            anim.SetBool("isDash", true);
+            if (ngedash && Input.GetKey(KeyCode.Space))
+            {
+                anim.SetBool("dashTes", true);
+                ngedash = false;
+            }
+            else
+            {
+                anim.SetBool("dashTes", false);
+            }
             _rigidBody.AddForce(_rigidBody.velocity * spdDash);
             soC.sfxDash();
             boostUsed = true;            
