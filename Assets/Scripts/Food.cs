@@ -18,13 +18,16 @@ public class Food : MonoBehaviour
     {
         if (GetComponent<Move_CharUtama>() != null)
         {
-            FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
+            FoodBar.mCurrentValue += value;
+            if (FoodBar.mCurrentValue >= 300)
+                FoodBar.mCurrentValue = 300;
+            //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
             FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
             Destroy(gameObject);
         }
     }
 
-    IEnumerator CoralFood()
+    /*IEnumerator CoralFood()
     {
         if (FoodBar.mCurrentValue <= 292)
         {
@@ -36,5 +39,5 @@ public class Food : MonoBehaviour
         {
             FoodBar.mCurrentValue = 300;
         }
-    }
+    }*/
 }
