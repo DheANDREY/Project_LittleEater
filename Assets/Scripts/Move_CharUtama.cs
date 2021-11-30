@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Move_CharUtama : MonoBehaviour
 {
-    [SerializeField] private float _acceleration = 5f;
-    [SerializeField] private float _maxSpeed = 10f;
+   // [SerializeField] private float _acceleration = 2f;
+    [SerializeField] private float _maxSpeed = 5f;
 
     private Rigidbody2D _rigidBody;
     private Animator anim;
+    private Vector3 _moveDir;
 
     private SpriteRenderer sr;
     private bool isWalk;
@@ -19,28 +20,37 @@ public class Move_CharUtama : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
-        anim = GetComponent<Animator>();
-        
+        anim = GetComponent<Animator>();        
         sr = GetComponent<SpriteRenderer>();
-
      }
     // Update is called once per frame
     void Update()
     {
+        //Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        //Vector3 velocity = _rigidBody.velocity;
+        //if (move != Vector3.zero)
+        //{
+        //    velocity += move * Time.deltaTime;
+        //    velocity.x = Mathf.Clamp(velocity.x, -_maxSpeed, _maxSpeed);
+        //    velocity.y = Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
+        //    Debug.Log(velocity);
+        //}
+        //else
+        //{
+        //    //velocity.x += (velocity.x > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.x, -_maxSpeed, _maxSpeed);
+        //    //velocity.y = (velocity.y > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
+        //}
+        //_rigidBody.velocity = velocity;
         Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Vector3 velocity = _rigidBody.velocity;
         if (move != Vector3.zero)
         {
-            velocity += move * _acceleration * Time.deltaTime;
-            velocity.x = Mathf.Clamp(velocity.x, -_maxSpeed, _maxSpeed);
-            velocity.y = Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
+            _moveDir = move;
+            _rigidBody.velocity = _moveDir.normalized * _maxSpeed;
         }
         else
         {
-            velocity.x += (velocity.x > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.x, -_maxSpeed, _maxSpeed);
-            velocity.y = (velocity.y > 0 ? -1 : 1) * _acceleration * Time.deltaTime;// Mathf.Clamp(velocity.y, -_maxSpeed, _maxSpeed);
+            _rigidBody.velocity = Vector3.zero;
         }
-        _rigidBody.velocity = velocity;
 
         if (move.x > 0)
         {
@@ -50,15 +60,10 @@ public class Move_CharUtama : MonoBehaviour
         {
             sr.flipX = false;
         }
-        //else
-        //{
-        //    sr.flipX = false;
-        //}
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            anim.SetBool("isWalk", true);
-            Debug.Log(velocity.x);
+            anim.SetBool("isWalk", true);            
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -97,20 +102,32 @@ public class Move_CharUtama : MonoBehaviour
     //{
     //    anim.ResetTrigger("isMakan");
     //}
-    bool ngedash = true;
+    public GameObject dashFx;
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
             Fillbar.instance.kurang(50);
-            if (ngedash && Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
-                anim.SetBool("dashTes", true);
-                ngedash = false;
+                anim.SetTrigger("isDash");
+                if (_rigidBody.velocity.x < 0)
+                {
+                    GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x+2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                    fx.transform.SetParent(transform);
+                    fx.transform.localScale = new Vector3(1, 1, 0);                    
+                }
+                else
+                {
+                    GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + -2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                    fx.transform.SetParent(transform);
+                    fx.transform.localScale = new Vector3(-1, 1, 0);
+                }
+
             }
             else
             {
-                anim.SetBool("dashTes", false);
+                anim.SetBool("isWalk", true);
             }
             _rigidBody.AddForce(_rigidBody.velocity * spdDash);
             soC.sfxDash();

@@ -20,8 +20,6 @@ public class spawn : MonoBehaviour
         {
             spawnBar = false;
             munculBar();
-  
-
         }
     }
     private void munculBar(int x = -30)
