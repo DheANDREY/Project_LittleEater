@@ -28,11 +28,11 @@ public class Makanan : MonoBehaviour
                 //FoodBar.mCurrentValue +=2;
                 StartCoroutine(CoralFood());
             }
-            /*if (this.tag == "food5_bacteria")
+            if (this.tag == "food5_bacteria")
             {
                 value = 8;
                 Destroy(gameObject);
-            }*/
+            }
             if (this.tag == "food7_gob")
             {
                 value = 50;

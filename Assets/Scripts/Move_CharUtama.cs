@@ -20,7 +20,7 @@ public class Move_CharUtama : MonoBehaviour
     private void Start()
     {
         fb = GetComponent<Fillbar>();
-        
+        gameObject.tag = "Player";
     }
     // Update is called once per frame
     void Update()
