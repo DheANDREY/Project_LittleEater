@@ -66,25 +66,4 @@ public class Makanan : MonoBehaviour
             }
         //}
     }
-
-    IEnumerator CoralFood()
-    {
-        if (FoodBar.mCurrentValue <= 292)
-        {
-            yield return new WaitForSeconds(4);
-            if (this.tag == "food3_coral")
-            {
-                FoodBar.mCurrentValue += 9;
-            }
-            if (this.tag == "food4_large_coral")
-            {
-                FoodBar.mCurrentValue += 17;
-            }
-            Destroy(gameObject);
-        }
-        else
-        {
-            FoodBar.mCurrentValue = 300;
-        }
-    }
 }
