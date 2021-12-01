@@ -14,6 +14,7 @@ public class FoodBar : MonoBehaviour
     public GameObject evo100;
     public GameObject evo200;
     private Animator anim;
+    //private bool _isReached300;
 
     void Start()
     {
@@ -48,7 +49,41 @@ public class FoodBar : MonoBehaviour
         {
             player.SetActive(false);
         }
+
+        /*if (_isReached300)
+        {
+            DecreaseFood(1);
+        }
+        else
+        {
+            DecreaseFood(5);
+        }*/
     }
+
+    /*private void IncreaseFood(int value)
+    {
+        mCurrentValue += value;
+        if(mCurrentValue >= 300)
+        {
+            _isReached300 = true;
+        }
+        UpdateBar();
+    }
+
+    private void DecreaseFood(int value)
+    {
+        mCurrentValue -= value;
+        if (mCurrentValue < 0)
+            mCurrentValue = 0;
+        UpdateBar();
+    }
+
+    private void UpdateBar()
+    {
+        mCurrentPercent = (float)mCurrentValue / (float)(300);
+        TxtFood.text = string.Format("{0}", Mathf.RoundToInt(mCurrentPercent * 300));
+        ImgFoodbar.fillAmount = mCurrentPercent;
+    }*/
 
     public void DecreaseFood()
     {
