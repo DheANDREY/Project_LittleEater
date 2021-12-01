@@ -10,6 +10,9 @@ TagManager:
   - food8_munch
   - food9_mabomabo
   - food5_bacteria
+  - food2_large_algae
+  - food4_large_coral
+  - food6_large_bacteria
   layers:
   - Default
   - TransparentFX

@@ -5,20 +5,21 @@ using UnityEngine.UI;
 
 public class Food : MonoBehaviour
 {
-    [SerializeField] private float _valueMakanan;    
+    [SerializeField] private int _valueMakanan;    
     private Rigidbody2D rigidBody2D;
     public static int value = 0;
 
     void Start()
     {
-        rigidBody2D = GetComponent<Rigidbody2D>();        
+        rigidBody2D = GetComponent<Rigidbody2D>();
+        //_valueMakanan = 50;
     }    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (GetComponent<Move_CharUtama>() != null)
         {
-            FoodBar.mCurrentValue += value;
+            FoodBar.mCurrentValue += _valueMakanan;
             if (FoodBar.mCurrentValue >= 300)
                 FoodBar.mCurrentValue = 300;
             //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
