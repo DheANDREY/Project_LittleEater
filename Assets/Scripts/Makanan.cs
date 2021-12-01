@@ -30,16 +30,6 @@ public class Makanan : MonoBehaviour
                     value = 10;
                     Destroy(gameObject);
                 }
-                if (this.tag == "food3_coral")
-                {
-                    //FoodBar.mCurrentValue +=2;
-                    StartCoroutine(CoralFood());
-                }
-                if (this.tag == "food4_large_coral")
-                {
-                    //FoodBar.mCurrentValue +=2;
-                    StartCoroutine(CoralFood());
-                }
                 if (this.tag == "food5_bacteria")
                 {
                     value = 8;

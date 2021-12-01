@@ -17,15 +17,15 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GetComponent<Move_CharUtama>() != null)
-        {
+        //if (GetComponent<Move_CharUtama>() != null)
+        //{
             FoodBar.mCurrentValue += _valueMakanan;
             if (FoodBar.mCurrentValue >= 300)
                 FoodBar.mCurrentValue = 300;
             //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
             FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
             Destroy(gameObject);
-        }
+        //}
     }
 
     /*IEnumerator CoralFood()
