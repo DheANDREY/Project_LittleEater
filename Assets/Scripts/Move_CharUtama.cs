@@ -14,7 +14,7 @@ public class Move_CharUtama : MonoBehaviour
     private bool isWalk;
     public SoundController soC;
 
-    bool makan;
+    bool eat;
     public Fillbar fb;
     private void Start()
     {
@@ -82,7 +82,6 @@ public class Move_CharUtama : MonoBehaviour
             anim.SetBool("isWalk", false);
         }
 
-
         dash();
     }
 
@@ -93,10 +92,18 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (food.isTrigger == false)
         {
-            makan = true;
-            anim.SetTrigger("isMakan");
+            eat = true;
+          //  anim.SetBool("isEat", true);
+            //anim.SetTrigger("makan");
+            Destroy(food.gameObject);
+            //anim.SetBool("isEat", false);
         }
-        Destroy(food.gameObject);
+        else
+        {
+            eat = false;
+          //  anim.SetBool("isEat", false);
+        }
+        
     }
     //private void OnTriggerExit2D(Collider2D food)
     //{
@@ -107,15 +114,13 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
-            Fillbar.instance.kurang(50);
-            if (Input.GetKey(KeyCode.Space))
-            {
-                anim.SetTrigger("isDash");
-                if (_rigidBody.velocity.x < 0)
+            anim.SetBool("ngeDash", true);
+            Fillbar.instance.kurang(50);            
+            if (_rigidBody.velocity.x < 0)
                 {
-                    GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x+2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                    GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
-                    fx.transform.localScale = new Vector3(1, 1, 0);                    
+                    fx.transform.localScale = new Vector3(1, 1, 0);
                 }
                 else
                 {
@@ -123,20 +128,14 @@ public class Move_CharUtama : MonoBehaviour
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(-1, 1, 0);
                 }
-
-            }
-            else
-            {
-                anim.SetBool("isWalk", true);
-            }
-            _rigidBody.AddForce(_rigidBody.velocity * spdDash);
-            soC.sfxDash();
-            boostUsed = true;            
+                _rigidBody.AddForce(_rigidBody.velocity * spdDash);            
+                soC.sfxDash();
+                boostUsed = true;                 
         }
         else
         {
-            anim.SetBool("isDash", false);
+            anim.SetBool("ngeDash", false);
         }
-    }
 
+    }
 }
