@@ -52,7 +52,7 @@ public class FoodBar : MonoBehaviour
 
     public void DecreaseFood()
     {
-        mCurrentValue--;
+        //mCurrentValue--;
         if (mCurrentValue < 0)
             mCurrentValue = 0;
         mCurrentPercent = (float)mCurrentValue / (float)(300);
