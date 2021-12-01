@@ -14,13 +14,13 @@ public class FoodBar : MonoBehaviour
     public GameObject evo100;
     public GameObject evo200;
     private Animator anim;
-    //private bool _isReached300;
+    private bool _isReached300;
 
     void Start()
     {
         mCurrentPercent = 0.0f;
         mCurrentValue = 50;
-        InvokeRepeating("DecreaseFood", 0, 1.0f);
+        InvokeRepeating("Cek300", 0, 1.0f);
     }
 
     void Update()
@@ -49,18 +49,9 @@ public class FoodBar : MonoBehaviour
         {
             player.SetActive(false);
         }
-
-        /*if (_isReached300)
-        {
-            DecreaseFood(1);
-        }
-        else
-        {
-            DecreaseFood(5);
-        }*/
     }
 
-    /*private void IncreaseFood(int value)
+    private void IncreaseFood(int value)
     {
         mCurrentValue += value;
         if(mCurrentValue >= 300)
@@ -83,15 +74,22 @@ public class FoodBar : MonoBehaviour
         mCurrentPercent = (float)mCurrentValue / (float)(300);
         TxtFood.text = string.Format("{0}", Mathf.RoundToInt(mCurrentPercent * 300));
         ImgFoodbar.fillAmount = mCurrentPercent;
-    }*/
+    }
 
-    public void DecreaseFood()
+    private void Cek300()
     {
-        mCurrentValue--;
-        if (mCurrentValue < 0)
-            mCurrentValue = 0;
-        mCurrentPercent = (float)mCurrentValue / (float)(300);
-        TxtFood.text = string.Format("{0}", Mathf.RoundToInt(mCurrentPercent * 300));
-        ImgFoodbar.fillAmount = mCurrentPercent;    
+        if (mCurrentValue >= 300)
+        {
+            _isReached300 = true;
+            DecreaseFood(1);
+        }
+        if (_isReached300)
+        {
+            DecreaseFood(1);
+        }
+        else
+        {
+            DecreaseFood(2);
+        }
     }
 }
