@@ -20,9 +20,14 @@ public class Move_CharUtama : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
+<<<<<<< HEAD
         anim = GetComponent<Animator>();        
         sr = GetComponent<SpriteRenderer>();
      }
+=======
+        gameObject.tag = "Player";
+    }
+>>>>>>> origin/Food_Evolution
     // Update is called once per frame
     void Update()
     {

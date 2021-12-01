@@ -4,8 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - bar
   - fx
+=======
+  - food1_algae
+  - food7_gob
+  - food3_coral
+  - food8_munch
+  - food9_mabomabo
+  - food5_bacteria
+  - food2_large_algae
+  - food4_large_coral
+  - food6_large_bacteria
+>>>>>>> origin/Food_Evolution
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: diagonal1pre_Data
+  m_EditorClassIdentifier: 
+  dataName: diagonal1pre
+  dragonBonesJSON: {fileID: 4900000, guid: 692057fc1e766e7419044500a068590b, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: f974f144b5133784e88b902455ff6106, type: 3}
+    texture: {fileID: 2800000, guid: 15f4fa5b9f329fc428fefc5817d99f75, type: 3}
+    material: {fileID: 2100000, guid: 6f4851e73225634418f3c87b58350ed9, type: 2}
+    uiMaterial: {fileID: 0}

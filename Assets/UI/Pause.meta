@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: b2cf86c9fc45b1b4b909c8254e9f55dd
+=======
+guid: 4d0ef683e1c43544ba61b25c5b6da942
+>>>>>>> origin/Food_Evolution
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
