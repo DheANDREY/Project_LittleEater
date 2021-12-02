@@ -1,4 +1,5 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Move_CharUtama : MonoBehaviour
@@ -7,10 +8,12 @@ public class Move_CharUtama : MonoBehaviour
     [SerializeField] private float _maxSpeed = 5f;
 
     private Rigidbody2D _rigidBody;
-    private Animator anim;
+    //private List<Animator> anim;
+    public Animator[] anim;
+
     private Vector3 _moveDir;
 
-    private SpriteRenderer sr;
+    public SpriteRenderer[] sr;
     private bool isWalk;
     public SoundController soC;
 
@@ -20,14 +23,14 @@ public class Move_CharUtama : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
-<<<<<<< HEAD
-        anim = GetComponent<Animator>();        
-        sr = GetComponent<SpriteRenderer>();
+//<<<<<<< HEAD
+        anim[0] = GetComponent<Animator>();        
+        sr[0] = GetComponent<SpriteRenderer>();
      }
-=======
-        gameObject.tag = "Player";
-    }
->>>>>>> origin/Food_Evolution
+//=======
+       // gameObject.tag = "Player";
+    
+//>>>>>>> origin/Food_Evolution
     // Update is called once per frame
     void Update()
     {
@@ -59,32 +62,32 @@ public class Move_CharUtama : MonoBehaviour
 
         if (move.x > 0)
         {
-            sr.flipX = true;
+            sr[0].flipX = true;
         }
         if (move.x < 0)
         {
-            sr.flipX = false;
+            sr[0].flipX = false;
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            anim.SetBool("isWalk", true);            
+            anim[0].SetBool("isWalk", true);            
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            anim.SetBool("isWalk", true);
+            anim[0].SetBool("isWalk", true);
         }
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            anim.SetBool("isWalk", true);
+            anim[0].SetBool("isWalk", true);
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            anim.SetBool("isWalk", true);
+            anim[0].SetBool("isWalk", true);
         }
         else
         {
-            anim.SetBool("isWalk", false);
+            anim[0].SetBool("isWalk", false);
         }
 
         dash();
@@ -119,7 +122,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
-            anim.SetBool("ngeDash", true);
+            anim[0].SetBool("ngeDash", true);
             Fillbar.instance.kurang(50);            
             if (_rigidBody.velocity.x < 0)
                 {
@@ -139,7 +142,7 @@ public class Move_CharUtama : MonoBehaviour
         }
         else
         {
-            anim.SetBool("ngeDash", false);
+            anim[0].SetBool("ngeDash", false);
         }
 
     }
