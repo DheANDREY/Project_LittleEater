@@ -22,8 +22,8 @@ public class Enemy2 : MonoBehaviour
 
     void Start()
     {
-        currentPatrolIndex = 0;
-        currentPatrolPoint = patrolPoints[currentPatrolIndex];
+        //currentPatrolIndex = 0;
+        //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
     }
 
