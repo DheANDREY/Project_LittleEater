@@ -24,8 +24,8 @@ public class Move_CharUtama : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
 //<<<<<<< HEAD
-        anim[0] = GetComponent<Animator>();        
-        sr[0] = GetComponent<SpriteRenderer>();
+       // anim[0] = GetComponent<Animator>();        
+       // sr[0] = GetComponent<SpriteRenderer>();
      }
 //=======
        // gameObject.tag = "Player";
@@ -59,7 +59,7 @@ public class Move_CharUtama : MonoBehaviour
         {
             _rigidBody.velocity = Vector3.zero;
         }
-
+// Char EVO1 ---------------------------------------------------------------
         if (move.x > 0)
         {
             sr[0].flipX = true;
@@ -89,34 +89,76 @@ public class Move_CharUtama : MonoBehaviour
         {
             anim[0].SetBool("isWalk", false);
         }
+        //------------------------------------------------------------------------------------------
+        // Char EVO2 ---------------------------------------------------------------
+        if (move.x > 0)
+        {
+            sr[1].flipX = true;
+        }
+        if (move.x < 0)
+        {
+            sr[1].flipX = false;
+        }
 
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else
+        {
+            anim[1].SetBool("isWalk", false);
+        }
+        //------------------------------------------------------------------------------------------
+        // Char EVO3 ---------------------------------------------------------------
+        if (move.x > 0)
+        {
+            sr[2].flipX = true;
+        }
+        if (move.x < 0)
+        {
+            sr[2].flipX = false;
+        }
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else
+        {
+            anim[2].SetBool("isWalk", false);
+        }
+        //------------------------------------------------------------------------------------------
         dash();
     }
 
     private bool boostUsed = false;
     private float spdDash = 900f;
 
-    private void OnTriggerEnter2D(Collider2D food)
-    {
-        if (food.isTrigger == false)
-        {
-            eat = true;
-          //  anim.SetBool("isEat", true);
-            //anim.SetTrigger("makan");
-            Destroy(food.gameObject);
-            //anim.SetBool("isEat", false);
-        }
-        else
-        {
-            eat = false;
-          //  anim.SetBool("isEat", false);
-        }
-        
-    }
-    //private void OnTriggerExit2D(Collider2D food)
-    //{
-    //    anim.ResetTrigger("isMakan");
-    //}
+
     public GameObject dashFx;
     private void dash()
     {

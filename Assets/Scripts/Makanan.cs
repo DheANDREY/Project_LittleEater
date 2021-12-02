@@ -8,18 +8,25 @@ public class Makanan : MonoBehaviour
     //public float moveSpeed = 5f;
     private Rigidbody2D rigidBody2D;
     public static int value = 0;
+    
+    public Animator[] anim;
 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();        
-    }    
-
+    }
+    bool makan;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+        anim[0].SetTrigger("isMakan");
+        anim[1].SetTrigger("isMakan");
+        anim[2].SetTrigger("isMakan");
+        //anim[0].SetBool("isEat", true);
         //if (GetComponent<Move_CharUtama>() != null)
         //{
-            if (FoodBar.mCurrentValue <= 300)
-            {
+        if (FoodBar.mCurrentValue <= 300)
+            {            
                 if (this.tag == "food1_algae")
                 {
                     value = 4;
@@ -64,6 +71,6 @@ public class Makanan : MonoBehaviour
             {
                 FoodBar.mCurrentValue = 300;
             }
-        //}
+        
     }
 }

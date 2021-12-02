@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6607034885945153743}
   - component: {fileID: 6607034885945153728}
-  - component: {fileID: 6607034885945153729}
   - component: {fileID: 6607034885945153730}
   - component: {fileID: 6607034885945153731}
   - component: {fileID: 6607034885945153732}
+  - component: {fileID: 2420416378338545264}
   m_Layer: 0
   m_Name: Large Coral
   m_TagString: food4_large_coral
@@ -83,18 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6607034885945153729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6607034885945153733}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267530777bbdc2147accc4ad1b2173c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6607034885945153730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +133,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2420416378338545264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607034885945153733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267530777bbdc2147accc4ad1b2173c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
