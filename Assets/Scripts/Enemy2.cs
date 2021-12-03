@@ -49,19 +49,21 @@ public class Enemy2 : MonoBehaviour
             {
                 _isStunned = false;
             }
-
         }
         else
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             float enemyToPlayerDistance = Vector3.Distance(Character.transform.position, transform.position);
-            if(enemyToPlayerDistance > 5)
+            if(enemyToPlayerDistance > 6f)
             {
-                // idle, karena masih jauh
+                Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
+                {
+                    GoHome();
+                }
             }
             else if(enemyToPlayerDistance < 1f)
             {
-                if(!Character.GetComponent<Move_CharUtama>())
+                if (!Character.GetComponent<Move_CharUtama>())
                 {
                     rb.velocity = Vector3.zero;
 
@@ -72,6 +74,7 @@ public class Enemy2 : MonoBehaviour
                     }
                 }
             }
+
             else if(enemyToPlayerDistance < 5f)
             {
                 // chase, kejer player
@@ -94,16 +97,9 @@ public class Enemy2 : MonoBehaviour
                 //}            
                 rb.velocity = enemyToPlayerDir.normalized * speed;
             }
-            else if (enemyToPlayerDistance < 2f)
-            {
-                Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
-                {
-                    GoHome();
-                }
-            }
 
 
-                if (attackCooldown > 0)
+            if (attackCooldown > 0)
             {
                 attackCooldown -= Time.deltaTime;
             }
@@ -151,7 +147,6 @@ public class Enemy2 : MonoBehaviour
         if(move != null && move)    // checking player atau bukan, dan lagi dash atau engga
         {
             Stun();
-            Destroy(gameObject);
         }
     }
     public void GoHome()
