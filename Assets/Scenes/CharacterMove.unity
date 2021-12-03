@@ -195,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &66790484
 Animator:
   serializedVersion: 3
@@ -780,6 +780,11 @@ PrefabInstance:
       propertyPath: anim.Array.data[2]
       value: 
       objectReference: {fileID: 66790484}
+    - target: {fileID: 7751584441172353252, guid: b35f3c722726e7c40978a82a6ec5b6b4,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b35f3c722726e7c40978a82a6ec5b6b4, type: 3}
 --- !u!224 &303321784 stripped
@@ -1736,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1181733842
 Animator:
   serializedVersion: 3
@@ -2894,6 +2899,8 @@ MonoBehaviour:
   soC: {fileID: 408351701}
   fb: {fileID: 9173843245350258407, guid: 6d9b2aa2a8da8bf488e63ce0dfce2eb5, type: 3}
   dashFx: {fileID: 29728935708203406, guid: 08e03e03f04a4a94090b9a740f39c504, type: 3}
+  evo1ke2: {fileID: 16373261991844290, guid: ed82c5bd42d84554ca052f3f380e82e2, type: 3}
+  evo2ke3: {fileID: 7636892926468862212, guid: 05be6fd46f9ee9a409882c83a4fcd7d8, type: 3}
 --- !u!50 &1790114529
 Rigidbody2D:
   serializedVersion: 4

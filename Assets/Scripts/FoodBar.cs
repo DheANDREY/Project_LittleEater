@@ -14,6 +14,7 @@ public class FoodBar : MonoBehaviour
     public GameObject evo100;
     public GameObject evo200;
     public Animator[] anim;
+
     private bool _isReached300;
 
     void Start()
@@ -21,6 +22,7 @@ public class FoodBar : MonoBehaviour
         mCurrentPercent = 0.0f;
         mCurrentValue = 50;
         InvokeRepeating("Cek300", 0, 1.0f);
+
     }
 
     void Update()
@@ -34,7 +36,8 @@ public class FoodBar : MonoBehaviour
             evo200.SetActive(false);
         }
         else if (mCurrentValue >= 100 && mCurrentValue <= 200)
-        {  
+        {
+            anim[0].SetBool("isEvo", true);
             beforeEvo.SetActive(false);
             evo100.SetActive(true);
             evo200.SetActive(false);

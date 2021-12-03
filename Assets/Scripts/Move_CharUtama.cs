@@ -19,11 +19,13 @@ public class Move_CharUtama : MonoBehaviour
 
     bool eat;
     public Fillbar fb;
+   // public FoodBar foodB;
 
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
+     //   foodB = GetComponent<FoodBar>();
 //<<<<<<< HEAD
        // anim[0] = GetComponent<Animator>();        
        // sr[0] = GetComponent<SpriteRenderer>();
@@ -154,6 +156,7 @@ public class Move_CharUtama : MonoBehaviour
         }
         //------------------------------------------------------------------------------------------
         dash();
+        evoAnim1(); evoAnim2();
     }
 
     private bool boostUsed = false;
@@ -186,6 +189,31 @@ public class Move_CharUtama : MonoBehaviour
         else
         {
             anim[3].SetBool("ngeDash", false);
+        }
+    }
+    public GameObject evo1ke2;
+    public GameObject evo2ke3;
+    private bool animOn;
+    private void evoAnim1()
+    {
+        if(!animOn && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) )
+        {
+            GameObject fxE = Instantiate(evo1ke2, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            fxE.transform.SetParent(transform);
+            fxE.transform.localScale = new Vector3(3, 3, 0);
+            animOn = true;
+        }
+        
+    }
+    private bool animOn2;
+    private void evoAnim2()
+    {
+        if (!animOn2 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
+        {
+            GameObject fxE2 = Instantiate(evo2ke3, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            fxE2.transform.SetParent(transform);
+            fxE2.transform.localScale = new Vector3(2, 2, 0);
+            animOn2 = true;
         }
     }
 
