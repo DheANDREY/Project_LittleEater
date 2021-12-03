@@ -11,20 +11,28 @@ public class Enemy2 : MonoBehaviour
     Transform currentPatrolPoint;
     int currentPatrolIndex;
     float attackCooldown;
+    public Transform homePos;
 
     [SerializeField] private float _attackDuration = 2;
 
     private bool _isStunned;
 
-    private float _stunDuration = 10;
+    private float _stunDuration = 3;
 
     private float _stunCooldown;
+
+    private Transform target;
+
+    private Animator myAnim;
 
     void Start()
     {
         //currentPatrolIndex = 0;
         //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
+        myAnim = GetComponent<Animator>();
+
+        target = FindObjectOfType<Move_CharUtama>().transform;
     }
 
     // Update is called once per frame
@@ -35,11 +43,13 @@ public class Enemy2 : MonoBehaviour
             if(_stunCooldown > 0)
             {
                 _stunCooldown -= Time.deltaTime;
+                myAnim.SetBool("StunerAI", true);
             }
             else
             {
                 _isStunned = false;
             }
+
         }
         else
         {
@@ -66,27 +76,38 @@ public class Enemy2 : MonoBehaviour
             {
                 // chase, kejer player
                 Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
-                Debug.Log(enemyToPlayerDir.x > 0 ? "hadap kanan" : "hadap kiri");
-                if(enemyToPlayerDir.x > 0)
-                {
-                    // flip sprite ke kanan
-                    Debug.Log("hadap kanan");
-                }
-                else
-                {
-                    // flip sprite ke kiri
-                    Debug.Log("hadap kiri");
-                }
-                
+                myAnim.SetBool("isMoving", true);
+                myAnim.SetFloat("moveX", (target.position.x - transform.position.x));
+                myAnim.SetFloat("moveY", (target.position.y - transform.position.y));
+                //Debug.Log(enemyToPlayerDir.x > 0 ? "hadap kanan" : "hadap kiri");
+                //if(enemyToPlayerDir.x > 0)
+                //{
+                // flip sprite ke kanan
+                //    myAnim.SetBool("EidleRight", true);
+                //    Debug.Log("hadap kanan");
+                //}
+                //else
+                //{
+                // flip sprite ke kiri
+                //myAnim.SetBool("EidleLeft", true);
+                //Debug.Log("hadap kiri");
+                //}            
                 rb.velocity = enemyToPlayerDir.normalized * speed;
             }
+            else if (enemyToPlayerDistance < 2f)
+            {
+                Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
+                {
+                    GoHome();
+                }
+            }
 
-            if(attackCooldown > 0)
+
+                if (attackCooldown > 0)
             {
                 attackCooldown -= Time.deltaTime;
             }
         }
-
         // if(Input.GetKeyDown(KeyCode.Space))
         // {
         //     Stun();
@@ -130,5 +151,11 @@ public class Enemy2 : MonoBehaviour
         {
             Stun();
         }
+    }
+    public void GoHome()
+    {
+        myAnim.SetFloat("moveX", (target.position.x - transform.position.x));
+        myAnim.SetFloat("moveY", (target.position.y - transform.position.y));
+        transform.position = Vector3.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime);
     }
 }

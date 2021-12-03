@@ -96,7 +96,6 @@ public class Move_CharUtama : MonoBehaviour
             makan = true;
             anim.SetTrigger("isMakan");
         }
-        Destroy(food.gameObject);
     }
     //private void OnTriggerExit2D(Collider2D food)
     //{
