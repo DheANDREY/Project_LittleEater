@@ -13,7 +13,7 @@ public class FoodBar : MonoBehaviour
     public GameObject beforeEvo;
     public GameObject evo100;
     public GameObject evo200;
-    private Animator anim;
+    public Animator[] anim;
     private bool _isReached300;
 
     void Start()
@@ -34,7 +34,7 @@ public class FoodBar : MonoBehaviour
             evo200.SetActive(false);
         }
         else if (mCurrentValue >= 100 && mCurrentValue <= 200)
-        {
+        {  
             beforeEvo.SetActive(false);
             evo100.SetActive(true);
             evo200.SetActive(false);

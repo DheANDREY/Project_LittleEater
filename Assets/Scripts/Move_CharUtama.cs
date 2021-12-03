@@ -19,6 +19,7 @@ public class Move_CharUtama : MonoBehaviour
 
     bool eat;
     public Fillbar fb;
+
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -62,16 +63,16 @@ public class Move_CharUtama : MonoBehaviour
 // Char EVO1 ---------------------------------------------------------------
         if (move.x > 0)
         {
-            sr[0].flipX = true;
+            sr[0].flipX = true; 
         }
         if (move.x < 0)
         {
-            sr[0].flipX = false;
+            sr[0].flipX = false; 
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            anim[0].SetBool("isWalk", true);            
+            anim[0].SetBool("isWalk", true);
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -164,7 +165,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
-            anim[0].SetBool("ngeDash", true);
+            anim[3].SetBool("ngeDash", true);
             Fillbar.instance.kurang(50);            
             if (_rigidBody.velocity.x < 0)
                 {
@@ -184,8 +185,8 @@ public class Move_CharUtama : MonoBehaviour
         }
         else
         {
-            anim[0].SetBool("ngeDash", false);
+            anim[3].SetBool("ngeDash", false);
         }
-
     }
+
 }

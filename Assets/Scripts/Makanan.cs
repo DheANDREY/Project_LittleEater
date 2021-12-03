@@ -20,8 +20,8 @@ public class Makanan : MonoBehaviour
     {
         
         anim[0].SetTrigger("isMakan");
-        anim[1].SetTrigger("isMakan");
-        anim[2].SetTrigger("isMakan");
+        anim[1].SetTrigger("isMakan1");
+        anim[2].SetTrigger("isMakan2");
         //anim[0].SetBool("isEat", true);
         //if (GetComponent<Move_CharUtama>() != null)
         //{
