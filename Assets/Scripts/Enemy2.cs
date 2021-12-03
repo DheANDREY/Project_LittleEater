@@ -43,7 +43,7 @@ public class Enemy2 : MonoBehaviour
             if(_stunCooldown > 0)
             {
                 _stunCooldown -= Time.deltaTime;
-                myAnim.SetBool("StunerAI", true);
+                myAnim.SetBool("StunerAI", true);           
             }
             else
             {
@@ -142,6 +142,7 @@ public class Enemy2 : MonoBehaviour
         _isStunned = true;
         _stunCooldown = _stunDuration;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -150,6 +151,7 @@ public class Enemy2 : MonoBehaviour
         if(move != null && move)    // checking player atau bukan, dan lagi dash atau engga
         {
             Stun();
+            Destroy(gameObject);
         }
     }
     public void GoHome()
