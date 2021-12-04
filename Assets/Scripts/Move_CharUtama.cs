@@ -1,4 +1,5 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Move_CharUtama : MonoBehaviour
@@ -7,22 +8,32 @@ public class Move_CharUtama : MonoBehaviour
     [SerializeField] private float _maxSpeed = 5f;
 
     private Rigidbody2D _rigidBody;
-    private Animator anim;
+    //private List<Animator> anim;
+    public Animator[] anim;
+
     private Vector3 _moveDir;
 
-    private SpriteRenderer sr;
+    public SpriteRenderer[] sr;
     private bool isWalk;
     public SoundController soC;
 
     bool eat;
     public Fillbar fb;
+   // public FoodBar foodB;
+
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
-        anim = GetComponent<Animator>();        
-        sr = GetComponent<SpriteRenderer>();
+     //   foodB = GetComponent<FoodBar>();
+//<<<<<<< HEAD
+       // anim[0] = GetComponent<Animator>();        
+       // sr[0] = GetComponent<SpriteRenderer>();
      }
+//=======
+       // gameObject.tag = "Player";
+    
+//>>>>>>> origin/Food_Evolution
     // Update is called once per frame
     void Update()
     {
@@ -51,70 +62,113 @@ public class Move_CharUtama : MonoBehaviour
         {
             _rigidBody.velocity = Vector3.zero;
         }
-
+// Char EVO1 ---------------------------------------------------------------
         if (move.x > 0)
         {
-            sr.flipX = true;
+            sr[0].flipX = true; 
         }
         if (move.x < 0)
         {
-            sr.flipX = false;
+            sr[0].flipX = false; 
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            anim.SetBool("isWalk", true);            
+            anim[0].SetBool("isWalk", true);
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            anim.SetBool("isWalk", true);
+            anim[0].SetBool("isWalk", true);
         }
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            anim.SetBool("isWalk", true);
+            anim[0].SetBool("isWalk", true);
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            anim.SetBool("isWalk", true);
+            anim[0].SetBool("isWalk", true);
         }
         else
         {
-            anim.SetBool("isWalk", false);
+            anim[0].SetBool("isWalk", false);
+        }
+        //------------------------------------------------------------------------------------------
+        // Char EVO2 ---------------------------------------------------------------
+        if (move.x > 0)
+        {
+            sr[1].flipX = true;
+        }
+        if (move.x < 0)
+        {
+            sr[1].flipX = false;
         }
 
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            anim[1].SetBool("isWalk", true);
+        }
+        else
+        {
+            anim[1].SetBool("isWalk", false);
+        }
+        //------------------------------------------------------------------------------------------
+        // Char EVO3 ---------------------------------------------------------------
+        if (move.x > 0)
+        {
+            sr[2].flipX = true;
+        }
+        if (move.x < 0)
+        {
+            sr[2].flipX = false;
+        }
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            anim[2].SetBool("isWalk", true);
+        }
+        else
+        {
+            anim[2].SetBool("isWalk", false);
+        }
+        //------------------------------------------------------------------------------------------
         dash();
+        evoAnim1(); evoAnim2();
     }
 
     private bool boostUsed = false;
     private float spdDash = 900f;
 
-    private void OnTriggerEnter2D(Collider2D food)
-    {
-        if (food.isTrigger == false)
-        {
-            eat = true;
-          //  anim.SetBool("isEat", true);
-            //anim.SetTrigger("makan");
-            Destroy(food.gameObject);
-            //anim.SetBool("isEat", false);
-        }
-        else
-        {
-            eat = false;
-          //  anim.SetBool("isEat", false);
-        }
-        
-    }
-    //private void OnTriggerExit2D(Collider2D food)
-    //{
-    //    anim.ResetTrigger("isMakan");
-    //}
+
     public GameObject dashFx;
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
         {
-            anim.SetBool("ngeDash", true);
+            anim[3].SetBool("ngeDash", true);
             Fillbar.instance.kurang(50);            
             if (_rigidBody.velocity.x < 0)
                 {
@@ -134,8 +188,33 @@ public class Move_CharUtama : MonoBehaviour
         }
         else
         {
-            anim.SetBool("ngeDash", false);
+            anim[3].SetBool("ngeDash", false);
         }
-
     }
+    public GameObject evo1ke2;
+    public GameObject evo2ke3;
+    private bool animOn;
+    private void evoAnim1()
+    {
+        if(!animOn && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) )
+        {
+            GameObject fxE = Instantiate(evo1ke2, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            fxE.transform.SetParent(transform);
+            fxE.transform.localScale = new Vector3(2, 2, 0);
+            animOn = true;
+        }
+        
+    }
+    private bool animOn2;
+    private void evoAnim2()
+    {
+        if (!animOn2 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
+        {
+            GameObject fxE2 = Instantiate(evo2ke3, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            fxE2.transform.SetParent(transform);
+            fxE2.transform.localScale = new Vector3(5/2, 5/2, 0);
+            animOn2 = true;
+        }
+    }
+
 }
