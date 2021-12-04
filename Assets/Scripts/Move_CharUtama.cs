@@ -200,7 +200,7 @@ public class Move_CharUtama : MonoBehaviour
         {
             GameObject fxE = Instantiate(evo1ke2, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
             fxE.transform.SetParent(transform);
-            fxE.transform.localScale = new Vector3(3, 3, 0);
+            fxE.transform.localScale = new Vector3(2, 2, 0);
             animOn = true;
         }
         
@@ -212,7 +212,7 @@ public class Move_CharUtama : MonoBehaviour
         {
             GameObject fxE2 = Instantiate(evo2ke3, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
             fxE2.transform.SetParent(transform);
-            fxE2.transform.localScale = new Vector3(2, 2, 0);
+            fxE2.transform.localScale = new Vector3(5/2, 5/2, 0);
             animOn2 = true;
         }
     }

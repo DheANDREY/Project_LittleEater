@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6607034885945153743}
   - component: {fileID: 6607034885945153728}
   - component: {fileID: 6607034885945153730}
-  - component: {fileID: 6607034885945153731}
-  - component: {fileID: 6607034885945153732}
   - component: {fileID: 2420416378338545264}
+  - component: {fileID: 6607034885945153731}
+  - component: {fileID: 7704485652765431311}
+  - component: {fileID: 6607034885945153732}
   m_Layer: 0
   m_Name: Large Coral
   m_TagString: food4_large_coral
@@ -96,6 +97,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _valueMakanan: 2
+--- !u!114 &2420416378338545264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607034885945153733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267530777bbdc2147accc4ad1b2173c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!58 &6607034885945153731
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,6 +129,19 @@ CircleCollider2D:
   m_Offset: {x: -0.06041521, y: -0.17771661}
   serializedVersion: 2
   m_Radius: 0.5658134
+--- !u!114 &7704485652765431311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607034885945153733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b620cf33e2dbd464db594068317240f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabMakanan: {fileID: 6607034885945153733}
 --- !u!50 &6607034885945153732
 Rigidbody2D:
   serializedVersion: 4
@@ -133,19 +163,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2420416378338545264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6607034885945153733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267530777bbdc2147accc4ad1b2173c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
