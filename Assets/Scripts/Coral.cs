@@ -22,21 +22,21 @@ public class Coral : MonoBehaviour
         }
     }*/
 
-    void Update()
-    {
-        if (_spawnCooldown > 0)
-        {
-            _spawnCooldown -= Time.deltaTime;
-        }
-        else if (_spawned == null)
-        {
-            _spawnCooldown = _spawnDuration;
-            _spawned = Instantiate(_prefabMakanan, transform.position, transform.rotation);
-            _countToDestroy--;
-            if (_countToDestroy <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
+    // void Update()
+    // {
+    //     if (_spawnCooldown > 0)
+    //     {
+    //         _spawnCooldown -= Time.deltaTime;
+    //     }
+    //     else if (_spawned == null)
+    //     {
+    //         _spawnCooldown = _spawnDuration;
+    //         _spawned = Instantiate(_prefabMakanan, transform.position, transform.rotation);
+    //         _countToDestroy--;
+    //         if (_countToDestroy <= 0)
+    //         {
+    //             Destroy(gameObject);
+    //         }
+    //     }
+    // }
 }

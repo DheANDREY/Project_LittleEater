@@ -123,8 +123,8 @@ public class Move_CharUtama : MonoBehaviour
         {
             anim[1].SetBool("isWalk", false);
         }
-        //------------------------------------------------------------------------------------------
-        // Char EVO3 ---------------------------------------------------------------
+        // //------------------------------------------------------------------------------------------
+        // // Char EVO3 ---------------------------------------------------------------
         if (move.x > 0)
         {
             sr[2].flipX = true;
@@ -159,7 +159,7 @@ public class Move_CharUtama : MonoBehaviour
         evoAnim1(); evoAnim2();
     }
 
-    private bool boostUsed = false;
+    private bool IsDashing = false;
     private float spdDash = 900f;
 
 
@@ -184,11 +184,12 @@ public class Move_CharUtama : MonoBehaviour
                 }
                 _rigidBody.AddForce(_rigidBody.velocity * spdDash);            
                 soC.sfxDash();
-                boostUsed = true;                 
+                IsDashing = true;                 
         }
         else
         {
             anim[3].SetBool("ngeDash", false);
+            IsDashing = false;
         }
     }
     public GameObject evo1ke2;
@@ -217,4 +218,33 @@ public class Move_CharUtama : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collision");
+        OnTriggerEnter2D(collision.collider);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.GetComponent<Makanan>() != null)
+        {
+            // play animasi makanan
+            anim[0].SetTrigger("isMakan");
+            anim[1].SetTrigger("isMakan");
+            anim[2].SetTrigger("isMakan");
+
+            collider.GetComponent<Makanan>().Dimakan();
+        }
+        else if(collider.GetComponent<Enemy2>() != null && IsDashing)
+        {
+            // if(collider.GetComponent<Enemy2>()._isStunned)
+            // {
+                collider.GetComponent<Makanan>().Dimakan();
+            // }
+            // else
+            // {
+            //     collider.GetComponent<Enemy2>().Stun();
+            // }
+        }
+    }
 }

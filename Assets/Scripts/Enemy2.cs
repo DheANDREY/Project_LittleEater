@@ -70,7 +70,7 @@ public class Enemy2 : MonoBehaviour
                     if(attackCooldown <= 0)
                     {
                         attackCooldown = _attackDuration;
-                        Debug.Log("damage player");
+                        HealthBarScript.health -= 10f;
                     }
                 }
             }
@@ -135,6 +135,7 @@ public class Enemy2 : MonoBehaviour
 
     public void Stun()
     {
+        Debug.Log("stun");
         _isStunned = true;
         _stunCooldown = _stunDuration;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -149,6 +150,7 @@ public class Enemy2 : MonoBehaviour
             Stun();
         }
     }
+
     public void GoHome()
     {
         myAnim.SetFloat("moveX", (target.position.x - transform.position.x));
