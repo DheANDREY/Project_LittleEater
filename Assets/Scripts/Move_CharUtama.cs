@@ -22,7 +22,6 @@ public class Move_CharUtama : MonoBehaviour
 
     bool eat;
     public Fillbar fb;
-    // public FoodBar foodB;
 
     private void Start()
     {
@@ -37,86 +36,60 @@ public class Move_CharUtama : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200)
+        if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200))
         {
             _curentEvoIndex = 1;
-            delay();
-            
+            StartCoroutine(delay());            
         }
-        else if (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)
+        else if (_curentEvoIndex != 2 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
         {
             _curentEvoIndex = 2;
-            delay();
-        }
-//  GERAK -------------------------------------------------------------------------------------------
-        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (move != Vector3.zero)
-        {
-            _moveDir = move;
-            _rigidBody.velocity = _moveDir.normalized * _maxSpeed;
-        }
-        else
-        {
-            _rigidBody.velocity = Vector3.zero;
-        }
-//  -----------------------------------------------------------------------------------------------
-
-        // Char EVO Animation ---------------------------------------------------------------
-        if (move.x > 0)
-        {
-            sr[_curentEvoIndex].flipX = true;
-        }
-        if (move.x < 0)
-        {
-            sr[_curentEvoIndex].flipX = false;
+            StartCoroutine(delay());
         }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (!isEvolving)
         {
-            anim[_curentEvoIndex].SetBool("isWalk", true);
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            anim[_curentEvoIndex].SetBool("isWalk", true);
-        }
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            anim[_curentEvoIndex].SetBool("isWalk", true);
-        }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            anim[_curentEvoIndex].SetBool("isWalk", true);
-        }
-        else
-        {
-            anim[_curentEvoIndex].SetBool("isWalk", false);
-        }
-        //------------------------------------------------------------------------------------------
+            //  GERAK -------------------------------------------------------------------------------------------
+            Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (move != Vector3.zero)
+            {
+                _moveDir = move;
+                _rigidBody.velocity = _moveDir.normalized * _maxSpeed;
+            }
+            else
+            {
+                _rigidBody.velocity = Vector3.zero;
+            }
+            //  -----------------------------------------------------------------------------------------------
 
+// Char EVO Animation ---------------------------------------------------------------
+            if (move.x > 0)
+            {
+                sr[_curentEvoIndex].flipX = true;
+            }
+            if (move.x < 0)
+            {
+                sr[_curentEvoIndex].flipX = false;
+            }
+            anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
+ //------------------------------------------------------------------------------------------
             dash();
+        }
         evoAnim1(); evoAnim2();
     }
 
     private bool IsDashing = false;
     private float spdDash = 900f;
 
-
     public GameObject dashFx;
-    bool isEvolving = true;
+    bool isEvolving;
 
     private IEnumerator delay()
     {
-        if (isEvolving)
-        {            
-            yield return new WaitForSeconds(3);
-            _rigidBody.velocity = Vector3.zero;
-        }
-        if(!isEvolving)
-        {
-            Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            _moveDir = move;
-            _rigidBody.velocity = _moveDir.normalized * _maxSpeed;
-        }
+        isEvolving = true;
+        _rigidBody.velocity = Vector3.zero;        
+        yield return new WaitForSeconds(2);
+        isEvolving = false;
     }
 
     private void dash()

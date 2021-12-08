@@ -88,7 +88,7 @@ public class FoodBar : MonoBehaviour
         }
         if (_isReached300)
         {
-            DecreaseFood(1);
+            DecreaseFood(1/3);
         }
         else
         {
