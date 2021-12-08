@@ -164,18 +164,18 @@ public class Move_CharUtama : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.GetComponent<Makanan>() != null)
+        if(collider.GetComponent<Food>() != null)
         {
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
 
-            collider.GetComponent<Makanan>().Dimakan();
+            collider.GetComponent<Food>().Dimakan();
         }
         else if(collider.GetComponent<Enemy2>() != null && IsDashing)
         {
             // if(collider.GetComponent<Enemy2>()._isStunned)
             // {
-                collider.GetComponent<Makanan>().Dimakan();
+                collider.GetComponent<Food>().Dimakan();
             // }
             // else
             // {

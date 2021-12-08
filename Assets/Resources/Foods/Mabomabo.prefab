@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4740197788985193753}
   - component: {fileID: 4740197788985193750}
-  - component: {fileID: 8307856164866952135}
+  - component: {fileID: 1778520610161922466}
   - component: {fileID: 4740197788985193748}
   - component: {fileID: 4740197788985193749}
   m_Layer: 0
@@ -48,8 +48,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -61,7 +59,6 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -85,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8307856164866952135
+--- !u!114 &1778520610161922466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,13 +91,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4740197788985193746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267530777bbdc2147accc4ad1b2173c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 310fda9531431ed4c8cc4aafbd8778e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _valueMakanan: 8
+  anim: []
 --- !u!58 &4740197788985193748
 CircleCollider2D:
   m_ObjectHideFlags: 0

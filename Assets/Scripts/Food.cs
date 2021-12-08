@@ -7,15 +7,18 @@ public class Food : MonoBehaviour
 {
     [SerializeField] private int _valueMakanan;    
     private Rigidbody2D rigidBody2D;
+    public Animator[] anim;
     public static int value = 0;
 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         //_valueMakanan = 50;
-    }    
+    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    bool makan;
+    //private void OnTriggerEnter2D(Collider2D collision)
+    public void Dimakan()
     {
         //if (GetComponent<Move_CharUtama>() != null)
         //{
