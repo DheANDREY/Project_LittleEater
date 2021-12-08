@@ -39,11 +39,17 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200))
         {            
-            _curentEvoIndex = 1; evoAnim1(); StartCoroutine(delay());
+            _curentEvoIndex = 1; 
+            evoAnim1(); 
+            soC.sfxEvo();
+            StartCoroutine(delay());
         }
         else if (_curentEvoIndex != 2 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
         {
-            _curentEvoIndex = 2; evoAnim2(); StartCoroutine(delay());
+            _curentEvoIndex = 2; 
+            evoAnim2(); 
+            soC.sfxEvo();
+            StartCoroutine(delay());
         }
         else if(_curentEvoIndex != 0 && FoodBar.mCurrentValue < 100)
         {

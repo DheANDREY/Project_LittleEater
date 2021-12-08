@@ -47,10 +47,7 @@ public class FoodBar : MonoBehaviour
             evo100.SetActive(false);
             evo200.SetActive(true);
         }
-        if (mCurrentValue == 0)
-        {
-            player.SetActive(false);
-        }
+
     }
 
     private void IncreaseFood(int value)
