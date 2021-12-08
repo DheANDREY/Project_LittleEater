@@ -22,7 +22,6 @@ public class FoodBar : MonoBehaviour
         mCurrentPercent = 0.0f;
         mCurrentValue = 50;
         InvokeRepeating("Cek300", 0, 1.0f);
-
     }
 
     void Update()
@@ -64,9 +63,9 @@ public class FoodBar : MonoBehaviour
         UpdateBar();
     }
 
-    private void DecreaseFood(int value)
+    public void DecreaseFood(int valueMin)
     {
-        mCurrentValue -= value;
+        mCurrentValue -= valueMin;
         if (mCurrentValue < 0)
             mCurrentValue = 0;
         UpdateBar();
@@ -81,14 +80,14 @@ public class FoodBar : MonoBehaviour
 
     private void Cek300()
     {
-        if (mCurrentValue >= 300)
+        if (mCurrentValue >= 200)
         {
             _isReached300 = true;
             DecreaseFood(1);
         }
         if (_isReached300)
         {
-            DecreaseFood(1/3);
+            DecreaseFood(1);
         }
         else
         {

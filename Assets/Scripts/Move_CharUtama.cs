@@ -22,6 +22,7 @@ public class Move_CharUtama : MonoBehaviour
 
     bool eat;
     public Fillbar fb;
+    public FoodBar foodB;
 
     private void Start()
     {
@@ -37,15 +38,18 @@ public class Move_CharUtama : MonoBehaviour
     void Update()
     {
         if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200))
-        {
-            _curentEvoIndex = 1;
-            StartCoroutine(delay());            
+        {            
+            _curentEvoIndex = 1; evoAnim1(); StartCoroutine(delay());
         }
         else if (_curentEvoIndex != 2 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
         {
-            _curentEvoIndex = 2;
-            StartCoroutine(delay());
+            _curentEvoIndex = 2; evoAnim2(); StartCoroutine(delay());
         }
+        else if(_curentEvoIndex != 0 && FoodBar.mCurrentValue < 100)
+        {
+            _curentEvoIndex = 0;
+        }
+
 
         if (!isEvolving)
         {
@@ -71,11 +75,11 @@ public class Move_CharUtama : MonoBehaviour
             {
                 sr[_curentEvoIndex].flipX = false;
             }
-            anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
+            anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);Debug.Log(_curentEvoIndex);
  //------------------------------------------------------------------------------------------
             dash();
         }
-        evoAnim1(); evoAnim2();
+         
     }
 
     private bool IsDashing = false;
@@ -87,7 +91,8 @@ public class Move_CharUtama : MonoBehaviour
     private IEnumerator delay()
     {
         isEvolving = true;
-        _rigidBody.velocity = Vector3.zero;        
+        _rigidBody.velocity = Vector3.zero;
+        foodB.DecreaseFood(0);
         yield return new WaitForSeconds(2);
         isEvolving = false;
     }
@@ -125,24 +130,24 @@ public class Move_CharUtama : MonoBehaviour
     private bool animOn;
     private void evoAnim1()
     {
-        if(!animOn && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) )
+        if(!animOn)
         {
             GameObject fxE = Instantiate(evo1ke2, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
             fxE.transform.SetParent(transform);
             fxE.transform.localScale = new Vector3(2, 2, 0);
-            animOn = true;
+            //animOn = true;
         }
         
     }
     private bool animOn2;
     private void evoAnim2()
     {
-        if (!animOn2 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
+        if (!animOn2)
         {
             GameObject fxE2 = Instantiate(evo2ke3, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
             fxE2.transform.SetParent(transform);
             fxE2.transform.localScale = new Vector3(5/2, 5/2, 0);
-            animOn2 = true;
+            //animOn2 = true;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

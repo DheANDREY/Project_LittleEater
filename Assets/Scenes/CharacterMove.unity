@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408351700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5374b0af24c07d43898b08b37f8b917, type: 3}
   m_Name: 
@@ -10048,6 +10048,18 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+--- !u!114 &978341455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7751584441178292102, guid: b35f3c722726e7c40978a82a6ec5b6b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 303321783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdb0f458e25b4a4799fc52f8d376f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &992209951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15719,7 +15731,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781812848}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ffe07935b0963bf48b6b0525d21e2c84, type: 3}
@@ -15865,6 +15877,7 @@ MonoBehaviour:
   - {fileID: 66790487}
   soC: {fileID: 408351701}
   fb: {fileID: 9173843245350258407, guid: 6d9b2aa2a8da8bf488e63ce0dfce2eb5, type: 3}
+  foodB: {fileID: 978341455}
   dashFx: {fileID: 29728935708203406, guid: 08e03e03f04a4a94090b9a740f39c504, type: 3}
   evo1ke2: {fileID: 16373261991844290, guid: ed82c5bd42d84554ca052f3f380e82e2, type: 3}
   evo2ke3: {fileID: 7636892926468862212, guid: 05be6fd46f9ee9a409882c83a4fcd7d8, type: 3}
