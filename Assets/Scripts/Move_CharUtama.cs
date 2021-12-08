@@ -99,7 +99,7 @@ public class Move_CharUtama : MonoBehaviour
 
     private void dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50)
+        if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50 && (_rigidBody.velocity.x != 0))
         {
             anim[3].SetBool("ngeDash", true);
             Fillbar.instance.kurang(50);            
