@@ -20,7 +20,7 @@ public class FoodBar : MonoBehaviour
     void Start()
     {
         mCurrentPercent = 0.0f;
-        mCurrentValue = 50;
+        mCurrentValue = 20;
         InvokeRepeating("Cek300", 0, 1.0f);
     }
 

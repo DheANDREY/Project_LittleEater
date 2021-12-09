@@ -26,6 +26,7 @@ public class Fillbar : MonoBehaviour
         slider1.value = maxDash;
     }
 
+// BAR DASH BERKURANG ------------------------------------------------------------------
     public void kurang(int nilai)
     {
         if(currentDash - nilai >= 0)
@@ -44,6 +45,9 @@ public class Fillbar : MonoBehaviour
             Debug.Log("Tidak cukup");
         }
     }
+//-----------------------------------------------------------------------------------------
+
+// REGEN BAR DASH -------------------------------------------------------------------------
     private IEnumerator regenDash()
     {
         yield return new WaitForSeconds(5);
@@ -55,4 +59,5 @@ public class Fillbar : MonoBehaviour
         }
 
     }
+//-------------------------------------------------------------------------------------------
 }

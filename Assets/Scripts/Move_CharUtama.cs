@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class Move_CharUtama : MonoBehaviour
 {
@@ -28,7 +27,6 @@ public class Move_CharUtama : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
-
     }
     //=======
     // gameObject.tag = "Player";
@@ -55,7 +53,6 @@ public class Move_CharUtama : MonoBehaviour
         {
             _curentEvoIndex = 0;
         }
-
 
         if (!isEvolving)
         {
@@ -87,7 +84,7 @@ public class Move_CharUtama : MonoBehaviour
         }
          
     }
-
+//JEDA GERAK SAAT ANIMASI ------------------------------------------------------------------------------
     private bool IsDashing = false;
     private float spdDash = 900f;
 
@@ -102,6 +99,7 @@ public class Move_CharUtama : MonoBehaviour
         yield return new WaitForSeconds(2);
         isEvolving = false;
     }
+//-----------------------------------------------------------------------------------------------
 
     private void dash()
     {
@@ -131,6 +129,8 @@ public class Move_CharUtama : MonoBehaviour
             IsDashing = false;
         }
     }
+
+// VFX ANIMASI TRANSISI EVOLUSI ------------------------------------------------------------------
     public GameObject evo1ke2;
     public GameObject evo2ke3;
     private bool animOn;
@@ -156,6 +156,8 @@ public class Move_CharUtama : MonoBehaviour
             //animOn2 = true;
         }
     }
+//-------------------------------------------------------------------------------------------
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision");

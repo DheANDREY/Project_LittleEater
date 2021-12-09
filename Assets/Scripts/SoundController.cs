@@ -18,6 +18,6 @@ public class SoundController : MonoBehaviour
     public AudioClip fus;
     public void sfxEvo()
     {
-        sfx.PlayOneShot(fus);
+        sfx.PlayOneShot(fus); 
     }
 }
