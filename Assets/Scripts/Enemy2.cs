@@ -15,7 +15,7 @@ public class Enemy2 : MonoBehaviour
 
     [SerializeField] private float _attackDuration = 2;
 
-    private bool _isStunned;
+    public bool IsStunned;
 
     private float _stunDuration = 3;
 
@@ -50,7 +50,7 @@ public class Enemy2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_isStunned)
+        if(IsStunned)
         {
             if(_stunCooldown > 0)
             {
@@ -59,7 +59,7 @@ public class Enemy2 : MonoBehaviour
             }
             else
             {
-                _isStunned = false;
+                IsStunned = false;
             }
         }
         else
@@ -73,20 +73,20 @@ public class Enemy2 : MonoBehaviour
                     GoHome();
                 }
             }
-            else if(enemyToPlayerDistance < 1f)
+            else if(enemyToPlayerDistance < 2f)
             {
-                if (!Character.GetComponent<Move_CharUtama>())
-                {
-                    rb.velocity = Vector3.zero;
+                // if (Character.GetComponent<Move_CharUtama>() != null)
+                // {
+                //     rb.velocity = Vector3.zero;
 
-                    if(attackCooldown <= 0)
-                    {
-                        attackCooldown = _attackDuration;
-                        HealthBarScript.health -= 10f;
-                    }
-                }
+                //     if(attackCooldown <= 0)
+                //     {
+                //         attackCooldown = _attackDuration;
+                //         HealthBarScript.health -= 10f;
+                //         Debug.Log("attack");
+                //     }
+                // }
             }
-
             else if(enemyToPlayerDistance < 5f)
             {
                 // chase, kejer player
@@ -108,7 +108,7 @@ public class Enemy2 : MonoBehaviour
     public void Stun()
     {
         Debug.Log("stun");
-        _isStunned = true;
+        IsStunned = true;
         _stunCooldown = _stunDuration ;        
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
@@ -119,11 +119,6 @@ public class Enemy2 : MonoBehaviour
         if (move != null && move)    // checking player atau bukan, dan lagi dash atau engga
         {
             Stun();
-        }
-
-        else
-        {
-            HealthBarScript.health -= 10f;
         }
     }
 

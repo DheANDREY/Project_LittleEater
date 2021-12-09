@@ -7,7 +7,7 @@ public class Food : MonoBehaviour
 {
     [SerializeField] private int _valueMakanan;    
     private Rigidbody2D rigidBody2D;
-    public Animator[] anim;
+    // public Animator[] anim;
     public static int value = 0;
 
     void Start()

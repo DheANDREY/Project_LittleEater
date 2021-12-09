@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4917305486421098894}
   - component: {fileID: 4917305486421098993}
   - component: {fileID: 4917305486421098992}
-  - component: {fileID: 4917305486421098995}
   - component: {fileID: 4917305486421098994}
   - component: {fileID: 4917305486421098997}
+  - component: {fileID: 1760100046689252475}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -124,18 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0.034964282, y: -0.027076932}
   serializedVersion: 2
   m_Radius: 0.54733485
---- !u!114 &4917305486421098995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4917305486421098996}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14e8f2d022996c45a1d8fa7123227b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4917305486421098994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +140,7 @@ MonoBehaviour:
   speed: 2
   homePos: {x: 0, y: 0, z: 0}
   _attackDuration: 2
+  IsStunned: 0
   StunE: {fileID: 0}
 --- !u!95 &4917305486421098997
 Animator:
@@ -172,3 +161,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1760100046689252475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917305486421098996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310fda9531431ed4c8cc4aafbd8778e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _valueMakanan: 5
+  anim: []

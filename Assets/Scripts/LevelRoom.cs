@@ -23,7 +23,7 @@ public class LevelRoom : MonoBehaviour
     private void SpawnFood()
     {
 		GameObject[] foodPrefabs = Resources.LoadAll<GameObject>("Foods/");
-
+		
     	foreach(Transform child in _foodSpawnRoot)
     	{
     		if(child.childCount == 0)
@@ -32,12 +32,21 @@ public class LevelRoom : MonoBehaviour
 				GameObject food = Instantiate(prefab, child);
 				food.transform.localPosition = Vector3.zero;
     		}
-			Debug.Log("spawn food");
     	}
     }
 
     private void SpawnEnemy()
     {
+		GameObject[] enemyPrefabs = Resources.LoadAll<GameObject>("Enemies/");
 
+    	foreach(Transform child in _enemySpawnRoot)
+    	{
+    		if(child.childCount == 0)
+    		{
+				GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+				GameObject food = Instantiate(prefab, child);
+				food.transform.localPosition = Vector3.zero;
+    		}
+    	}
     }
 }

@@ -52,6 +52,9 @@ public class Move_CharUtama : MonoBehaviour
         else if(_curentEvoIndex != 0 && FoodBar.mCurrentValue < 100)
         {
             _curentEvoIndex = 0;
+            evoAnim1();
+            soC.sfxEvo();
+            StartCoroutine(delay());
         }
 
         if (!isEvolving)
@@ -78,7 +81,7 @@ public class Move_CharUtama : MonoBehaviour
             {
                 sr[_curentEvoIndex].flipX = false;
             }
-            anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);Debug.Log(_curentEvoIndex);
+            anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
  //------------------------------------------------------------------------------------------
             dash();
         }
@@ -89,13 +92,13 @@ public class Move_CharUtama : MonoBehaviour
     private float spdDash = 900f;
 
     public GameObject dashFx;
-    bool isEvolving;
+    public bool isEvolving;
 
     private IEnumerator delay()
     {
         isEvolving = true;
         _rigidBody.velocity = Vector3.zero;
-        foodB.DecreaseFood(0);
+        // foodB.DecreaseFood(0);
         yield return new WaitForSeconds(2);
         isEvolving = false;
     }
@@ -160,29 +163,31 @@ public class Move_CharUtama : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
         OnTriggerEnter2D(collision.collider);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.GetComponent<Food>() != null)
+        if(collider.GetComponent<Enemy2>() != null)
+        {
+            if(collider.GetComponent<Enemy2>().IsStunned)
+            {
+                anim[_curentEvoIndex].SetTrigger("isMakan");
+                collider.GetComponent<Food>().Dimakan();
+            }
+            else 
+            {
+                if(IsDashing)
+                {
+                    collider.GetComponent<Enemy2>().Stun();
+                }
+            }
+        }
+        else if(collider.GetComponent<Food>() != null)
         {
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
-
             collider.GetComponent<Food>().Dimakan();
-        }
-        else if(collider.GetComponent<Enemy2>() != null && IsDashing)
-        {
-            // if(collider.GetComponent<Enemy2>()._isStunned)
-            // {
-                collider.GetComponent<Food>().Dimakan();
-            // }
-            // else
-            // {
-            //     collider.GetComponent<Enemy2>().Stun();
-            // }
         }
     }
 }

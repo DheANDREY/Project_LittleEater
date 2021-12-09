@@ -10,6 +10,7 @@ public class FoodBar : MonoBehaviour
     public static int mCurrentValue;
     public static float mCurrentPercent;
     public GameObject player;
+    private Move_CharUtama _playerMove;
     public GameObject beforeEvo;
     public GameObject evo100;
     public GameObject evo200;
@@ -22,6 +23,8 @@ public class FoodBar : MonoBehaviour
         mCurrentPercent = 0.0f;
         mCurrentValue = 20;
         InvokeRepeating("Cek300", 0, 1.0f);
+
+        _playerMove = player.GetComponent<Move_CharUtama>();
     }
 
     void Update()
@@ -80,15 +83,18 @@ public class FoodBar : MonoBehaviour
         if (mCurrentValue >= 200)
         {
             _isReached300 = true;
-            DecreaseFood(1);
         }
-        if (_isReached300)
+        
+        if(!_playerMove.isEvolving)
         {
-            DecreaseFood(1);
-        }
-        else
-        {
-            DecreaseFood(2);
+            if (_isReached300)
+            {
+                DecreaseFood(1);
+            }
+            else
+            {
+                DecreaseFood(2);
+            }
         }
     }
 }
