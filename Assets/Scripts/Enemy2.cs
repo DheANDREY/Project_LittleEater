@@ -25,6 +25,8 @@ public class Enemy2 : MonoBehaviour
 
     private Animator myAnim;
 
+    public GameObject StunE;
+
     void Start()
     {
         //currentPatrolIndex = 0;
@@ -43,7 +45,7 @@ public class Enemy2 : MonoBehaviour
             if(_stunCooldown > 0)
             {
                 _stunCooldown -= Time.deltaTime;
-                myAnim.SetBool("StunerAI", true);           
+                         
             }
             else
             {
@@ -81,20 +83,7 @@ public class Enemy2 : MonoBehaviour
                 Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
                 myAnim.SetBool("isMoving", true);
                 myAnim.SetFloat("moveX", (target.position.x - transform.position.x));
-                myAnim.SetFloat("moveY", (target.position.y - transform.position.y));
-                //Debug.Log(enemyToPlayerDir.x > 0 ? "hadap kanan" : "hadap kiri");
-                //if(enemyToPlayerDir.x > 0)
-                //{
-                // flip sprite ke kanan
-                //    myAnim.SetBool("EidleRight", true);
-                //    Debug.Log("hadap kanan");
-                //}
-                //else
-                //{
-                // flip sprite ke kiri
-                //myAnim.SetBool("EidleLeft", true);
-                //Debug.Log("hadap kiri");
-                //}            
+                myAnim.SetFloat("moveY", (target.position.y - transform.position.y));           
                 rb.velocity = enemyToPlayerDir.normalized * speed;
             }
 
@@ -104,50 +93,27 @@ public class Enemy2 : MonoBehaviour
                 attackCooldown -= Time.deltaTime;
             }
         }
-        // if(Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Stun();
-        // }
-
-        // transform.Translate(Vector3.up * Time.deltaTime * speed);
-
-        // if (Vector2.Distance(transform.position, Character.transform.position) < 3)
-        // {
-        //     transform.position = Vector2.MoveTowards(transform.position, Character.transform.position, speed * Time.deltaTime);
-        // }else if (Vector3.Distance (transform.position, currentPatrolPoint.position) < .1f)
-
-        // {
-        //     if(currentPatrolIndex + 1 < patrolPoints.Length)
-        //     {
-        //         currentPatrolIndex++;
-        //     } else
-        //     {
-        //         currentPatrolIndex = 0;
-        //     }
-        //     currentPatrolPoint = patrolPoints[currentPatrolIndex];
-        // }
-        // Vector3 patrolPointDir = currentPatrolPoint.position - transform.position;
-
-        // float angle = Mathf.Atan2(patrolPointDir.y, patrolPointDir.x) * Mathf.Rad2Deg - 90f;
-        // Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        // transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 180f);
     }
 
     public void Stun()
     {
         Debug.Log("stun");
         _isStunned = true;
-        _stunCooldown = _stunDuration;
+        _stunCooldown = _stunDuration ;        
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Move_CharUtama move = collider.GetComponent<Move_CharUtama>();
-        if(move != null && move)    // checking player atau bukan, dan lagi dash atau engga
+        if (move != null && move)    // checking player atau bukan, dan lagi dash atau engga
         {
             Stun();
+        }
+
+        else
+        {
+            HealthBarScript.health -= 10f;
         }
     }
 
