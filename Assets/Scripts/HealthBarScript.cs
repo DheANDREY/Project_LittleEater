@@ -15,6 +15,19 @@ public class HealthBarScript : MonoBehaviour
         health = maxHealth;
     }
 
+    public void UpdateHealth(float mod)
+    {
+        health += mod;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else if (health <= 0f)
+        {
+            health = 0f;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

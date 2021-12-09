@@ -96,7 +96,9 @@ public class Move_CharUtama : MonoBehaviour
             makan = true;
             anim.SetTrigger("isMakan");
         }
+
     }
+
     //private void OnTriggerExit2D(Collider2D food)
     //{
     //    anim.ResetTrigger("isMakan");
@@ -122,7 +124,6 @@ public class Move_CharUtama : MonoBehaviour
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(-1, 1, 0);
                 }
-
             }
             else
             {
