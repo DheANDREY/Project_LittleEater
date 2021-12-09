@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: stun_00004
+  m_Name: EStun
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers: []

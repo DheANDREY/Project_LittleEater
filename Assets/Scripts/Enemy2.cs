@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Enemy2 : MonoBehaviour
 {
-    public Transform[] patrolPoints;
+    // public Transform[] patrolPoints;
     public GameObject Character;
     public float speed;
     Transform currentPatrolPoint;
     int currentPatrolIndex;
     float attackCooldown;
-    public Transform homePos;
+    public Vector3 homePos;
 
     [SerializeField] private float _attackDuration = 2;
 
@@ -27,8 +27,18 @@ public class Enemy2 : MonoBehaviour
 
     public GameObject StunE;
 
+    private void Awake()
+    {
+        if(Character == null)
+        {
+            Character = FindObjectOfType<Move_CharUtama>().gameObject;
+        }
+    }
+
     void Start()
     {
+        homePos = transform.position;
+
         //currentPatrolIndex = 0;
         //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
@@ -121,6 +131,6 @@ public class Enemy2 : MonoBehaviour
     {
         myAnim.SetFloat("moveX", (target.position.x - transform.position.x));
         myAnim.SetFloat("moveY", (target.position.y - transform.position.y));
-        transform.position = Vector3.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, homePos, speed * Time.deltaTime);
     }
 }

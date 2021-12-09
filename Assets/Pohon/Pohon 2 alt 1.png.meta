@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 540c9f3bf5dfd724d98065f7f9bd80e6
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Pohon 2 alt 1_0
-    21300002: Pohon 2 alt 1_1
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Pohon 2 alt 1_0
+  - first:
+      213: 21300002
+    second: Pohon 2 alt 1_1
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -25,6 +29,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -56,11 +61,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -71,7 +80,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -82,6 +92,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -101,6 +112,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6004d8bae13876944919cc042e191590
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -118,17 +130,18 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -154, y: -75}
-        - {x: -154, y: 36}
-        - {x: -91, y: 36}
-        - {x: -91, y: -75}
-      - - {x: 100, y: -83}
-        - {x: 100, y: 33}
-        - {x: 159, y: 33}
-        - {x: 159, y: -83}
+      - - {x: -165, y: -101}
+        - {x: -158, y: 37}
+        - {x: -88, y: 36}
+        - {x: -81, y: -100}
+      - - {x: 83, y: -101}
+        - {x: 88, y: 37}
+        - {x: 167, y: 36}
+        - {x: 171, y: -101}
       tessellationDetail: 0
       bones: []
       spriteID: b3b9215251b7efb468c66f3480b8774c
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -137,10 +150,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: cf81adf39ad88bc48aef0b7177ae2b53
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
