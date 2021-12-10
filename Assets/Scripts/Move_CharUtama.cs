@@ -173,7 +173,7 @@ public class Move_CharUtama : MonoBehaviour
             if(collider.GetComponent<Enemy2>().IsStunned)
             {
                 anim[_curentEvoIndex].SetTrigger("isMakan");
-                collider.GetComponent<Food>().Dimakan();
+                collider.GetComponent<Food>().Dimakan();                
             }
             else 
             {
@@ -187,7 +187,7 @@ public class Move_CharUtama : MonoBehaviour
         {
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
-            collider.GetComponent<Food>().Dimakan();
+            collider.GetComponent<Food>().Dimakan();            
         }
     }
 }

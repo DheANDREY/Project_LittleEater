@@ -7,6 +7,7 @@ public class Enemy2 : MonoBehaviour
 {
     // public Transform[] patrolPoints;
     public GameObject Character;
+    private Rigidbody2D rigidBody2d;
     public float speed;
     Transform currentPatrolPoint;
     int currentPatrolIndex;
@@ -16,6 +17,7 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private float _attackDuration = 2;
 
     public bool IsStunned;
+    bool sekali;
 
     private float _stunDuration = 3;
 
@@ -25,7 +27,8 @@ public class Enemy2 : MonoBehaviour
 
     private Animator myAnim;
 
-    public GameObject StunE;
+    public Animator StunE;
+    public GameObject stunFx;
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class Enemy2 : MonoBehaviour
         //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
         myAnim = GetComponent<Animator>();
-
+        rigidBody2d = GetComponent<Rigidbody2D>();
         target = FindObjectOfType<Move_CharUtama>().transform;
     }
 
@@ -54,8 +57,17 @@ public class Enemy2 : MonoBehaviour
         {
             if(_stunCooldown > 0)
             {
+                if (!sekali)
+                {
+                    GameObject fx = Instantiate(stunFx, new Vector3(rigidBody2d.position.x, rigidBody2d.position.y + 1, 0), Quaternion.identity) as GameObject;
+                    Debug.Log(stunFx);
+                    fx.transform.SetParent(transform);
+                    fx.transform.localScale = new Vector3(1, 1, 0);
+                    sekali = true;
+                }            
                 _stunCooldown -= Time.deltaTime;
-                         
+                
+
             }
             else
             {
@@ -110,7 +122,7 @@ public class Enemy2 : MonoBehaviour
         Debug.Log("stun");
         IsStunned = true;
         _stunCooldown = _stunDuration ;        
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

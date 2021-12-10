@@ -50,7 +50,7 @@ public class Fillbar : MonoBehaviour
 // REGEN BAR DASH -------------------------------------------------------------------------
     private IEnumerator regenDash()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         while(currentDash < maxDash)
         {
             currentDash += maxDash/50 ;
