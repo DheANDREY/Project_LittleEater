@@ -12,5 +12,10 @@ public class TEST_kurang : MonoBehaviour
         {
             Fillbar.instance.kurang(50);
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            HealthBarScript.health += 10f;
+            Debug.Log(HealthBarScript.health);
+        }
     }
 }

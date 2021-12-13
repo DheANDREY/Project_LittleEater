@@ -25,8 +25,16 @@ public class Fillbar : MonoBehaviour
         slider1.maxValue = maxDash;
         slider1.value = maxDash;
     }
+    private void Update()
+    {
+        if(currentDash > 100)
+        {
+            currentDash = 100;
+            Debug.Log(currentDash);
+        }
+    }
 
-// BAR DASH BERKURANG ------------------------------------------------------------------
+    // BAR DASH BERKURANG ------------------------------------------------------------------
     public void kurang(int nilai)
     {
         if(currentDash - nilai >= 0)
@@ -50,7 +58,7 @@ public class Fillbar : MonoBehaviour
 // REGEN BAR DASH -------------------------------------------------------------------------
     private IEnumerator regenDash()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         while(currentDash < maxDash)
         {
             currentDash += maxDash/50 ;

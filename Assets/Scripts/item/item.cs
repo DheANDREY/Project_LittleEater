@@ -24,8 +24,8 @@ public class item : MonoBehaviour
                 if(inventory.isFull[i] == false){
                 // ITEM BISA DITAMBAHKAN
                 inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);
-                break;
+                    Instantiate(itemButton, inventory.slots[i].transform, false);     
+                    break;
                 }
             }
         }

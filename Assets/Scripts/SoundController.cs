@@ -20,4 +20,9 @@ public class SoundController : MonoBehaviour
     {
         sfx.PlayOneShot(fus); 
     }
+    public AudioClip makan;
+    public void sfxMakan()
+    {
+        sfx.PlayOneShot(makan);
+    }
 }

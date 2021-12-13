@@ -169,6 +169,7 @@ public class Move_CharUtama : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnTriggerEnter2D(collision.collider);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -178,7 +179,8 @@ public class Move_CharUtama : MonoBehaviour
             if(collider.GetComponent<Enemy2>().IsStunned)
             {
                 anim[_curentEvoIndex].SetTrigger("isMakan");
-                collider.GetComponent<Food>().Dimakan();                
+                collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
+                Fillbar.instance.kurang(-50);
             }
             else 
             {
@@ -192,7 +194,8 @@ public class Move_CharUtama : MonoBehaviour
         {
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
-            collider.GetComponent<Food>().Dimakan();            
+            collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
+            Fillbar.instance.kurang(-50);
         }     
     }
 }
