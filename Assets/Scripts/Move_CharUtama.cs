@@ -30,7 +30,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         fb = GetComponent<Fillbar>();
-        inventory = GameObject.FindGameObjectWithTag("player").GetComponent<Inventory>();
+        inventory = GetComponent<Inventory>();
     }
     //=======
     // gameObject.tag = "Player";
@@ -112,7 +112,8 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50 && (_rigidBody.velocity.x != 0 || _rigidBody.velocity.y != 0))
         {
-            anim[3].SetBool("ngeDash", true);
+            //anim[3].SetBool("ngeDash", true);
+            anim[_curentEvoIndex].SetTrigger("dash");
             Fillbar.instance.kurang(50);            
             if (_rigidBody.velocity.x < 0)
                 {
@@ -192,20 +193,6 @@ public class Move_CharUtama : MonoBehaviour
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
             collider.GetComponent<Food>().Dimakan();            
-        }
-
-        if (collider.CompareTag("Player"))
-        {
-        for(int i = 0; i < inventory.slots.Length ; i++)
-            {
-                if(inventory.isFull[i] == false)
-                {
-                    inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);
-                    Destroy(gameObject);
-                    break;
-                }
-            }
-        }
+        }     
     }
 }
