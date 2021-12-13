@@ -21,6 +21,9 @@ public class MainMenu : MonoBehaviour
             case "CreditsButton":
                 SceneManager.LoadScene("Credits");
                 break;
+            case "CloseButton":
+                SceneManager.LoadScene("MainMenu");
+                break;
         }
     }
 }
