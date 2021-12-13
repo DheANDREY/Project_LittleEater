@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private GameObject OnButton;
+    private GameObject OffButton;
     public void selectScene()
     {
         switch (this.gameObject.name)
@@ -24,6 +26,14 @@ public class MainMenu : MonoBehaviour
             case "CloseButton":
                 SceneManager.LoadScene("MainMenu");
                 break;
+            /*case "OnButton":
+                OnButton.SetActive(false);
+                OffButton.SetActive(true);
+                break;
+            case "OffButton":
+                OffButton.SetActive(false);
+                OnButton.SetActive(true);
+                break;*/
         }
     }
 }
