@@ -55,10 +55,10 @@ public class Enemy2 : MonoBehaviour
     {
         if(IsStunned)
         {
-            if(_stunCooldown > 0)
-            {
+            if (_stunCooldown > 0)
+            {                
                 if (!sekali)
-                {
+                {                    
                     GameObject fx = Instantiate(stunFx, new Vector3(rigidBody2d.position.x, rigidBody2d.position.y + 1, 0), Quaternion.identity) as GameObject;
                     Debug.Log(stunFx);
                     fx.transform.SetParent(transform);
@@ -120,7 +120,7 @@ public class Enemy2 : MonoBehaviour
     public void Stun()
     {
         Debug.Log("stun");
-        IsStunned = true;
+        IsStunned = true;        
         _stunCooldown = _stunDuration ;        
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;        
     }

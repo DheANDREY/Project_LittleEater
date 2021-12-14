@@ -176,8 +176,9 @@ public class Move_CharUtama : MonoBehaviour
     {
         if(collider.GetComponent<Enemy2>() != null)
         {
-            if(collider.GetComponent<Enemy2>().IsStunned)
-            {
+            
+            if (collider.GetComponent<Enemy2>().IsStunned)
+            {             
                 anim[_curentEvoIndex].SetTrigger("isMakan");
                 collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
                 Fillbar.instance.kurang(-50);
@@ -186,6 +187,7 @@ public class Move_CharUtama : MonoBehaviour
             {
                 if(IsDashing)
                 {
+                    soC.sfxbStun();
                     collider.GetComponent<Enemy2>().Stun();
                 }
             }

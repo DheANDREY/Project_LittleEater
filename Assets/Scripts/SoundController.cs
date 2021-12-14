@@ -25,4 +25,14 @@ public class SoundController : MonoBehaviour
     {
         sfx.PlayOneShot(makan);
     }
+    public AudioClip bamStun;
+    public void sfxbStun()
+    {
+        sfx.PlayOneShot(bamStun);
+    }
+    public AudioClip stun;
+    public void stuned()
+    {
+        sfx.PlayOneShot(stun);
+    }
 }

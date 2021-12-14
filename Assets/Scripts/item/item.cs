@@ -8,23 +8,23 @@ public class item : MonoBehaviour
     public GameObject itemButton;
     private void Start()
     {
-        inventory = GetComponent<Inventory>();
-    }
-    private void Update()
-    {
-        itemSlot();
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
 
-    void itemSlot()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (other.CompareTag("Player"))
         {
-            for(int i = 0; i < inventory.slots.Length; i++)
+            for (int i = 0; i < inventory.slots.Length; i++)
             {
-                if(inventory.isFull[i] == false){
-                // ITEM BISA DITAMBAHKAN
-                inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);     
+                if (inventory.isFull[i] == false)
+                {
+                    // ITEM BISA DITAMBAHKAN
+                    inventory.isFull[i] = true;
+                    Instantiate(itemButton, inventory.slots[i].transform, false);
+                    //GameObject fxE = Instantiate(itemButton, inventory.slots[i].transform, false) as GameObject;
+                    itemButton.transform.SetParent(transform);
+                    Destroy(gameObject);
                     break;
                 }
             }
