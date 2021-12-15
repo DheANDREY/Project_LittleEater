@@ -22,8 +22,6 @@ public class item : MonoBehaviour
                     // ITEM BISA DITAMBAHKAN
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
-                    //GameObject fxE = Instantiate(itemButton, inventory.slots[i].transform, false) as GameObject;
-                    itemButton.transform.SetParent(transform);
                     Destroy(gameObject);
                     break;
                 }
