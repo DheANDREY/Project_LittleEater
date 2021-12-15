@@ -26,6 +26,8 @@ public class Move_CharUtama : MonoBehaviour
     private Inventory inventory;
     public GameObject itemButton;
 
+    public GameObject walkFx;
+
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -68,7 +70,8 @@ public class Move_CharUtama : MonoBehaviour
             if (move != Vector3.zero)
             {
                 _moveDir = move;
-                _rigidBody.velocity = _moveDir.normalized * _maxSpeed;
+                _rigidBody.velocity = _moveDir.normalized * _maxSpeed; 
+                //walkFX();
             }
             else
             {
@@ -80,13 +83,16 @@ public class Move_CharUtama : MonoBehaviour
             if (move.x > 0)
             {
                 sr[_curentEvoIndex].flipX = true;
+                
             }
             if (move.x < 0)
             {
                 sr[_curentEvoIndex].flipX = false;
+
             }
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
- //------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------
+            
             dash();
         }
          
@@ -108,6 +114,15 @@ public class Move_CharUtama : MonoBehaviour
     }
 //-----------------------------------------------------------------------------------------------
 
+    //private void walkFX()
+    //{
+    //    if(!isEvolving)
+    //    {
+    //        GameObject fx = Instantiate(walkFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+    //       // fx.transform.SetParent(transform);
+    //        fx.transform.localScale = new Vector3(1, 1, 0);
+    //    }
+    //}
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50 && (_rigidBody.velocity.x != 0 || _rigidBody.velocity.y != 0))
