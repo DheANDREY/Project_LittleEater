@@ -10,12 +10,11 @@ public class ItemFood : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        foodB = GetComponent<FoodBar>();
     }
 
     public void Use()
     {
-        foodB.DecreaseFood(1/2);
+        //foodB.DecreaseFood(1/2);
         Destroy(gameObject);
     }
 }

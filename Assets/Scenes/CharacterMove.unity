@@ -21880,6 +21880,8 @@ MonoBehaviour:
   - {fileID: 1465629746}
   - {fileID: 66790484}
   - {fileID: 29728935708203393, guid: 08e03e03f04a4a94090b9a740f39c504, type: 3}
+  - {fileID: 9159386842762146012, guid: 1cd73029c7707e14295782ef8d28fca4, type: 3}
+  - {fileID: 8557218164999455360, guid: 8818510d266d2dc478c4622fa4b27aab, type: 3}
   sr:
   - {fileID: 1181733843}
   - {fileID: 1465629744}
@@ -21887,7 +21889,9 @@ MonoBehaviour:
   soC: {fileID: 1790012369}
   fb: {fileID: 9173843245350258407, guid: 6d9b2aa2a8da8bf488e63ce0dfce2eb5, type: 3}
   foodB: {fileID: 978341455}
-  itemButton: {fileID: 0}
+  itemButton: {fileID: 1902191204716327978, guid: d3a87a8f8fdbe3f42bb73658d941afd6,
+    type: 3}
+  walkFx: {fileID: 8557218164999455362, guid: 8818510d266d2dc478c4622fa4b27aab, type: 3}
   dashFx: {fileID: 29728935708203406, guid: 08e03e03f04a4a94090b9a740f39c504, type: 3}
   isEvolving: 0
   evo1ke2: {fileID: 16373261991844290, guid: ed82c5bd42d84554ca052f3f380e82e2, type: 3}
@@ -21981,7 +21985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -0.68, y: 1.53}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1844883382 stripped
@@ -22097,7 +22101,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 97312f0f3c81c74439f475662f2af1ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18e596df9bc333b4e820f40e197e3bd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
