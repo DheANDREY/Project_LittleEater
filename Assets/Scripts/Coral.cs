@@ -10,7 +10,7 @@ public class Coral : MonoBehaviour
     private GameObject _spawned;
     private int _countToDestroy = 8;
 
-    /*void Start()
+    void Start()
     {
         if (this.tag == "food3_coral")
         {
@@ -20,23 +20,23 @@ public class Coral : MonoBehaviour
         {
             _countToDestroy = 16;
         }
-    }*/
+    }
 
-    // void Update()
-    // {
-    //     if (_spawnCooldown > 0)
-    //     {
-    //         _spawnCooldown -= Time.deltaTime;
-    //     }
-    //     else if (_spawned == null)
-    //     {
-    //         _spawnCooldown = _spawnDuration;
-    //         _spawned = Instantiate(_prefabMakanan, transform.position, transform.rotation);
-    //         _countToDestroy--;
-    //         if (_countToDestroy <= 0)
-    //         {
-    //             Destroy(gameObject);
-    //         }
-    //     }
-    // }
+    void Update()
+    {
+        if (_spawnCooldown > 0)
+        {
+            _spawnCooldown -= Time.deltaTime;
+        }
+        else if (_spawned == null)
+        {
+            _spawnCooldown = _spawnDuration;
+            _spawned = Instantiate(_prefabMakanan, transform.position, transform.rotation);
+            _countToDestroy--;
+            if (_countToDestroy <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
