@@ -70,11 +70,12 @@ public class Move_CharUtama : MonoBehaviour
             if (move != Vector3.zero)
             {
                 _moveDir = move;
-                _rigidBody.velocity = _moveDir.normalized * _maxSpeed; 
-                //walkFX();
+                _rigidBody.velocity = _moveDir.normalized * _maxSpeed;
+                walkFx.SetActive(true);
             }
             else
             {
+                walkFx.SetActive(false);
                 _rigidBody.velocity = Vector3.zero;
             }
             //  -----------------------------------------------------------------------------------------------
@@ -83,12 +84,13 @@ public class Move_CharUtama : MonoBehaviour
             if (move.x > 0)
             {
                 sr[_curentEvoIndex].flipX = true;
-                
+                sr[3].flipX = false; sr[4].flipX = false;
+
             }
             if (move.x < 0)
             {
                 sr[_curentEvoIndex].flipX = false;
-
+                sr[3].flipX = true; sr[4].flipX = true;
             }
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
             //------------------------------------------------------------------------------------------
@@ -134,14 +136,15 @@ public class Move_CharUtama : MonoBehaviour
                 {
                     GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
-                    fx.transform.localScale = new Vector3(1, 1, 0);
+                    fx.transform.localScale = new Vector3(1, 1, 0);                
                 }
                 else
                 {
                     GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + -2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
-                    fx.transform.localScale = new Vector3(-1, 1, 0);
-                }
+                    fx.transform.localScale = new Vector3(-1, 1, 0);               
+                 }
+            
                 _rigidBody.AddForce(_rigidBody.velocity * spdDash);            
                 soC.sfxDash();
                 IsDashing = true;                 
@@ -186,7 +189,7 @@ public class Move_CharUtama : MonoBehaviour
         OnTriggerEnter2D(collision.collider);
         
     }
-
+    public GameObject hitVfx;
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<Enemy2>() != null)
@@ -202,6 +205,9 @@ public class Move_CharUtama : MonoBehaviour
             {
                 if(IsDashing)
                 {
+                    GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                    fxE.transform.SetParent(transform);
+                    fxE.transform.localScale = new Vector3(1, 1, 0);
                     soC.sfxbStun();
                     collider.GetComponent<Enemy2>().Stun();
                 }

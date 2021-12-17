@@ -30,7 +30,6 @@ public class Fillbar : MonoBehaviour
         if(currentDash > 100)
         {
             currentDash = 100;
-            Debug.Log(currentDash);
         }
     }
 
@@ -40,7 +39,7 @@ public class Fillbar : MonoBehaviour
         if(currentDash - nilai >= 0)
         {
             currentDash -= nilai;
-            Debug.Log(currentDash);
+
             slider1.value = currentDash;      
             if(regenerate != null)
             {

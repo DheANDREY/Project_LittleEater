@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class HealthBarScript : MonoBehaviour
 {
     Image healthBar;
-    float maxHealth = 100f;
+    float maxHealth = 50f;
     public static float health;
+
+    public static HealthBarScript instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

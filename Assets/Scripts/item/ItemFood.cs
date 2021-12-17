@@ -14,7 +14,8 @@ public class ItemFood : MonoBehaviour
 
     public void Use()
     {
-        //foodB.DecreaseFood(1/2);
+        Fillbar.instance.kurang(-20);
+        Debug.Log(FoodBar.mCurrentValue);
         Destroy(gameObject);
     }
 }

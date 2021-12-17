@@ -18,10 +18,16 @@ public class FoodBar : MonoBehaviour
 
     private bool _isReached300;
 
+    public static FoodBar instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         mCurrentPercent = 0.0f;
-        mCurrentValue = 20;
+        mCurrentValue = 90;
         InvokeRepeating("Cek300", 0, 1.0f);
 
         _playerMove = player.GetComponent<Move_CharUtama>();
@@ -93,7 +99,7 @@ public class FoodBar : MonoBehaviour
             }
             else
             {
-                DecreaseFood(2);
+                DecreaseFood(3);
             }
         }
     }
