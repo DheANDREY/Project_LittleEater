@@ -6,6 +6,7 @@ public class Bacteria : MonoBehaviour
 {
     //public Transform[] patrolPoints;
     public GameObject Character;
+    private SpriteRenderer _sr;
     public float speed;
    // Transform currentPatrolPoint;
     //int currentPatrolIndex;
@@ -15,6 +16,9 @@ public class Bacteria : MonoBehaviour
 
     void Start()
     {
+        Character = FindObjectOfType<Move_CharUtama>().gameObject;
+        _sr = GetComponent<SpriteRenderer>();
+
         //currentPatrolIndex = 0;
         //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         escapeCooldown = 0;
@@ -51,6 +55,8 @@ public class Bacteria : MonoBehaviour
         {
             escapeCooldown -= Time.deltaTime;
         }
+
+        _sr.flipX = rb.velocity.x < 0;
     }
 
     /*private void OnTriggerEnter2D(Collider2D collider)
