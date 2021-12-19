@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 576065707113829980}
   - component: {fileID: 7163442165807703527}
   m_Layer: 5
-  m_Name: food_prefab
+  m_Name: slowButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7163442165807703527}
-        m_MethodName: Use
+        m_MethodName: UseSlow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

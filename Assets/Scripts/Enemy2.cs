@@ -85,19 +85,19 @@ public class Enemy2 : MonoBehaviour
                     GoHome();
                 }
             }
-            else if(enemyToPlayerDistance < 2f)
+            else if(enemyToPlayerDistance < 1f)
             {
-                // if (Character.GetComponent<Move_CharUtama>() != null)
-                // {
-                //     rb.velocity = Vector3.zero;
+                if (Character.GetComponent<Move_CharUtama>() != null)
+                {
+                    rb.velocity = Vector3.zero;
 
-                //     if(attackCooldown <= 0)
-                //     {
-                //         attackCooldown = _attackDuration;
-                //         HealthBarScript.health -= 10f;
-                //         Debug.Log("attack");
-                //     }
-                // }
+                    if (attackCooldown <= 0)
+                    {
+                        attackCooldown = _attackDuration;
+                        HealthBarScript.health -= 4f;
+                        Debug.Log("attack");
+                    }
+                }
             }
             else if(enemyToPlayerDistance < 5f)
             {
