@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Lobby1 : MonoBehaviour
+public class Lobby2 : MonoBehaviour
 {
     public void selectScene()
     {
@@ -18,8 +18,8 @@ public class Lobby1 : MonoBehaviour
             case "Back":
                 SceneManager.LoadScene("MainMenu");
                 break;
-            case "Next":
-                SceneManager.LoadScene("LobbyLevel2");
+            case "Previous":
+                SceneManager.LoadScene("LobbyLevel1");
                 break;
             case "Shop":
                 SceneManager.LoadScene("Shop");
@@ -30,7 +30,6 @@ public class Lobby1 : MonoBehaviour
             case "Encyclopedia":
                 SceneManager.LoadScene("Encyclopedia");
                 break;
-
                 /*case "CreditsButton":
                     SceneManager.LoadScene("Credits");
                     break;
