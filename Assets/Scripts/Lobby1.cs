@@ -3,30 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class Lobby1 : MonoBehaviour
 {
-    private GameObject OnButton;
-    private GameObject OffButton;
     public void selectScene()
     {
         switch (this.gameObject.name)
         {
-            case "PlayButton":
-                SceneManager.LoadScene("LobbyLevel1");
+            case "Level":
+                SceneManager.LoadScene("CharacterMove");
                 break;
-            case "SettingsButton":
+            case "Settings":
                 SceneManager.LoadScene("Settings");
                 break;
-            case "ExitButton":
-                Application.Quit();
+            case "Back":
+                SceneManager.LoadScene("MainMenu");
                 break;
-            case "CreditsButton":
+            /*case "CreditsButton":
                 SceneManager.LoadScene("Credits");
                 break;
             case "CloseButton":
                 SceneManager.LoadScene("MainMenu");
                 break;
-            /*case "OnButton":
+            case "OnButton":
                 OnButton.SetActive(false);
                 OffButton.SetActive(true);
                 break;
