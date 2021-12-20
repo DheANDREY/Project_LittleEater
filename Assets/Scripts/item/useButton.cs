@@ -32,12 +32,12 @@ public class useButton : MonoBehaviour
         Destroy(gameObject);
     
     }
+    public GameObject freezeRadius;
     public void UseIce()
     {
         // ITEM BISA DITAMBAHKAN
-        HealthBarScript.instance.UpdateHealth(50);
-        Destroy(gameObject);
-    
+        
+        Destroy(gameObject, 3);    
     }
     public void UseFood()
     {

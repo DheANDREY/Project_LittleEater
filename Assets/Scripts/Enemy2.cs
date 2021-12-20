@@ -30,12 +30,15 @@ public class Enemy2 : MonoBehaviour
     public Animator StunE;
     public GameObject stunFx;
 
+    public static Enemy2 instance;
+
     private void Awake()
     {
         if(Character == null)
         {
             Character = FindObjectOfType<Move_CharUtama>().gameObject;
         }
+        instance = this;
     }
 
     void Start()

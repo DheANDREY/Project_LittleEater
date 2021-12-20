@@ -136,14 +136,16 @@ public class Move_CharUtama : MonoBehaviour
                 {
                     GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
-                    fx.transform.localScale = new Vector3(1, 1, 0);                
+                    fx.transform.localScale = new Vector3(1, 1, 0);
+                Destroy(fx, 2);
                 }
                 else
                 {
                     GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + -2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
-                    fx.transform.localScale = new Vector3(-1, 1, 0);               
-                 }
+                    fx.transform.localScale = new Vector3(-1, 1, 0);
+                Destroy(fx, 2);
+            }
             
                 _rigidBody.AddForce(_rigidBody.velocity * spdDash);            
                 soC.sfxDash();
@@ -167,6 +169,7 @@ public class Move_CharUtama : MonoBehaviour
             GameObject fxE = Instantiate(evo1ke2, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
             fxE.transform.SetParent(transform);
             fxE.transform.localScale = new Vector3(2, 2, 0);
+            Destroy(fxE, 4);
             //animOn = true;
         }
         
@@ -179,6 +182,7 @@ public class Move_CharUtama : MonoBehaviour
             GameObject fxE2 = Instantiate(evo2ke3, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
             fxE2.transform.SetParent(transform);
             fxE2.transform.localScale = new Vector3(5/2, 5/2, 0);
+            Destroy(fxE2, 4);
             //animOn2 = true;
         }
     }
@@ -210,6 +214,7 @@ public class Move_CharUtama : MonoBehaviour
                     fxE.transform.localScale = new Vector3(1, 1, 0);
                     soC.sfxbStun();
                     collider.GetComponent<Enemy2>().Stun();
+                    Destroy(hitVfx, 3);
                 }
             }
         }

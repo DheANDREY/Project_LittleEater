@@ -13578,7 +13578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &820807128
 Transform:
   m_ObjectHideFlags: 0
@@ -13608,7 +13608,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.75
+  m_Radius: 3.7
 --- !u!1 &860386930
 GameObject:
   m_ObjectHideFlags: 0
@@ -22579,6 +22579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pow_hp
       objectReference: {fileID: 0}
+    - target: {fileID: 2955228301877458574, guid: 273dcd73cb528034eb5fbd37b7c00370,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2955228301877458563, guid: 273dcd73cb528034eb5fbd37b7c00370,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22683,6 +22688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955228301877458560, guid: 273dcd73cb528034eb5fbd37b7c00370,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273dcd73cb528034eb5fbd37b7c00370, type: 3}
@@ -22802,6 +22812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615365797683076760, guid: 592bfb27d2c576b44a694476cf63a81e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592bfb27d2c576b44a694476cf63a81e, type: 3}
