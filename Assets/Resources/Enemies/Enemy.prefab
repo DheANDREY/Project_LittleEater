@@ -136,7 +136,6 @@ MonoBehaviour:
   Character: {fileID: 0}
   speed: 2
   homePos: {x: 0, y: 0, z: 0}
-  soC: {fileID: 8395676328754252388, guid: b15973525fdb9dd4ba9993eec0991f4e, type: 3}
   _attackDuration: 2
   IsStunned: 0
   StunE: {fileID: 3476901496215591380, guid: e0bfe97cdbfe9d041aad4be4f8ee927f, type: 3}

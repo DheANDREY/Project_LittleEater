@@ -33,11 +33,13 @@ public class useButton : MonoBehaviour
     
     }
     public GameObject freezeRadius;
+    public GameObject charUtama;
     public void UseIce()
     {
         // ITEM BISA DITAMBAHKAN
-        
-        Destroy(gameObject, 3);    
+        GameObject es = Instantiate(freezeRadius, new Vector3(charUtama.transform.position.x, charUtama.transform.position.y), Quaternion.identity) as GameObject;
+       // es.transform.localScale = new Vector3(1, 1, 0);
+        Destroy(gameObject);    
     }
     public void UseFood()
     {
