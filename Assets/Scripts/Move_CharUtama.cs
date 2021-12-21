@@ -194,6 +194,8 @@ public class Move_CharUtama : MonoBehaviour
         
     }
     public GameObject hitVfx;
+    public dropItem di;
+    
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<Enemy2>() != null)
@@ -203,6 +205,7 @@ public class Move_CharUtama : MonoBehaviour
             {             
                 anim[_curentEvoIndex].SetTrigger("isMakan");
                 collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
+                di.itemDrop();
                 Fillbar.instance.kurang(-50);
             }
             else 

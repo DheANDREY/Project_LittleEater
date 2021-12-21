@@ -28,7 +28,8 @@ public class useButton : MonoBehaviour
     public void UseSlow()
     {
         // ITEM BISA DITAMBAHKAN
-        FoodBar.instance.DecreaseFood(50);
+        // FoodBar.instance.DecreaseFood(50);
+        Food.instance.ekstra();
         Destroy(gameObject);
     
     }
@@ -44,7 +45,8 @@ public class useButton : MonoBehaviour
     public void UseFood()
     {
         // ITEM BISA DITAMBAHKAN
-        HealthBarScript.instance.UpdateHealth(50);
+        //HealthBarScript.instance.UpdateHealth(50);
+       // GetComponent<Food>().ekstra();
         Destroy(gameObject);
     
     }

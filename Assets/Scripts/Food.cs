@@ -16,6 +16,12 @@ public class Food : MonoBehaviour
         //_valueMakanan = 50;
     }
 
+    public static Food instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     bool makan;
     //private void OnTriggerEnter2D(Collider2D collision)
     public void Dimakan()
@@ -29,6 +35,16 @@ public class Food : MonoBehaviour
             FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
             Destroy(gameObject);
         //}
+    }
+
+    public void ekstra()
+    {
+        FoodBar.mCurrentValue += (_valueMakanan*2);
+        if (FoodBar.mCurrentValue >= 300)
+            FoodBar.mCurrentValue = 300;
+        //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
+        FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
+        Destroy(gameObject);
     }
 
     /*IEnumerator CoralFood()

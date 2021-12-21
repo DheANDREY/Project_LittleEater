@@ -142,3 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodB: {fileID: 7751584441178292102, guid: b35f3c722726e7c40978a82a6ec5b6b4, type: 3}
+  freezeRadius: {fileID: 8034865528676311190, guid: 8824c8e837ccf374f99cc1c3b066a9e4,
+    type: 3}
+  charUtama: {fileID: 7249667597857384583, guid: 1542eb8e90e103f498be151c2b60653d,
+    type: 3}
