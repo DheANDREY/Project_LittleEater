@@ -95,11 +95,11 @@ public class FoodBar : MonoBehaviour
         {
             if (_isReached300)
             {
-                DecreaseFood(2);
+                DecreaseFood(1);
             }
             else
             {
-                DecreaseFood(4);
+                DecreaseFood(10);
             }
         }
     }

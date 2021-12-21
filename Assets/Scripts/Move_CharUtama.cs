@@ -227,6 +227,7 @@ public class Move_CharUtama : MonoBehaviour
             anim[_curentEvoIndex].SetTrigger("isMakan");
             collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
             Fillbar.instance.kurang(-50);
+            
         }     
     }
 }

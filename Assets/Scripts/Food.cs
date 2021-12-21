@@ -9,42 +9,34 @@ public class Food : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     // public Animator[] anim;
     public static int value = 0;
+    private static int r;
 
     void Start()
     {
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();        
         //_valueMakanan = 50;
     }
 
-    public static Food instance;
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    bool makan;
     //private void OnTriggerEnter2D(Collider2D collision)
     public void Dimakan()
     {
+        if (useButton.instance.isFoodBuff == true)
+        {
+            r = 2;
+        }
+        else if (useButton.instance.isFoodBuff == false)
+        {
+            r = 1;
+        }
         //if (GetComponent<Move_CharUtama>() != null)
         //{
-            FoodBar.mCurrentValue += _valueMakanan;
+        FoodBar.mCurrentValue += (_valueMakanan*r);
             if (FoodBar.mCurrentValue >= 300)
                 FoodBar.mCurrentValue = 300;
             //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
             FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
             Destroy(gameObject);
         //}
-    }
-
-    public void ekstra()
-    {
-        FoodBar.mCurrentValue += (_valueMakanan*2);
-        if (FoodBar.mCurrentValue >= 300)
-            FoodBar.mCurrentValue = 300;
-        //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
-        FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
-        Destroy(gameObject);
     }
 
     /*IEnumerator CoralFood()

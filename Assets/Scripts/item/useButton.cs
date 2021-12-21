@@ -8,31 +8,40 @@ public class useButton : MonoBehaviour
     private Inventory inventory;
 
     private Transform player;
+    private float timer = 3;
+    public bool isFoodBuff = false;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    private void Update()
-    {
         
     }
-
-    public void UseHp()
+    public static useButton instance;
+    private void Awake()
     {
-                // ITEM BISA DITAMBAHKAN
-                HealthBarScript.instance.UpdateHealth(50);
-                Destroy(gameObject);    
+        instance = this;
     }
+
+
     public void UseSlow()
     {
-        // ITEM BISA DITAMBAHKAN
-        // FoodBar.instance.DecreaseFood(50);
-        Food.instance.ekstra();
+        isFoodBuff = true; 
         Destroy(gameObject);
-    
+        StartCoroutine(delay());
     }
+
+    private IEnumerator delay()
+    {       
+        yield return new WaitForSeconds(2);
+        isFoodBuff = false;
+    }
+    public void UseHp()
+    {
+        HealthBarScript.instance.UpdateHealth(50);
+        Destroy(gameObject);    
+    }
+    
+    
     public GameObject freezeRadius;
     public GameObject charUtama;
     public void UseIce()
@@ -50,4 +59,6 @@ public class useButton : MonoBehaviour
         Destroy(gameObject);
     
     }
+
+    
 }
