@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Move_CharUtama : MonoBehaviour
 {
@@ -195,7 +196,7 @@ public class Move_CharUtama : MonoBehaviour
     }
     public GameObject hitVfx;
     public dropItem di;
-    
+    public Food[] fd;
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<Enemy2>() != null)
@@ -204,7 +205,8 @@ public class Move_CharUtama : MonoBehaviour
             if (collider.GetComponent<Enemy2>().IsStunned)
             {             
                 anim[_curentEvoIndex].SetTrigger("isMakan");
-                collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
+                collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
+                IncrementScore(Food.value);
                 di.itemDrop();
                 Fillbar.instance.kurang(-50);
             }
@@ -225,9 +227,20 @@ public class Move_CharUtama : MonoBehaviour
         {
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
-            collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
+            collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
+            IncrementScore(Food.value);
             Fillbar.instance.kurang(-50);
             
         }     
     }
+    private int score;
+    public void IncrementScore(int nilai)
+    {
+        score += nilai;
+    }
+    public int Score
+    {
+        get { return score; }
+    }
+
 }

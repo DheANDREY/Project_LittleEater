@@ -16,6 +16,11 @@ public class Food : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();        
         //_valueMakanan = 50;
     }
+    public static Food instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     //private void OnTriggerEnter2D(Collider2D collision)
     public void Dimakan()
