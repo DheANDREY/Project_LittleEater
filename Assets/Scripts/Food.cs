@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Food : MonoBehaviour
 {
-    [SerializeField] private int _valueMakanan;    
+    [SerializeField] public int _valueMakanan;    
     private Rigidbody2D rigidBody2D;
     // public Animator[] anim;
     public static int value = 0;

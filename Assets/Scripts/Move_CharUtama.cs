@@ -206,7 +206,7 @@ public class Move_CharUtama : MonoBehaviour
             {             
                 anim[_curentEvoIndex].SetTrigger("isMakan");
                 collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-                IncrementScore(Food.value);
+                IncrementScore(Food.instance._valueMakanan);
                 di.itemDrop();
                 Fillbar.instance.kurang(-50);
             }
@@ -228,7 +228,7 @@ public class Move_CharUtama : MonoBehaviour
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
             collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-            IncrementScore(Food.value);
+            IncrementScore(Food.instance._valueMakanan);
             Fillbar.instance.kurang(-50);
             
         }     
