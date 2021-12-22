@@ -10,6 +10,7 @@ public class useButton : MonoBehaviour
     private Transform player;
     private float timer = 3;
     public bool isFoodBuff = false;
+    public bool isGenBoost;
 
     private void Start()
     {
@@ -53,12 +54,15 @@ public class useButton : MonoBehaviour
     }
     public void UseFood()
     {
-        // ITEM BISA DITAMBAHKAN
-        //HealthBarScript.instance.UpdateHealth(50);
-       // GetComponent<Food>().ekstra();
+        isGenBoost = true;
         Destroy(gameObject);
-    
+        StartCoroutine(durasi());
+    }
+    private IEnumerator durasi()
+    {
+        yield return new WaitForSeconds(5);
+        isGenBoost = false;
     }
 
-    
+
 }

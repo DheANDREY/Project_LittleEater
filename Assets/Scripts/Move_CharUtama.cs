@@ -206,13 +206,13 @@ public class Move_CharUtama : MonoBehaviour
             {             
                 anim[_curentEvoIndex].SetTrigger("isMakan");
                 collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-                IncrementScore(Food.instance._valueMakanan);
+                //IncrementScore(); 
                 di.itemDrop();
                 Fillbar.instance.kurang(-50);
             }
             else 
             {
-                if(IsDashing)
+                if(IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
                 {
                     GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fxE.transform.SetParent(transform);
@@ -228,15 +228,26 @@ public class Move_CharUtama : MonoBehaviour
             // play animasi makanan
             anim[_curentEvoIndex].SetTrigger("isMakan");
             collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-            IncrementScore(Food.instance._valueMakanan);
+            IncrementScore(collider.GetComponent<Food>()._valueMakanan); 
+            Debug.Log(Food.instance._valueMakanan);
             Fillbar.instance.kurang(-50);
             
         }     
     }
     private int score;
+    private int r;
     public void IncrementScore(int nilai)
     {
-        score += nilai;
+        if (useButton.instance.isGenBoost == true)
+        {
+            r = 2;
+        }
+        else if (useButton.instance.isGenBoost == false)
+        {
+            r = 1;
+        }
+
+        score += (nilai*r);        
     }
     public int Score
     {
