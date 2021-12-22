@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LobbyLevel1.unity
     guid: 6c45d26092b11604692b49f8dcfd75f4
   - enabled: 1
+    path: Assets/Scenes/LobbyLevel2.unity
+    guid: 609c678ea480a514ea8775474a959da3
+  - enabled: 1
     path: Assets/Scenes/CharacterMove.unity
     guid: 3093b7d9ec86cd64fa24e32daf149a79
   - enabled: 1

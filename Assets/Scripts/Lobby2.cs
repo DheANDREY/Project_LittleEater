@@ -9,9 +9,9 @@ public class Lobby2 : MonoBehaviour
     {
         switch (this.gameObject.name)
         {
-            case "Level":
+            /*case "Level":
                 SceneManager.LoadScene("CharacterMove");
-                break;
+                break;*/
             case "Settings":
                 SceneManager.LoadScene("Settings");
                 break;

@@ -7,6 +7,7 @@ public class CameraMoveController : MonoBehaviour
     [Header("Position")]
     public Transform player;
     public float horizontalOffset;
+    //public GameOverScreen GameOverScreen;
 
     private void Update()
     {
@@ -15,4 +16,12 @@ public class CameraMoveController : MonoBehaviour
         newPosition.y = player.position.y + horizontalOffset;
         transform.position = newPosition;
     }
+
+    /*public void GameOver()
+    {
+        if(HealthBarScript.health <= 0)
+        {
+            GameOverScreen.Setup();
+        }
+    }*/
 }
