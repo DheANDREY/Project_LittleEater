@@ -99,7 +99,7 @@ public class FoodBar : MonoBehaviour
             }
             else
             {
-                DecreaseFood(10);
+                DecreaseFood(2);
             }
         }
     }

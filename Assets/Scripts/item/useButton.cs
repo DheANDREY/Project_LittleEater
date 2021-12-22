@@ -33,7 +33,7 @@ public class useButton : MonoBehaviour
 
     private IEnumerator delay()
     {       
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         isFoodBuff = false;
     }
     public void UseHp()
@@ -60,7 +60,7 @@ public class useButton : MonoBehaviour
     }
     private IEnumerator durasi()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         isGenBoost = false;
     }
 
