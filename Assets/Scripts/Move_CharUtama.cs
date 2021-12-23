@@ -35,6 +35,11 @@ public class Move_CharUtama : MonoBehaviour
         fb = GetComponent<Fillbar>();
         inventory = GetComponent<Inventory>();
     }
+    public static Move_CharUtama instance;
+    private void Awake()
+    {
+        instance = this;
+    }
     //=======
     // gameObject.tag = "Player";
 
@@ -96,7 +101,7 @@ public class Move_CharUtama : MonoBehaviour
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
             //------------------------------------------------------------------------------------------
             
-            dash();
+            dash(); heal();
         }
          
     }
@@ -233,6 +238,21 @@ public class Move_CharUtama : MonoBehaviour
             
         }     
     }
+
+    public bool isHeal;
+    public GameObject healFX;
+    public void heal()
+    {
+        if (isHeal == true)
+        {
+            GameObject h1 = Instantiate(healFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            h1.transform.SetParent(transform);
+            h1.transform.localScale = new Vector3(1, 1, 0);
+            Destroy(h1, 4);
+            isHeal = false;
+        }
+    }
+
     private int score;
     private int r;
     public void IncrementScore(int nilai)

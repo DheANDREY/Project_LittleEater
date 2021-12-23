@@ -863,7 +863,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231685177}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
@@ -29670,7 +29670,7 @@ PrefabInstance:
     - target: {fileID: 3615365797683076762, guid: 592bfb27d2c576b44a694476cf63a81e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3615365797683076759, guid: 592bfb27d2c576b44a694476cf63a81e,
         type: 3}
@@ -29799,7 +29799,7 @@ PrefabInstance:
     - target: {fileID: 6374875467995829293, guid: 31d2eb2f974df95439d06ce26a5df8e7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6374875467995829328, guid: 31d2eb2f974df95439d06ce26a5df8e7,
         type: 3}
@@ -29937,6 +29937,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249667597857384632, guid: 1542eb8e90e103f498be151c2b60653d,
         type: 3}
+      propertyPath: anim.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249667597857384632, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
       propertyPath: soC
       value: 
       objectReference: {fileID: 1790012369}
@@ -30057,6 +30062,18 @@ PrefabInstance:
       propertyPath: fd.Array.data[5]
       value: 
       objectReference: {fileID: 8268874202203196434, guid: 3305d04bbac657444b83e6d7864e5066,
+        type: 3}
+    - target: {fileID: 7249667597857384632, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: healFX
+      value: 
+      objectReference: {fileID: 2572268862866163965, guid: b888639fb5affc043949da59d8f42f0e,
+        type: 3}
+    - target: {fileID: 7249667597857384632, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: anim.Array.data[6]
+      value: 
+      objectReference: {fileID: 7032199453817976019, guid: b888639fb5affc043949da59d8f42f0e,
         type: 3}
     - target: {fileID: 7249667597857384637, guid: 1542eb8e90e103f498be151c2b60653d,
         type: 3}

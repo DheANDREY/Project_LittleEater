@@ -36,10 +36,12 @@ public class useButton : MonoBehaviour
         yield return new WaitForSeconds(3);
         isFoodBuff = false;
     }
+    
     public void UseHp()
-    {
+    {        
         HealthBarScript.instance.UpdateHealth(50);
-        Destroy(gameObject);    
+        Move_CharUtama.instance.isHeal = true;
+        Destroy(gameObject);        
     }
     
     
