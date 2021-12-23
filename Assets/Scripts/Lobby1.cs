@@ -10,7 +10,7 @@ public class Lobby1 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Level":
-                SceneManager.LoadScene("CharacterMove");
+                SceneManager.LoadScene("CutScene");
                 break;
             case "Settings":
                 SceneManager.LoadScene("Settings");

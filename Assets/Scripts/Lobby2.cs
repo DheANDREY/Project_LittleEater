@@ -21,6 +21,9 @@ public class Lobby2 : MonoBehaviour
             case "Previous":
                 SceneManager.LoadScene("LobbyLevel1");
                 break;
+            case "Next":
+                SceneManager.LoadScene("LobbyLevel1");
+                break;
             case "Shop":
                 SceneManager.LoadScene("Shop");
                 break;
