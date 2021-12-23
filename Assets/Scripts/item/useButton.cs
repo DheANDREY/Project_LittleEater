@@ -26,7 +26,8 @@ public class useButton : MonoBehaviour
 
     public void UseSlow()
     {
-        isFoodBuff = true; 
+        isFoodBuff = true;
+        Move_CharUtama.instance.isFoodUp = true;
         Destroy(gameObject);
         StartCoroutine(delay());
     }
@@ -44,19 +45,15 @@ public class useButton : MonoBehaviour
         Destroy(gameObject);        
     }
     
-    
-    public GameObject freezeRadius;
-    public GameObject charUtama;
     public void UseIce()
     {
-        // ITEM BISA DITAMBAHKAN
-        GameObject es = Instantiate(freezeRadius, new Vector3(charUtama.transform.position.x, charUtama.transform.position.y), Quaternion.identity) as GameObject;
-       // es.transform.localScale = new Vector3(1, 1, 0);
+        Move_CharUtama.instance.isIceSpawn = true;
         Destroy(gameObject);    
     }
     public void UseFood()
     {
         isGenBoost = true;
+        Move_CharUtama.instance.isGenUp = true;
         Destroy(gameObject);
         StartCoroutine(durasi());
     }

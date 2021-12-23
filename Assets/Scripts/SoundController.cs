@@ -35,4 +35,24 @@ public class SoundController : MonoBehaviour
     {
         sfx.PlayOneShot(stun);
     }
+    public AudioClip Pheal;
+    public void powHeal()
+    {
+        sfx.PlayOneShot(Pheal);
+    }
+    public AudioClip Pfood;
+    public void powFood()
+    {
+        sfx.PlayOneShot(Pfood);
+    }
+    public AudioClip Pgen;
+    public void powGen()
+    {
+        sfx.PlayOneShot(Pgen);
+    }
+    public AudioClip Pfreeze;
+    public void powFreeze()
+    {
+        sfx.PlayOneShot(Pfreeze);
+    }
 }

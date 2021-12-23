@@ -101,7 +101,7 @@ public class Move_CharUtama : MonoBehaviour
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
             //------------------------------------------------------------------------------------------
             
-            dash(); heal();
+            dash(); heal(); gen(); foodUp(); IceSpawn();
         }
          
     }
@@ -177,8 +177,7 @@ public class Move_CharUtama : MonoBehaviour
             fxE.transform.localScale = new Vector3(2, 2, 0);
             Destroy(fxE, 4);
             //animOn = true;
-        }
-        
+        }        
     }
     private bool animOn2;
     private void evoAnim2()
@@ -246,10 +245,52 @@ public class Move_CharUtama : MonoBehaviour
         if (isHeal == true)
         {
             GameObject h1 = Instantiate(healFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
-            h1.transform.SetParent(transform);
+            h1.transform.SetParent(transform);  soC.powHeal();
             h1.transform.localScale = new Vector3(1, 1, 0);
             Destroy(h1, 4);
             isHeal = false;
+        }
+    }
+
+    public bool isGenUp;
+    public GameObject GenFX;
+    public void gen()
+    {
+        if (isGenUp == true)
+        {
+            GameObject h2 = Instantiate(GenFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            h2.transform.SetParent(transform); soC.powGen();
+            h2.transform.localScale = new Vector3(1, 1, 0);
+            Destroy(h2, 4);
+            isGenUp = false;
+        }
+    }
+
+    public bool isFoodUp;
+    public GameObject FoodFX;
+    public void foodUp()
+    {
+        if (isFoodUp == true)
+        {
+            GameObject h3 = Instantiate(FoodFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            h3.transform.SetParent(transform); soC.powFood();
+            h3.transform.localScale = new Vector3(1, 1, 0);
+            Destroy(h3, 4);
+            isFoodUp = false;
+        }
+    }
+
+    public GameObject FreezeFX;
+    public bool isIceSpawn;
+    public void IceSpawn()
+    {
+        if(isIceSpawn == true)
+        {
+            GameObject h4 = Instantiate(FreezeFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            h4.transform.SetParent(transform); soC.powFreeze();
+            h4.transform.localScale = new Vector3(4, 4, 0);
+            Destroy(h4, 4);
+            isIceSpawn = false;
         }
     }
 
