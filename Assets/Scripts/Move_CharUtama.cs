@@ -286,7 +286,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         if(isIceSpawn == true)
         {
-            GameObject h4 = Instantiate(FreezeFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+            GameObject h4 = Instantiate(FreezeFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity) as GameObject;
             h4.transform.SetParent(transform); soC.powFreeze();
             h4.transform.localScale = new Vector3(4, 4, 0);
             Destroy(h4, 4);
@@ -295,16 +295,12 @@ public class Move_CharUtama : MonoBehaviour
     }
 
     private int score;
-    private int r;
+    private int r = 1;
     public void IncrementScore(int nilai)
     {
         if (useButton.instance.isGenBoost == true)
         {
             r = 2;
-        }
-        else if (useButton.instance.isGenBoost == false)
-        {
-            r = 1;
         }
 
         score += (nilai*r);        

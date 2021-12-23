@@ -9,12 +9,16 @@ public class Food : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     // public Animator[] anim;
     public static int value = 0;
-    private static int r;
+    private int r = 1;
 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();        
         //_valueMakanan = 50;
+    }
+    public void Update()
+    {
+        
     }
     public static Food instance;
     private void Awake()
@@ -25,16 +29,15 @@ public class Food : MonoBehaviour
     //private void OnTriggerEnter2D(Collider2D collision)
     public void Dimakan()
     {
-        if (useButton.instance.isFoodBuff == true)
-        {
-            r = 2;
-        }
-        else if (useButton.instance.isFoodBuff == false)
-        {
-            r = 1;
-        }
-        //if (GetComponent<Move_CharUtama>() != null)
+        //if (useButton.instance.isFoodBuff == true)
         //{
+        //    r = 2;
+        //}
+        //else if (useButton.instance.isFoodBuff == false)
+        //{
+        //    r = 1;
+        //}
+
         FoodBar.mCurrentValue += (_valueMakanan*r);
             if (FoodBar.mCurrentValue >= 300)
                 FoodBar.mCurrentValue = 300;
