@@ -12,6 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ab2360c9bcf5c5242b779d03737ca3ba
   - enabled: 1
+    path: Assets/Scenes/LobbyLevel1.unity
+    guid: 6c45d26092b11604692b49f8dcfd75f4
+  - enabled: 1
+    path: Assets/Scenes/LobbyLevel2.unity
+    guid: 609c678ea480a514ea8775474a959da3
+  - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: dd3e3908ee364ca489552f1f3928e523
+  - enabled: 1
+    path: Assets/Scenes/Tutorial1.unity
+    guid: f5896a9c6de578343a333c3324d18019
+  - enabled: 1
+    path: Assets/Scenes/Tutorial2.unity
+    guid: c8b548caf6cdc354690a0bcbad6160cf
+  - enabled: 1
+    path: Assets/Scenes/Tutorial3.unity
+    guid: 8f3fc0cc3dbbe724d9a44e2fadd01bb2
+  - enabled: 1
     path: Assets/Scenes/CharacterMove.unity
     guid: 3093b7d9ec86cd64fa24e32daf149a79
   - enabled: 1
@@ -20,4 +38,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: f88a68e5df83f6a45b9394b6442c218a
+  - enabled: 1
+    path: Assets/Scenes/Encyclopedia.unity
+    guid: c7956d104a66f8e469975955d3153fd7
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 5b798eb88d06157408f9df52c5b7ea64
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 437d09a9310678d4186d7b84e982f261
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

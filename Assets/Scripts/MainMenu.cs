@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "PlayButton":
-                SceneManager.LoadScene("CharacterMove");
+                SceneManager.LoadScene("LobbyLevel1");
                 break;
             case "SettingsButton":
                 SceneManager.LoadScene("Settings");
