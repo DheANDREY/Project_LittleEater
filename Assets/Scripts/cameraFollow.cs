@@ -12,7 +12,13 @@ public class cameraFollow : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
-        if (HealthBarScript.health <= 0f || FoodBar.mCurrentValue <=0)
+
+        if(FoodBar.mCurrentValue <= 0 && HealthBarScript.health > 0)
+        {
+            HealthBarScript.health -= Time.deltaTime;
+        }
+
+        if (HealthBarScript.health <= 0f)// || FoodBar.mCurrentValue <=0)
         {
             GameOver();
         }

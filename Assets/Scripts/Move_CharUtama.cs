@@ -298,10 +298,10 @@ public class Move_CharUtama : MonoBehaviour
     private int r = 1;
     public void IncrementScore(int nilai)
     {
-        if (useButton.instance.isGenBoost == true)
-        {
-            r = 2;
-        }
+        // if (useButton.instance.isGenBoost == true)
+        // {
+        //     r = 2;
+        // }
 
         score += (nilai*r);        
     }
