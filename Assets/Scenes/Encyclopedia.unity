@@ -630,7 +630,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 72b947268c581a54e9f0d6b220b91c5f, type: 3}
-    m_FontSize: 43
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -642,8 +642,8 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Sporos adalah musuh yang membawa kantung\nberacun di ekor mereka, mereka
-    dapat menaruh \nkantung tersebut di tanah untuk membuat sebuah \njebakan, mahluk-mahluk
-    kecil akan tertarik terhadap \naroma jebakan tersebut."
+    dapat menaruh \nkantung tersebut di tanah untuk membuat \nsebuah jebakan, mahluk-mahluk
+    kecil akan \ntertarik terhadap aroma jebakan tersebut."
 --- !u!222 &507614690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -881,7 +881,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &671292394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -924,7 +924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 75}
+  m_AnchoredPosition: {x: -258, y: 50}
   m_SizeDelta: {x: 160, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &794415445
@@ -949,7 +949,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 72b947268c581a54e9f0d6b220b91c5f, type: 3}
-    m_FontSize: 43
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -960,9 +960,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Slorag adalah musuh yang lambat, untuk melindungi\ndiri mereka menumbuhkan
-    sebuah duri di tubuh\nmereka yang memberikan proteksi dan kamuflase\nkarena terlihat
-    seperti tumbuhan berduri yang \nmenjadi diet utama mereka."
+  m_Text: "Slorag adalah musuh yang lambat, untuk\nmelindungi diri mereka menumbuhkan
+    sebuah\nduri di tubuh mereka yang memberikan proteksi \ndan kamuflase karena terlihat
+    seperti\ntumbuhan berduri yang menjadi diet utama\nmereka."
 --- !u!222 &794415446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1857,10 +1857,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 72b947268c581a54e9f0d6b220b91c5f, type: 3}
-    m_FontSize: 43
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1868,10 +1868,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Ada sesuatu yang aneh dengan mahluk yang satu\nini, sentinel sama sekali
-    tidak mirip seperti mahluk \nhidup, aroma aneh yang ia keluarkan dan bentuk \ntubuhnya
-    seperti melambangkan bahwa ia tidak \nhidup namun juga tidak mati, hal ini sangat
-    menarik\nsang character utama, apakah mahluk ini dapat\ndimakan."
+  m_Text: "Ada sesuatu yang aneh dengan mahluk yang \nsatu ini, sentinel sama sekali
+    tidak mirip seperti\nmahluk hidup, aroma aneh yang ia keluarkan\ndan bentuk tubuhnya
+    seperti melambangkan\nbahwa ia tidak hidup namun juga tidak mati,\nhal ini sangat
+    menarik sang character utama,\napakah mahluk ini dapat dimakan."
 --- !u!222 &1688300445
 CanvasRenderer:
   m_ObjectHideFlags: 0
