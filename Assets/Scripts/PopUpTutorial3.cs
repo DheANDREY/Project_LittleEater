@@ -14,16 +14,15 @@ public class PopUpTutorial3 : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine("PopUpFoodBar");
-        StartCoroutine("PopUpDashBar");
-        //StartCoroutine("PopUpPowerUp");
-        //StartCoroutine("PopUpPause");
-        StartCoroutine("PopUpPlay");
+        Invoke("PopUpFoodBar", 2.0f);
+        Invoke("PopUpDashBar", 4.0f);
+        Invoke("PopUpPowerUp", 6.0f);
+        Invoke("PopUpPause", 8.0f);
+        Invoke("PopUpPlay", 10.0f);
     }
     
-    IEnumerator PopUpFoodBar()
+    public void PopUpFoodBar()
     {
-        yield return new WaitForSeconds(3);
         HP.SetActive(false);
         FoodBar.SetActive(true);
         DashBar.SetActive(false);
@@ -31,9 +30,8 @@ public class PopUpTutorial3 : MonoBehaviour
         Pause.SetActive(false);
     }
 
-    IEnumerator PopUpDashBar()
+    public void PopUpDashBar()
     {
-        yield return new WaitForSeconds(6);
         HP.SetActive(false);
         FoodBar.SetActive(false);
         DashBar.SetActive(true);
@@ -41,9 +39,8 @@ public class PopUpTutorial3 : MonoBehaviour
         Pause.SetActive(false);
     }
 
-    /*IEnumerator PopUpPowerUp()
+    public void PopUpPowerUp()
     {
-        yield return new WaitForSeconds(9);
         HP.SetActive(false);
         FoodBar.SetActive(false);
         DashBar.SetActive(false);
@@ -51,19 +48,17 @@ public class PopUpTutorial3 : MonoBehaviour
         Pause.SetActive(false);
     }
 
-    IEnumerator PopUpPause()
+    public void PopUpPause()
     {
-        yield return new WaitForSeconds(12);
         HP.SetActive(false);
         FoodBar.SetActive(false);
         DashBar.SetActive(false);
         PowerUp.SetActive(false);
         Pause.SetActive(true);
-    }*/
+    }
 
-    IEnumerator PopUpPlay()
+    public void PopUpPlay()
     {
-        yield return new WaitForSeconds(15);
         SceneManager.LoadScene("CharacterMove");
     }
 }

@@ -10,7 +10,7 @@ public class NextTutorial2 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Next":
-                SceneManager.LoadScene(/*"Tutorial3*/"CharacterMove");
+                SceneManager.LoadScene("Tutorial3");
                 break;
         }
     }
