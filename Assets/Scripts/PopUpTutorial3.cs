@@ -14,11 +14,11 @@ public class PopUpTutorial3 : MonoBehaviour
 
     public void Start()
     {
-        Invoke("PopUpFoodBar", 2.0f);
-        Invoke("PopUpDashBar", 4.0f);
-        Invoke("PopUpPowerUp", 6.0f);
-        Invoke("PopUpPause", 8.0f);
-        Invoke("PopUpPlay", 10.0f);
+        Invoke("PopUpFoodBar", 2.5f);
+        Invoke("PopUpDashBar", 5.0f);
+        Invoke("PopUpPowerUp", 7.5f);
+        Invoke("PopUpPause", 10.0f);
+        Invoke("PopUpPlay", 12.5f);
     }
     
     public void PopUpFoodBar()
