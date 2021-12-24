@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class LevelRoom : MonoBehaviour
 {
-	[SerializeField] private Transform _foodSpawnRoot;
-	[SerializeField] private Transform _enemySpawnRoot;
+	public Transform FoodSpawnRoot;
+	public Transform EnemySpawnRoot;
 
-    private void Awake()
+    private void Start()
     {
-    	if(_foodSpawnRoot != null)
+    	if(FoodSpawnRoot != null)
     	{
     		SpawnFood();
     	}
 
-    	if(_enemySpawnRoot != null)
+    	if(EnemySpawnRoot != null)
     	{
     		SpawnEnemy();
     	}
@@ -24,7 +24,7 @@ public class LevelRoom : MonoBehaviour
     {
 		GameObject[] foodPrefabs = Resources.LoadAll<GameObject>("Foods/");
 		
-    	foreach(Transform child in _foodSpawnRoot)
+    	foreach(Transform child in FoodSpawnRoot)
     	{
     		if(child.childCount == 0)
     		{
@@ -39,7 +39,7 @@ public class LevelRoom : MonoBehaviour
     {
 		GameObject[] enemyPrefabs = Resources.LoadAll<GameObject>("Enemies/");
 
-    	foreach(Transform child in _enemySpawnRoot)
+    	foreach(Transform child in EnemySpawnRoot)
     	{
     		if(child.childCount == 0)
     		{
