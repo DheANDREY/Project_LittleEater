@@ -14,6 +14,10 @@ public class iceEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        collider.GetComponent<Enemy2>().Stun();
+        Enemy2 enemy = collider.GetComponent<Enemy2>();
+        if(enemy != null && enemy)
+        {
+            Enemy2.instance.Stun();
+        }
     }
 }
