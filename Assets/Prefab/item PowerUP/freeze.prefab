@@ -129,3 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbdd4b64b4d7934b97ea7d2917262bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyToFreeze1: {fileID: 4917305486421098996, guid: f0903a7a2c9fb3645b5d2cf3920a115e,
+    type: 3}
+  enemyToFreeze2: {fileID: 6792872067263421990, guid: 4a8f60de01c628949a08ca2d2cb951ca,
+    type: 3}

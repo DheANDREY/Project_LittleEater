@@ -26130,7 +26130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2055761242
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27219,7 +27219,7 @@ PrefabInstance:
         type: 3}
       propertyPath: FreezeFX
       value: 
-      objectReference: {fileID: 7696273093042742298, guid: 29f3604ea4dbd94429b9f5f64b13265f,
+      objectReference: {fileID: 8034865528676311190, guid: 8824c8e837ccf374f99cc1c3b066a9e4,
         type: 3}
     - target: {fileID: 7249667597857384637, guid: 1542eb8e90e103f498be151c2b60653d,
         type: 3}
