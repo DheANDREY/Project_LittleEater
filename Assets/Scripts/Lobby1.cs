@@ -25,8 +25,8 @@ public class Lobby1 : MonoBehaviour
             case "Shop":
                 SceneManager.LoadScene("Shop");
                 break;
-            case "Map":
-                SceneManager.LoadScene("Map");
+            case "Galleries":
+                SceneManager.LoadScene("Galleries");
                 break;
             case "Encyclopedia":
                 SceneManager.LoadScene("Encyclopedia");

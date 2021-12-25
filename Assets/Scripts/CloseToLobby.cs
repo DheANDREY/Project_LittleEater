@@ -12,6 +12,9 @@ public class CloseToLobby : MonoBehaviour
             case "CloseButton":
                 SceneManager.LoadScene("LobbyLevel1");
                 break;
+            case "Back":
+                SceneManager.LoadScene("LobbyLevel1");
+                break;
         }
     }
 }
