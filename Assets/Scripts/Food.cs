@@ -9,7 +9,7 @@ public class Food : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     // public Animator[] anim;
     public static int value = 0;
-    private int r = 1;
+    private int r;
 
     void Start()
     {
@@ -29,14 +29,14 @@ public class Food : MonoBehaviour
     //private void OnTriggerEnter2D(Collider2D collision)
     public void Dimakan()
     {
-        //if (useButton.instance.isFoodBuff == true)
-        //{
-        //    r = 2;
-        //}
-        //else if (useButton.instance.isFoodBuff == false)
-        //{
-        //    r = 1;
-        //}
+        if (useButton.instance.isFoodBuff == true)
+        {
+            r = 2;
+        }
+        else if (useButton.instance.isFoodBuff == false)
+        {
+            r = 1;
+        }
 
         FoodBar.mCurrentValue += (_valueMakanan*r);
             if (FoodBar.mCurrentValue >= 300)

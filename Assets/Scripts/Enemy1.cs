@@ -7,7 +7,7 @@ public class Enemy1 : MonoBehaviour
 {
     // public Transform[] patrolPoints;
     public GameObject Character;
-    private Rigidbody2D rigidBody2d;
+    private Rigidbody2D rb;
     public float speed;
     Transform currentPatrolPoint;
     int currentPatrolIndex;
@@ -50,7 +50,7 @@ public class Enemy1 : MonoBehaviour
         //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
         myAnim = GetComponent<Animator>();
-        rigidBody2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         target = FindObjectOfType<Move_CharUtama>().transform;
     }
 
@@ -63,7 +63,7 @@ public class Enemy1 : MonoBehaviour
             {
                 if (!sekali)
                 {
-                    GameObject fx = Instantiate(stunFx, new Vector3(rigidBody2d.position.x, rigidBody2d.position.y + 1, 0), Quaternion.identity) as GameObject;
+                    GameObject fx = Instantiate(stunFx, new Vector3(rb.position.x, rb.position.y + 1, 0), Quaternion.identity) as GameObject;
                     Debug.Log(stunFx);
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(1, 1, 0);
@@ -103,7 +103,7 @@ public class Enemy1 : MonoBehaviour
                     }
                 }
             }
-            else if (enemyToPlayerDistance < 5f)
+            else if (enemyToPlayerDistance < 6f)
             {
                 // chase, kejer player
                 Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
@@ -120,11 +120,11 @@ public class Enemy1 : MonoBehaviour
             }
         }
 
-        if (rigidBody2d.velocity.x > 0)
+        if (rb.velocity.x > 0)
         {
             sr.flipX = false;
         }
-        if (rigidBody2d.velocity.x < 0)
+        if (rb.velocity.x < 0)
         {
             sr.flipX = true;
         }

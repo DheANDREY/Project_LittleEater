@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4208034323579300437}
   - component: {fileID: 1353011712011069532}
   - component: {fileID: 5920969945682903065}
-  - component: {fileID: 2789053768158324514}
+  - component: {fileID: 3459945572061705380}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -114,7 +114,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6792872067263421990}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3acd0f45e12321446b76ad1ecb13145c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -160,7 +160,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2789053768158324514
+--- !u!114 &3459945572061705380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

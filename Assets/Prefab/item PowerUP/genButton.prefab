@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 576065707113829980}
   - component: {fileID: 7163442165807703527}
   m_Layer: 5
-  m_Name: slowButton
+  m_Name: genButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 97312f0f3c81c74439f475662f2af1ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12d3ae98318ca7248a792722c0c40cf9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7163442165807703527}
-        m_MethodName: UseSlow
+        m_MethodName: UseGen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -144,7 +144,3 @@ MonoBehaviour:
   foodB: {fileID: 7751584441178292102, guid: b35f3c722726e7c40978a82a6ec5b6b4, type: 3}
   isFoodBuff: 0
   isGenBoost: 0
-  freezeRadius: {fileID: 8034865528676311190, guid: 8824c8e837ccf374f99cc1c3b066a9e4,
-    type: 3}
-  charUtama: {fileID: 7249667597857384583, guid: 1542eb8e90e103f498be151c2b60653d,
-    type: 3}
