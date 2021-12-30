@@ -7204,7 +7204,7 @@ MonoBehaviour:
   Pheal: {fileID: 8300000, guid: 79883cf6a37244a47b64261007d67c25, type: 3}
   Pfood: {fileID: 8300000, guid: b8c2cc97dbabf44419ab1eb37e03183a, type: 3}
   Pgen: {fileID: 8300000, guid: f8c2698f402563a4f8a8317da628142d, type: 3}
-  Pfreeze: {fileID: 8300000, guid: a6ce6891cf55f7c4ca77708ffa777ad0, type: 3}
+  Pfreeze: {fileID: 8300000, guid: fd2f8402e6b42ea498a3abd89128226d, type: 3}
   kenaHit: {fileID: 8300000, guid: e7e15af3a9ae7ce4eb121f531a3d8eb3, type: 3}
 --- !u!4 &579832117
 Transform:
@@ -27343,6 +27343,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 7249667599581787663, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249667598448574859, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249667598162046568, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249667597857384636, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1570921641}
+    - target: {fileID: 7249667597857384636, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: slots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1627801495}
     - target: {fileID: 7249667597857384632, guid: 1542eb8e90e103f498be151c2b60653d,
         type: 3}
       propertyPath: randomItem.Array.size
@@ -27639,35 +27664,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7249667597857384636, guid: 1542eb8e90e103f498be151c2b60653d,
-        type: 3}
-      propertyPath: slots.Array.data[0]
-      value: 
-      objectReference: {fileID: 1570921641}
-    - target: {fileID: 7249667597857384636, guid: 1542eb8e90e103f498be151c2b60653d,
-        type: 3}
-      propertyPath: slots.Array.data[1]
-      value: 
-      objectReference: {fileID: 1627801495}
     - target: {fileID: 7249667597857384634, guid: 1542eb8e90e103f498be151c2b60653d,
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249667598448574859, guid: 1542eb8e90e103f498be151c2b60653d,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249667598162046568, guid: 1542eb8e90e103f498be151c2b60653d,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249667599581787663, guid: 1542eb8e90e103f498be151c2b60653d,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1542eb8e90e103f498be151c2b60653d, type: 3}
