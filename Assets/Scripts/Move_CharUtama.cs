@@ -18,12 +18,12 @@ public class Move_CharUtama : MonoBehaviour
 
     public SpriteRenderer[] sr;
     private bool isWalk;
-    public SoundController soC;
+    
 
     bool eat;
     public Fillbar fb;
     public FoodBar foodB;
-
+    public SoundController soC;
     private Inventory inventory;
     public GameObject itemButton;
 
@@ -40,11 +40,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         instance = this;
     }
-    //=======
-    // gameObject.tag = "Player";
 
-    //>>>>>>> origin/Food_Evolution
-    // Update is called once per frame
     void Update()
     {
         if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200))
@@ -103,6 +99,7 @@ public class Move_CharUtama : MonoBehaviour
             
             dash(); 
             heal(); gen(); foodUp(); IceSpawn();
+            dead();
         }
          
     }
@@ -122,16 +119,6 @@ public class Move_CharUtama : MonoBehaviour
         isEvolving = false;
     }
 //-----------------------------------------------------------------------------------------------
-
-    //private void walkFX()
-    //{
-    //    if(!isEvolving)
-    //    {
-    //        GameObject fx = Instantiate(walkFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
-    //       // fx.transform.SetParent(transform);
-    //        fx.transform.localScale = new Vector3(1, 1, 0);
-    //    }
-    //}
     private void dash()
     {
         if (Input.GetKeyDown(KeyCode.Space) && (_rigidBody.velocity.x != 0 || _rigidBody.velocity.y != 0) && Fillbar.instance.currentDash >= 50)
@@ -202,41 +189,74 @@ public class Move_CharUtama : MonoBehaviour
     public GameObject hitVfx;
     public dropItem di;
     public Food[] fd;
-    
+    public int d;
+    public useButton ub;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.GetComponent<Enemy2>() != null)
+        if (ub.isGenBoost == true)
         {
-            
-            if (collider.GetComponent<Enemy2>().IsStunned)
-            {             
-                anim[_curentEvoIndex].SetTrigger("isMakan");
-                collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-                //IncrementScore(); 
-                di.itemDrop();
-                Fillbar.instance.kurang(-50);
-            }           
-            else
+            d = 2;
+        }
+        if (ub.isGenBoost == false)
+        {
+            d = 1;
+        }
+        if (collider.GetComponent<Enemy2>() != null)
             {
-                if(IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
+
+                if (collider.GetComponent<Enemy2>().IsStunned)
                 {
-                    GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
-                    fxE.transform.SetParent(transform);
-                    fxE.transform.localScale = new Vector3(1, 1, 0);
-                    soC.sfxbStun();
-                    collider.GetComponent<Enemy2>().Stun();
-                    Destroy(hitVfx, 3);
+                    anim[_curentEvoIndex].SetTrigger("isMakan");
+                    collider.GetComponent<Food>().Dimakan(d); soC.sfxMakan();
+                    //IncrementScore(); 
+                    di.itemDrop();
+                    Fillbar.instance.kurang(-50);
                 }
-            }
-        } 
+                else
+                {
+                    if (IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
+                    {
+                        GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                        fxE.transform.SetParent(transform);
+                        fxE.transform.localScale = new Vector3(1, 1, 0);
+                        soC.sfxbStun();
+                        collider.GetComponent<Enemy2>().Stun();
+                        Destroy(hitVfx, 3);
+                    }
+                }
+        }
         else if (collider.GetComponent<Enemy1>() != null)
         {
 
-            if (collider.GetComponent<Enemy1>().IsStunned)
+                if (collider.GetComponent<Enemy1>().IsStunned)
+                {
+                    anim[_curentEvoIndex].SetTrigger("isMakan");
+                    collider.GetComponent<Food>().Dimakan(d); soC.sfxMakan();
+                    //IncrementScore(); 
+                    di.itemDrop();
+                    Fillbar.instance.kurang(-50);
+                }
+                else
+                {
+                    if (IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
+                    {
+                        GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                        fxE.transform.SetParent(transform);
+                        fxE.transform.localScale = new Vector3(1, 1, 0);
+                        soC.sfxbStun();
+                        collider.GetComponent<Enemy1>().Stun();
+                        Destroy(hitVfx, 3);
+                    }
+                }
+        }
+        else if (collider.GetComponent<Enemy3>() != null)
+        {
+
+            if (collider.GetComponent<Enemy3>().IsStunned)
             {
                 anim[_curentEvoIndex].SetTrigger("isMakan");
-                collider.GetComponent<Food>().Dimakan(); soC.sfxMakan();
+                collider.GetComponent<Food>().Dimakan(d); soC.sfxMakan();
                 //IncrementScore(); 
                 di.itemDrop();
                 Fillbar.instance.kurang(-50);
@@ -249,21 +269,23 @@ public class Move_CharUtama : MonoBehaviour
                     fxE.transform.SetParent(transform);
                     fxE.transform.localScale = new Vector3(1, 1, 0);
                     soC.sfxbStun();
-                    collider.GetComponent<Enemy1>().Stun();
+                    collider.GetComponent<Enemy3>().Stun();
                     Destroy(hitVfx, 3);
                 }
             }
         }
-        else if(collider.GetComponent<Food>() != null)
-        {
-            // play animasi makanan
-            anim[_curentEvoIndex].SetTrigger("isMakan");
-            collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-            IncrementScore(collider.GetComponent<Food>()._valueMakanan); 
-            Fillbar.instance.kurang(-50);
-            
-        }     
+        else if (collider.GetComponent<Food>() != null)
+            {
+                // play animasi makanan
+                anim[_curentEvoIndex].SetTrigger("isMakan");
+                collider.GetComponent<Food>().Dimakan(d); 
+                soC.sfxMakan();
+                IncrementScore(collider.GetComponent<Food>()._valueMakanan);
+                Fillbar.instance.kurang(-50);
+            }
+        
     }
+    
 
     public bool isHeal;
     public GameObject healFX;
@@ -325,20 +347,18 @@ public class Move_CharUtama : MonoBehaviour
     private int r;
     public void IncrementScore(int nilai)
     {
-        if (useButton.instance.isGenBoost == true)
-        {
-            r = 2;
-        }
-        else
-        {
-            r = 1;
-        }
-
-        score += (nilai*r);        
+        score += nilai;        
     }
     public int Score
     {
         get { return score; }
     }
 
+    private void dead()
+    {
+        if(HealthBarScript.health <= 0)
+        {
+            anim[_curentEvoIndex].SetBool("isDeath", true);
+        }
+    }
 }

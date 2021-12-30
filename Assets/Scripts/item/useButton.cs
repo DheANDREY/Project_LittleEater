@@ -57,7 +57,7 @@ public class useButton : MonoBehaviour
 
     }
     private IEnumerator durasi()
-    {
+    {   
         yield return new WaitForSeconds(4);
         isGenBoost = false;
     }

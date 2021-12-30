@@ -23,15 +23,21 @@ public class Enemy1 : MonoBehaviour
 
     private float _stunCooldown;
 
-    private Transform target;
+    private Transform player;
 
     private Animator myAnim;
 
     public Animator StunE;
-    public GameObject stunFx;
+    public GameObject stunFx;    
     public SpriteRenderer sr;
 
-    public static Enemy2 instance;
+    private float timeBtwShoot;
+    public float startTimeBtwShoot;
+    public GameObject bullet;
+
+    private AudioSource auS;
+    public AudioClip stun;
+
 
     private void Awake()
     {
@@ -46,12 +52,11 @@ public class Enemy1 : MonoBehaviour
     {
         homePos = transform.position;
 
-        //currentPatrolIndex = 0;
-        //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
         myAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        target = FindObjectOfType<Move_CharUtama>().transform;
+        timeBtwShoot = startTimeBtwShoot;
+        auS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -98,8 +103,9 @@ public class Enemy1 : MonoBehaviour
                     if (attackCooldown <= 0)
                     {
                         attackCooldown = _attackDuration;
-                        HealthBarScript.health -= 4f;
+                        HealthBarScript.instance.hpBerkurang(4);                        
                         Debug.Log("attack");
+
                     }
                 }
             }
@@ -128,14 +134,29 @@ public class Enemy1 : MonoBehaviour
         {
             sr.flipX = true;
         }
+
+        if(timeBtwShoot <= 0)
+        {
+            GameObject h4 = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+
+            Destroy(h4, 7);
+
+            timeBtwShoot = startTimeBtwShoot;
+
+        }
+        else
+        {
+            timeBtwShoot -= Time.deltaTime;
+        }
     }
 
     public void Stun()
     {
         Debug.Log("stun");
-        IsStunned = true;
-        _stunCooldown = _stunDuration;
+        IsStunned = true;   
+        _stunCooldown = _stunDuration; 
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        auS.PlayOneShot(stun);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

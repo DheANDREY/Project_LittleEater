@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Food : MonoBehaviour
 {
-    [SerializeField] public int _valueMakanan;    
+    [SerializeField] public int _valueMakanan;
     private Rigidbody2D rigidBody2D;
     // public Animator[] anim;
     public static int value = 0;
-    private int r;
 
     void Start()
     {
@@ -18,7 +17,7 @@ public class Food : MonoBehaviour
     }
     public void Update()
     {
-        
+
     }
     public static Food instance;
     private void Awake()
@@ -27,19 +26,10 @@ public class Food : MonoBehaviour
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)
-    public void Dimakan()
-    {
-        if (useButton.instance.isFoodBuff == true)
-        {
-            r = 2;
-        }
-        else if (useButton.instance.isFoodBuff == false)
-        {
-            r = 1;
-        }
-
-        FoodBar.mCurrentValue += (_valueMakanan*r);
-            if (FoodBar.mCurrentValue >= 300)
+    public void Dimakan(int p)
+    {       
+        FoodBar.mCurrentValue += (_valueMakanan);
+            if (FoodBar.mCurrentValue >= 300*p)
                 FoodBar.mCurrentValue = 300;
             //FoodBar.mCurrentValue = (int)Mathf.Min(FoodBar.mCurrentValue + _valueMakanan, 300);
             FoodBar.mCurrentPercent = (float)FoodBar.mCurrentValue / (float)(300);
