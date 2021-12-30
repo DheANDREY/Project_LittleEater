@@ -15,6 +15,12 @@ public class CloseToLobby : MonoBehaviour
             case "Back":
                 SceneManager.LoadScene("LobbyLevel1");
                 break;
+            case "CloseToPlay":
+                SceneManager.LoadScene("CharacterMove");
+                break;
+            case "BackToPlay":
+                SceneManager.LoadScene("CharacterMove");
+                break;
         }
     }
 }
