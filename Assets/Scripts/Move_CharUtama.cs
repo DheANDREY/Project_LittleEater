@@ -343,7 +343,7 @@ public class Move_CharUtama : MonoBehaviour
         }
     }
 
-    private int score;
+    public int score;
     private int r;
     public void IncrementScore(int nilai)
     {
