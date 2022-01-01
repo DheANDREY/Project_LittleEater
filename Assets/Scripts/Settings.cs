@@ -10,12 +10,11 @@ public class Settings : MonoBehaviour
     public GameObject Off;
     //public GameObject BGMSet;
     //private MainMenuBGM Menu;
-    //private
-    GameObject BGM;
+    private GameObject BGM;
 
     public void Start()
     {
-        BGM = FindObjectOfType<MainMenuBGM>().gameObject;
+        BGM = FindObjectOfType<SoundController>().gameObject;
         //BGMSet = BGM;
         //Destroy(BGM);
     }
@@ -27,16 +26,16 @@ public class Settings : MonoBehaviour
             case "OnButton":
                 Off.SetActive(true);
                 On.SetActive(false);
-                //BGM.SetActive(true);
-                gameObject.GetComponent<MainMenuBGM>().enabled = true;
+                BGM.SetActive(true);
+                //gameObject.GetComponent<SoundController>().enabled = true;
                 break;
             case "OffButton":
                 Off.SetActive(false);
                 On.SetActive(true);
-                gameObject.GetComponent<MainMenuBGM>().enabled = false;
+                //gameObject.GetComponent<SoundController>().enabled = false;
                 //Destroy(BGM);
                 //Menu.OffBGM();
-                //BGM.SetActive(false);
+                BGM.SetActive(false);
                 break;
         }
     }
