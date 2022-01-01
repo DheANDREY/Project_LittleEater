@@ -6,6 +6,7 @@ public class ShopTotem : MonoBehaviour
 {
     public GameObject player;
     [SerializeField] GameObject shopMenu;
+    public GameObject buttonHandler;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class ShopTotem : MonoBehaviour
     public void ShopMenu()
     {
         shopMenu.SetActive(true);
+        buttonHandler.SetActive(false);
         Time.timeScale = 0f;
         pause.isGamePaused = true;
     }
@@ -30,6 +32,7 @@ public class ShopTotem : MonoBehaviour
     public void exitShop()
     {
         shopMenu.SetActive(false);
+        buttonHandler.SetActive(true);
         Time.timeScale = 1f;
         pause.isGamePaused = false;
     }

@@ -97,7 +97,7 @@ public class Move_CharUtama : MonoBehaviour
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
             //------------------------------------------------------------------------------------------            
             dash(); 
-            heal(); gen(); foodUp(); IceSpawn();
+            heal(); gen(); foodUp(); BiteSpawn();
                 portalSpawn();
             
             dead();
@@ -332,14 +332,14 @@ public class Move_CharUtama : MonoBehaviour
 
     public GameObject FreezeFX;
     public bool isIceSpawn;
-    public void IceSpawn()
+    public void BiteSpawn()
     {
         if(isIceSpawn == true)
         {
             GameObject h4 = Instantiate(FreezeFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity) as GameObject;
             h4.transform.SetParent(transform); soC.powFreeze();
             h4.transform.localScale = new Vector3(4, 4, 0);
-            Destroy(h4, 4);
+            Destroy(h4, 5);
             isIceSpawn = false;
         }
     }    

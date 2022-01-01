@@ -33,7 +33,7 @@ public class useButton : MonoBehaviour
 
     private IEnumerator delay()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         isFoodBuff = false;
     }
     public void UseHp()
@@ -43,7 +43,7 @@ public class useButton : MonoBehaviour
         Destroy(gameObject);        
     }
     
-    public void UseIce()
+    public void UseBite()
     {
         Move_CharUtama.instance.isIceSpawn = true;
         Destroy(gameObject);    
@@ -58,7 +58,7 @@ public class useButton : MonoBehaviour
     }
     private IEnumerator durasi()
     {   
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         isGenBoost = false;
     }
 
