@@ -95,10 +95,11 @@ public class Move_CharUtama : MonoBehaviour
                 sr[3].flipX = true; sr[4].flipX = true;
             }
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
-            //------------------------------------------------------------------------------------------
-            
+            //------------------------------------------------------------------------------------------            
             dash(); 
             heal(); gen(); foodUp(); IceSpawn();
+                portalSpawn();
+            
             dead();
         }
          
@@ -341,7 +342,7 @@ public class Move_CharUtama : MonoBehaviour
             Destroy(h4, 4);
             isIceSpawn = false;
         }
-    }
+    }    
 
     public int score;
     private int r;
@@ -349,6 +350,19 @@ public class Move_CharUtama : MonoBehaviour
     {
         score += nilai;        
     }
+
+    public GameObject portal;
+    public bool isPortalSpawned;
+    public void portalSpawn()
+    {
+        if (score >= 70  && isPortalSpawned == false)
+        {
+            GameObject h5 = Instantiate(portal, new Vector3(_rigidBody.position.x + 5 , _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+           // h5.transform.SetParent(transform); //soC.powFreeze();  
+            isPortalSpawned = true;
+        }
+    }
+
     public int Score
     {
         get { return score; }

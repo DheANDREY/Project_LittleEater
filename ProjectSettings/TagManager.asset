@@ -15,6 +15,7 @@ TagManager:
   - bar
   - fx
   - Enemy
+  - portal
   layers:
   - Default
   - TransparentFX
