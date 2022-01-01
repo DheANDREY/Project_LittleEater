@@ -10,7 +10,7 @@ public class Lobby1 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Level":
-                DestroyImmediate(FindObjectOfType<MainMenuBGM>().gameObject);
+                //DestroyImmediate(FindObjectOfType<MainMenuBGM>().gameObject);
                 SceneManager.LoadScene("CutScene");
                 break;
             case "Settings":
@@ -25,8 +25,8 @@ public class Lobby1 : MonoBehaviour
             case "Shop":
                 SceneManager.LoadScene("Shop");
                 break;
-            case "Map":
-                SceneManager.LoadScene("Map");
+            case "Galleries":
+                SceneManager.LoadScene("Galleries");
                 break;
             case "Encyclopedia":
                 SceneManager.LoadScene("Encyclopedia");

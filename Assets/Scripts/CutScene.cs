@@ -9,8 +9,12 @@ public class CutScene : MonoBehaviour
 {
     public VideoPlayer cutScene;
     private IEnumerator coroutine;
+    private GameObject BGM;
+
     void Start()
     {
+        BGM = FindObjectOfType<MainMenuBGM>().gameObject;
+        Destroy(BGM.gameObject);
         cutScene.Play();
         coroutine = Tutorial();
         StartCoroutine(coroutine);
