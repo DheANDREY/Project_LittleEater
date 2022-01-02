@@ -5,36 +5,43 @@ using UnityEngine.UI;
 
 public class portal : MonoBehaviour
 {
-    public GameObject player;
-    private GameObject portalMenu;
+    private GameObject player;
+    public GameObject portalMenuController;
+    public static bool isGamePaused = false;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        portalMenu = GameObject.Find("MenuPortal");
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Move_CharUtama>() != null)
         {
-            _menuPortal();
+            if (isGamePaused)
+            {
+                noPortal();
+            }
+            else
+            {
+                _menuPortal();
+            }
+            
         }
     }
 
     public void _menuPortal()
     {
-        portalMenu.SetActive(true);
-
+        portalMenuController.SetActive(true);
         Time.timeScale = 0f;
-        pause.isGamePaused = true;
+        isGamePaused = true;
     }
 
     public void noPortal()
     {
-        portalMenu.SetActive(false);
-
+        portalMenuController.SetActive(false);
         Time.timeScale = 1f;
-        pause.isGamePaused = false;
+        isGamePaused = false;
     }
 }

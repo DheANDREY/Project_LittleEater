@@ -139,5 +139,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5867f7d398699884fb6e971f0b87fe85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7249667597857384583, guid: 1542eb8e90e103f498be151c2b60653d, type: 3}
-  portalMenu: {fileID: 0}
+  portalMenuController: {fileID: 9220497011705210032, guid: c6c65a47925e28e4695863afdb29a363,
+    type: 3}
