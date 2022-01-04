@@ -9,13 +9,13 @@ public class HealthBarScript : MonoBehaviour
     float maxHealth = 100f;
     public static float health;
     public SoundController soC;
-    public int _curentEvoIndex;
-    
 
     public Renderer[] player;
     [SerializeField] private Color colorTo = Color.white;
 
     public static HealthBarScript instance;
+    public GameObject _gameOverP;
+    public GameObject buttonHandler;
     private void Awake()
     {
         instance = this;
@@ -41,14 +41,19 @@ public class HealthBarScript : MonoBehaviour
             health = 0f;
         }
     }
-
+    //public Move_CharUtama mcu;
+    public bool mati;
     public void hpBerkurang(int nilai)
     {
         if(health - nilai >= 0)
         {
             health -= nilai;
             soC.hitDmg();
-
+            if(health <= 0)
+            {
+                mati = true;
+            }
+            
             // player.material.color = colorTo;
         }
         else
@@ -60,23 +65,12 @@ public class HealthBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(health);
         healthBar.fillAmount = health / maxHealth;
-        if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200))
+        if(health <= 0)
         {
-            _curentEvoIndex = 1;
+            _gameOverP.SetActive(true);
+            buttonHandler.SetActive(false);
         }
-        else if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300))
-        {
-            _curentEvoIndex = 2;
-        }
-        else if (_curentEvoIndex != 0 && FoodBar.mCurrentValue < 100)
-        {
-            _curentEvoIndex = 0;
-        }
-    }
-
-    private void changeColor()
-    {
-        player[_curentEvoIndex].material.color = colorTo;
     }
 }

@@ -100,7 +100,7 @@ public class Enemy2 : MonoBehaviour
                     if (attackCooldown <= 0)
                     {
                         attackCooldown = _attackDuration;
-                        HealthBarScript.instance.hpBerkurang(4);
+                        HealthBarScript.instance.hpBerkurang(5);
                         Debug.Log("attack");
 
                     }

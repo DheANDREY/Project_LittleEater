@@ -8,7 +8,7 @@ public class bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            HealthBarScript.instance.hpBerkurang(6);
+            HealthBarScript.instance.hpBerkurang(5);
             DestroyBullet();
         }
     }

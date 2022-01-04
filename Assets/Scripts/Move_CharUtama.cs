@@ -98,9 +98,11 @@ public class Move_CharUtama : MonoBehaviour
             //------------------------------------------------------------------------------------------            
             dash(); 
             heal(); gen(); foodUp(); BiteSpawn();
-                portalSpawn();
-            
-            dead();
+
+            if(HealthBarScript.health <= 0)
+            {
+                _rigidBody.velocity = Vector3.zero;
+            }
         }
          
     }
@@ -185,6 +187,10 @@ public class Move_CharUtama : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnTriggerEnter2D(collision.collider);
+        if (HealthBarScript.instance.mati == true)
+        {            
+            anim[_curentEvoIndex].SetTrigger("isDead");
+        }
     }
 
     public GameObject hitVfx;
@@ -351,28 +357,10 @@ public class Move_CharUtama : MonoBehaviour
         score += nilai;        
     }
 
-    public GameObject portal;
-    public bool isPortalSpawned;
-    public void portalSpawn()
-    {
-        if (score >= 70  && isPortalSpawned == false)
-        {
-            GameObject h5 = Instantiate(portal, new Vector3(_rigidBody.position.x + 5 , _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
-           // h5.transform.SetParent(transform); //soC.powFreeze();  
-            isPortalSpawned = true;
-        }
-    }
-
     public int Score
     {
         get { return score; }
     }
 
-    private void dead()
-    {
-        if(HealthBarScript.health <= 0)
-        {
-            anim[_curentEvoIndex].SetBool("isDeath", true);
-        }
-    }
+
 }

@@ -10,6 +10,7 @@ public class pause : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject GalleryM;
     [SerializeField] GameObject _EncyMenu;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +25,7 @@ public class pause : MonoBehaviour
                 PauseGame();
             }
         }
+
     }
     public void buttonPause()
     {
