@@ -7,6 +7,8 @@ public class cameraFollow : MonoBehaviour
     public Transform target;
     public GameOverScreen GameOverScreen;
     public GameObject GameOverSS;
+    public GameObject ShopMenu;
+    public GameObject PortalMenu;
     public cameraFollow mainCamera;
 
     // Update is called once per frame

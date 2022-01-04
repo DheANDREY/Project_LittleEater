@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class portal : MonoBehaviour
 {
     private GameObject player;
-    public GameObject portalMenuController;
+    private GameObject portalMenuController;
     public static bool isGamePaused = false;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        portalMenuController = FindObjectOfType<cameraFollow>().PortalMenu;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

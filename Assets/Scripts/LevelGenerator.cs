@@ -116,16 +116,17 @@ public class LevelGenerator : MonoBehaviour
         List<string> availableTypes = new List<string>();
         availableTypes.Add(TileTypes[4]);
         availableTypes.Add(TileTypes[2]);
+        availableTypes.Add(TileTypes[1]);
         for(int i = availableTypes.Count; i < tiles.GetLength(0) * tiles.GetLength(1); i++)
         {
-            if(Random.value < 0.1f)
-            {
-                availableTypes.Add(TileTypes[1]);
-            }
-            else
-            {
+            // if(Random.value < 0.1f)
+            // {
+            //     availableTypes.Add(TileTypes[1]);
+            // }
+            // else
+            // {
                 availableTypes.Add(TileTypes[3]);
-            }
+            // }
         }
         Debug.Log(availableTypes.Count);
         #endregion

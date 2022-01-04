@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
+    public static bool IsSFXOn = true;
+    public static bool IsBGMOn = true;
+
     public AudioSource sfx;
     // Start is called before the first frame update
     void Start()
@@ -13,51 +16,59 @@ public class SoundController : MonoBehaviour
     public AudioClip dash;
     public void sfxDash()
     {
-        sfx.PlayOneShot(dash);
+        PlaySFX(dash);
     }
     public AudioClip fus;
     public void sfxEvo()
     {
-        sfx.PlayOneShot(fus); 
+        PlaySFX(fus); 
     }
     public AudioClip makan;
     public void sfxMakan()
     {
-        sfx.PlayOneShot(makan);
+        PlaySFX(makan);
     }
     public AudioClip bamStun;
     public void sfxbStun()
     {
-        sfx.PlayOneShot(bamStun);
+        PlaySFX(bamStun);
     }
     public AudioClip stun;
     public void stuned()
     {
-        sfx.PlayOneShot(stun);
+        PlaySFX(stun);
     }
     public AudioClip Pheal;
     public void powHeal()
     {
-        sfx.PlayOneShot(Pheal);
+        PlaySFX(Pheal);
     }
     public AudioClip Pfood;
     public void powFood()
     {
-        sfx.PlayOneShot(Pfood);
+        PlaySFX(Pfood);
     }
     public AudioClip Pgen;
     public void powGen()
     {
-        sfx.PlayOneShot(Pgen);
+        PlaySFX(Pgen);
     }
     public AudioClip Pfreeze;
     public void powFreeze()
     {
-        sfx.PlayOneShot(Pfreeze);
+        PlaySFX(Pfreeze);
     }
     public AudioClip kenaHit;
     public void hitDmg()
     {
-        sfx.PlayOneShot(kenaHit);
+        PlaySFX(kenaHit);
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if(IsSFXOn)
+        {
+            sfx.PlayOneShot(clip);
+        }
     }
 }

@@ -12,9 +12,18 @@ public class Settings : MonoBehaviour
     //private MainMenuBGM Menu;
     private GameObject BGM;
 
+    public GameObject SFXOnButton;
+    public GameObject SFXOffButton;
+
+    public void OnEable()
+    {
+        SFXOnButton.gameObject.SetActive(!SoundController.IsSFXOn);
+        SFXOffButton.gameObject.SetActive(SoundController.IsSFXOn);
+    }
+
     public void Start()
     {
-        BGM = FindObjectOfType<SoundController>().gameObject;
+        //BGM = FindObjectOfType<SoundController>().gameObject;
         //BGMSet = BGM;
         //Destroy(BGM);
     }

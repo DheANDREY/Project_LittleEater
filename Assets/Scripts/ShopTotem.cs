@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ShopTotem : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     [SerializeField] GameObject shopMenu;
     public GameObject buttonHandler;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        shopMenu = FindObjectOfType<cameraFollow>().ShopMenu;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
