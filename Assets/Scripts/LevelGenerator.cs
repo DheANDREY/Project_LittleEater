@@ -177,6 +177,15 @@ public class LevelGenerator : MonoBehaviour
                         {
                             child.gameObject.AddComponent<TilemapCollider2D>();
                         }
+                        else if(child.gameObject.name.Contains("Start"))
+                        {
+                            Transform player = FindObjectOfType<Move_CharUtama>().transform;
+                            player.SetParent(child.GetChild(0).transform, false);
+
+                            player.transform.localPosition = Vector3.zero;
+
+                            // player.SetParent(null, false);
+                        }
                     }
                 }
             }
