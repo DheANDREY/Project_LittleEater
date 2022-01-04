@@ -16,6 +16,10 @@ public class Lobby2 : MonoBehaviour
                 SceneManager.LoadScene("Settings");
                 break;
             case "Back":
+                if (FindObjectOfType<MainMenuBGM>().gameObject != null)
+                {
+                    DestroyImmediate(FindObjectOfType<MainMenuBGM>().gameObject);
+                }
                 SceneManager.LoadScene("MainMenu");
                 break;
             case "Previous":

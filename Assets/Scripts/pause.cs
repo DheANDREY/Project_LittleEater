@@ -52,6 +52,10 @@ public class pause : MonoBehaviour
     }
     public void QuitGame()
     {
+        if (FindObjectOfType<MainMenuBGM>().gameObject != null)
+        {
+            DestroyImmediate(FindObjectOfType<MainMenuBGM>().gameObject);
+        }
         SceneManager.LoadScene("MainMenu");
     }
 }
