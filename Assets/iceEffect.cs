@@ -6,6 +6,8 @@ public class iceEffect : MonoBehaviour
 {
     // Start is called before the first frame update
     private Collider2D radius;
+    public GameObject enemyToFreeze1;
+    public GameObject enemyToFreeze2;
 
     private void Start()
     {
@@ -14,6 +16,9 @@ public class iceEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        collider.GetComponent<Enemy2>().Stun();
+        if (enemyToFreeze2 != null)
+        {
+            collider.GetComponent<Enemy2>().Stun();
+        }
     }
 }

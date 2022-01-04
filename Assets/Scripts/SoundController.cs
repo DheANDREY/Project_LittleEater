@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    private AudioSource sfx;
+    public AudioSource sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,5 +54,10 @@ public class SoundController : MonoBehaviour
     public void powFreeze()
     {
         sfx.PlayOneShot(Pfreeze);
+    }
+    public AudioClip kenaHit;
+    public void hitDmg()
+    {
+        sfx.PlayOneShot(kenaHit);
     }
 }

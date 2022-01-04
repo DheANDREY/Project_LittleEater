@@ -5,18 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ab2360c9bcf5c5242b779d03737ca3ba
   - enabled: 1
     path: Assets/Scenes/LobbyLevel1.unity
-    guid: 6c45d26092b11604692b49f8dcfd75f4
+    guid: 86fdecc39b0e21645952db9d0ce0577b
   - enabled: 1
     path: Assets/Scenes/LobbyLevel2.unity
-    guid: 609c678ea480a514ea8775474a959da3
+    guid: 3f7db8baa26005f4ca5b594de34c55cc
   - enabled: 1
     path: Assets/Scenes/CutScene.unity
     guid: dd3e3908ee364ca489552f1f3928e523
@@ -33,24 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterMove.unity
     guid: 3093b7d9ec86cd64fa24e32daf149a79
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 056c830751795c245b531922a1943962
-  - enabled: 1
-    path: Assets/Scenes/Settings.unity
-    guid: f88a68e5df83f6a45b9394b6442c218a
-  - enabled: 1
     path: Assets/Scenes/Galleries.unity
-    guid: ce99489e95e07d447be6f143ecd1c098
+    guid: f6d3c4f142e89794eafd1b19e0345725
   - enabled: 1
     path: Assets/Scenes/Encyclopedia.unity
-    guid: c7956d104a66f8e469975955d3153fd7
+    guid: c7d758a0b46189d47b8be4e33a6cc955
   - enabled: 1
-    path: Assets/Scenes/Shop.unity
-    guid: 5b798eb88d06157408f9df52c5b7ea64
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/Settings.unity
+    guid: 3a8237629ebee6f4ea99d77972a69753
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 6d3e8825fd5065148880a58f4380a88a
   m_configObjects: {}

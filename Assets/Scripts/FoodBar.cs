@@ -27,7 +27,7 @@ public class FoodBar : MonoBehaviour
     void Start()
     {
         mCurrentPercent = 0.0f;
-        mCurrentValue = 0;
+        mCurrentValue = 40;
         InvokeRepeating("Cek300", 0, 1.0f);
 
         _playerMove = player.GetComponent<Move_CharUtama>();

@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3dad60d7e5deb1d4aa9bb0b6484143e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00486b306e2c6a545a9b2371f84e7799, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7163442165807703527}
-        m_MethodName: UseIce
+        m_MethodName: UseBite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -142,7 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodB: {fileID: 7751584441178292102, guid: b35f3c722726e7c40978a82a6ec5b6b4, type: 3}
-  freezeRadius: {fileID: 8034865528676311190, guid: 8824c8e837ccf374f99cc1c3b066a9e4,
-    type: 3}
-  charUtama: {fileID: 7249667597857384583, guid: 1542eb8e90e103f498be151c2b60653d,
-    type: 3}
+  isFoodBuff: 0
+  isGenBoost: 0

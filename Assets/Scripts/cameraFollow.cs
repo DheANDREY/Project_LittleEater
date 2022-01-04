@@ -6,6 +6,7 @@ public class cameraFollow : MonoBehaviour
 {
     public Transform target;
     public GameOverScreen GameOverScreen;
+    public GameObject GameOverSS;
     public cameraFollow mainCamera;
 
     // Update is called once per frame
@@ -18,10 +19,6 @@ public class cameraFollow : MonoBehaviour
             HealthBarScript.health -= Time.deltaTime;
         }
 
-        if (HealthBarScript.health <= 0f)// || FoodBar.mCurrentValue <=0)
-        {
-            GameOver();
-        }
     }
 
     public void GameOver()
@@ -29,7 +26,8 @@ public class cameraFollow : MonoBehaviour
         //if (HealthBarScript.health <= 0f)
         //{
         mainCamera.enabled = false;
-        GameOverScreen.Setup();
+        //GameOverScreen.Setup();
+        GameOverSS.SetActive(true);
         this.enabled = false;
         //}
     }

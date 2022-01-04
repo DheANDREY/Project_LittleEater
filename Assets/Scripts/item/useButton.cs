@@ -10,7 +10,7 @@ public class useButton : MonoBehaviour
     private Transform player;
     private float timer = 3;
     public bool isFoodBuff = false;
-    public bool isGenBoost;
+    public bool isGenBoost = false;
 
     private void Start()
     {
@@ -22,22 +22,20 @@ public class useButton : MonoBehaviour
     {
         instance = this;
     }
-
-
-    public void UseSlow()
+    
+    public void UseFood2x()
     {
         isFoodBuff = true;
-        Move_CharUtama.instance.isFoodUp = true;
-        Destroy(gameObject);
+        Move_CharUtama.instance.isFoodUp = true;        
         StartCoroutine(delay());
+        Destroy(gameObject);
     }
 
     private IEnumerator delay()
-    {       
-        yield return new WaitForSeconds(3);
+    {
+        yield return new WaitForSeconds(5);
         isFoodBuff = false;
     }
-    
     public void UseHp()
     {        
         HealthBarScript.instance.UpdateHealth(50);
@@ -45,21 +43,22 @@ public class useButton : MonoBehaviour
         Destroy(gameObject);        
     }
     
-    public void UseIce()
+    public void UseBite()
     {
         Move_CharUtama.instance.isIceSpawn = true;
         Destroy(gameObject);    
     }
-    public void UseFood()
+    public void UseGen()
     {
         isGenBoost = true;
-        Move_CharUtama.instance.isGenUp = true;
-        Destroy(gameObject);
+        Move_CharUtama.instance.isGenUp = true;        
         StartCoroutine(durasi());
+        Destroy(gameObject);
+
     }
     private IEnumerator durasi()
-    {
-        yield return new WaitForSeconds(3);
+    {   
+        yield return new WaitForSeconds(5);
         isGenBoost = false;
     }
 

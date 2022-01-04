@@ -11,19 +11,19 @@ public class Move_CharUtama : MonoBehaviour
     private Rigidbody2D _rigidBody;
     //private List<Animator> anim;
     public Animator[] anim;
-    private int _curentEvoIndex;
+    public int _curentEvoIndex;
     private IEnumerator coroutine;
 
     private Vector3 _moveDir;
 
     public SpriteRenderer[] sr;
     private bool isWalk;
-    public SoundController soC;
+    
 
     bool eat;
     public Fillbar fb;
     public FoodBar foodB;
-
+    public SoundController soC;
     private Inventory inventory;
     public GameObject itemButton;
 
@@ -40,11 +40,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         instance = this;
     }
-    //=======
-    // gameObject.tag = "Player";
 
-    //>>>>>>> origin/Food_Evolution
-    // Update is called once per frame
     void Update()
     {
         if (_curentEvoIndex != 1 && (FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200))
@@ -99,9 +95,14 @@ public class Move_CharUtama : MonoBehaviour
                 sr[3].flipX = true; sr[4].flipX = true;
             }
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
-            //------------------------------------------------------------------------------------------
-            
-            dash(); heal(); gen(); foodUp(); IceSpawn();
+            //------------------------------------------------------------------------------------------            
+            dash(); 
+            heal(); gen(); foodUp(); BiteSpawn();
+
+            if(HealthBarScript.health <= 0)
+            {
+                _rigidBody.velocity = Vector3.zero;
+            }
         }
          
     }
@@ -121,41 +122,29 @@ public class Move_CharUtama : MonoBehaviour
         isEvolving = false;
     }
 //-----------------------------------------------------------------------------------------------
-
-    //private void walkFX()
-    //{
-    //    if(!isEvolving)
-    //    {
-    //        GameObject fx = Instantiate(walkFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
-    //       // fx.transform.SetParent(transform);
-    //        fx.transform.localScale = new Vector3(1, 1, 0);
-    //    }
-    //}
     private void dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Fillbar.instance.currentDash >= 50 && (_rigidBody.velocity.x != 0 || _rigidBody.velocity.y != 0))
+        if (Input.GetKeyDown(KeyCode.Space) && (_rigidBody.velocity.x != 0 || _rigidBody.velocity.y != 0) && Fillbar.instance.currentDash >= 50)
         {
-            //anim[3].SetBool("ngeDash", true);
             anim[_curentEvoIndex].SetTrigger("dash");
             Fillbar.instance.kurang(50);            
             if (_rigidBody.velocity.x < 0)
-                {
+            {
                     GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + 2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(1, 1, 0);
-                Destroy(fx, 2);
-                }
-                else
-                {
+                    Destroy(fx, 2);
+            }
+            else
+            {
                     GameObject fx = Instantiate(dashFx, new Vector3(_rigidBody.position.x + -2, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(-1, 1, 0);
-                Destroy(fx, 2);
-            }
-            
-                _rigidBody.AddForce(_rigidBody.velocity * spdDash);            
-                soC.sfxDash();
-                IsDashing = true;                 
+                    Destroy(fx, 2);
+             }                            
+             _rigidBody.AddForce(_rigidBody.velocity * spdDash);            
+             soC.sfxDash();
+             IsDashing = true;            
         }
         else
         {
@@ -164,7 +153,9 @@ public class Move_CharUtama : MonoBehaviour
         }
     }
 
-// VFX ANIMASI TRANSISI EVOLUSI ------------------------------------------------------------------
+    
+
+    // VFX ANIMASI TRANSISI EVOLUSI ------------------------------------------------------------------
     public GameObject evo1ke2;
     public GameObject evo2ke3;
     private bool animOn;
@@ -196,47 +187,112 @@ public class Move_CharUtama : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnTriggerEnter2D(collision.collider);
-        
+        if (HealthBarScript.instance.mati == true)
+        {            
+            anim[_curentEvoIndex].SetTrigger("isDead");
+        }
     }
+
     public GameObject hitVfx;
     public dropItem di;
     public Food[] fd;
+    public int d;
+    public useButton ub;
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.GetComponent<Enemy2>() != null)
+        if (ub.isGenBoost == true)
         {
-            
-            if (collider.GetComponent<Enemy2>().IsStunned)
-            {             
+            d = 2;
+        }
+        if (ub.isGenBoost == false)
+        {
+            d = 1;
+        }
+        if (collider.GetComponent<Enemy2>() != null)
+            {
+
+                if (collider.GetComponent<Enemy2>().IsStunned)
+                {
+                    anim[_curentEvoIndex].SetTrigger("isMakan");
+                    collider.GetComponent<Food>().Dimakan(d); soC.sfxMakan();
+                    //IncrementScore(); 
+                    di.itemDrop();
+                    Fillbar.instance.kurang(-50);
+                }
+                else
+                {
+                    if (IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
+                    {
+                        GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                        fxE.transform.SetParent(transform);
+                        fxE.transform.localScale = new Vector3(1, 1, 0);
+                        soC.sfxbStun();
+                        collider.GetComponent<Enemy2>().Stun();
+                        Destroy(hitVfx, 3);
+                    }
+                }
+        }
+        else if (collider.GetComponent<Enemy1>() != null)
+        {
+
+                if (collider.GetComponent<Enemy1>().IsStunned)
+                {
+                    anim[_curentEvoIndex].SetTrigger("isMakan");
+                    collider.GetComponent<Food>().Dimakan(d); soC.sfxMakan();
+                    //IncrementScore(); 
+                    di.itemDrop();
+                    Fillbar.instance.kurang(-50);
+                }
+                else
+                {
+                    if (IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
+                    {
+                        GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
+                        fxE.transform.SetParent(transform);
+                        fxE.transform.localScale = new Vector3(1, 1, 0);
+                        soC.sfxbStun();
+                        collider.GetComponent<Enemy1>().Stun();
+                        Destroy(hitVfx, 3);
+                    }
+                }
+        }
+        else if (collider.GetComponent<Enemy3>() != null)
+        {
+
+            if (collider.GetComponent<Enemy3>().IsStunned)
+            {
                 anim[_curentEvoIndex].SetTrigger("isMakan");
-                collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
+                collider.GetComponent<Food>().Dimakan(d); soC.sfxMakan();
                 //IncrementScore(); 
                 di.itemDrop();
                 Fillbar.instance.kurang(-50);
             }
-            else 
+            else
             {
-                if(IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
+                if (IsDashing && ((FoodBar.mCurrentValue >= 100 && FoodBar.mCurrentValue < 200) || (FoodBar.mCurrentValue >= 200 && FoodBar.mCurrentValue < 300)))
                 {
                     GameObject fxE = Instantiate(hitVfx, new Vector3(_rigidBody.position.x + 1, _rigidBody.position.y, 0), Quaternion.identity) as GameObject;
                     fxE.transform.SetParent(transform);
                     fxE.transform.localScale = new Vector3(1, 1, 0);
                     soC.sfxbStun();
-                    collider.GetComponent<Enemy2>().Stun();
+                    collider.GetComponent<Enemy3>().Stun();
                     Destroy(hitVfx, 3);
                 }
             }
         }
-        else if(collider.GetComponent<Food>() != null)
-        {
-            // play animasi makanan
-            anim[_curentEvoIndex].SetTrigger("isMakan");
-            collider.GetComponent<Food>().Dimakan(); soC.sfxMakan(); 
-            IncrementScore(collider.GetComponent<Food>()._valueMakanan); 
-            Fillbar.instance.kurang(-50);
-            
-        }     
+        else if (collider.GetComponent<Food>() != null)
+            {
+                // play animasi makanan
+                anim[_curentEvoIndex].SetTrigger("isMakan");
+                collider.GetComponent<Food>().Dimakan(d); 
+                soC.sfxMakan();
+                IncrementScore(collider.GetComponent<Food>()._valueMakanan);
+                Fillbar.instance.kurang(-50);
+            }
+        
     }
+    
 
     public bool isHeal;
     public GameObject healFX;
@@ -282,32 +338,29 @@ public class Move_CharUtama : MonoBehaviour
 
     public GameObject FreezeFX;
     public bool isIceSpawn;
-    public void IceSpawn()
+    public void BiteSpawn()
     {
         if(isIceSpawn == true)
         {
             GameObject h4 = Instantiate(FreezeFX, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity) as GameObject;
             h4.transform.SetParent(transform); soC.powFreeze();
             h4.transform.localScale = new Vector3(4, 4, 0);
-            Destroy(h4, 4);
+            Destroy(h4, 5);
             isIceSpawn = false;
         }
-    }
+    }    
 
-    private int score;
-    private int r = 1;
+    public int score;
+    private int r;
     public void IncrementScore(int nilai)
     {
-        // if (useButton.instance.isGenBoost == true)
-        // {
-        //     r = 2;
-        // }
-
-        score += (nilai*r);        
+        score += nilai;        
     }
+
     public int Score
     {
         get { return score; }
     }
+
 
 }

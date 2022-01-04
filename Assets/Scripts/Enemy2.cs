@@ -29,12 +29,14 @@ public class Enemy2 : MonoBehaviour
 
     public Animator StunE;
     public GameObject stunFx;
+    private AudioSource auS;
+    public AudioClip stun;
 
     public static Enemy2 instance;
 
     private void Awake()
     {
-        if(Character == null)
+        if (Character == null)
         {
             Character = FindObjectOfType<Move_CharUtama>().gameObject;
         }
@@ -51,25 +53,26 @@ public class Enemy2 : MonoBehaviour
         myAnim = GetComponent<Animator>();
         rigidBody2d = GetComponent<Rigidbody2D>();
         target = FindObjectOfType<Move_CharUtama>().transform;
+        auS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(IsStunned)
+        if (IsStunned)
         {
             if (_stunCooldown > 0)
-            {                
+            {
                 if (!sekali)
-                {                    
+                {
                     GameObject fx = Instantiate(stunFx, new Vector3(rigidBody2d.position.x, rigidBody2d.position.y + 1, 0), Quaternion.identity) as GameObject;
                     Debug.Log(stunFx);
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(1, 1, 0);
                     sekali = true;
-                }            
+                }
                 _stunCooldown -= Time.deltaTime;
-                
+
 
             }
             else
@@ -81,14 +84,14 @@ public class Enemy2 : MonoBehaviour
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             float enemyToPlayerDistance = Vector3.Distance(Character.transform.position, transform.position);
-            if(enemyToPlayerDistance > 6f)
+            if (enemyToPlayerDistance > 6f)
             {
                 Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
                 {
                     GoHome();
                 }
             }
-            else if(enemyToPlayerDistance < 1f)
+            else if (enemyToPlayerDistance < 1f)
             {
                 if (Character.GetComponent<Move_CharUtama>() != null)
                 {
@@ -97,18 +100,19 @@ public class Enemy2 : MonoBehaviour
                     if (attackCooldown <= 0)
                     {
                         attackCooldown = _attackDuration;
-                        HealthBarScript.health -= 4f;
+                        HealthBarScript.instance.hpBerkurang(5);
                         Debug.Log("attack");
+
                     }
                 }
             }
-            else if(enemyToPlayerDistance < 5f)
+            else if (enemyToPlayerDistance < 5f)
             {
                 // chase, kejer player
                 Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
                 myAnim.SetBool("isMoving", true);
                 myAnim.SetFloat("moveX", (target.position.x - transform.position.x));
-                myAnim.SetFloat("moveY", (target.position.y - transform.position.y));           
+                myAnim.SetFloat("moveY", (target.position.y - transform.position.y));
                 rb.velocity = enemyToPlayerDir.normalized * speed;
             }
 
@@ -123,9 +127,10 @@ public class Enemy2 : MonoBehaviour
     public void Stun()
     {
         Debug.Log("stun");
-        IsStunned = true;        
-        _stunCooldown = _stunDuration ;        
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;        
+        IsStunned = true; 
+        _stunCooldown = _stunDuration; 
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        auS.PlayOneShot(stun);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

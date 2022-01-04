@@ -27,10 +27,19 @@ public class Fillbar : MonoBehaviour
     }
     private void Update()
     {
-        if(currentDash > 100)
+        if (currentDash > 100)
         {
             currentDash = 100;
         }
+        dashEvo();
+        //if(Move_CharUtama.instance._curentEvoIndex == 0 && Move_CharUtama.instance._curentEvoIndex == 1)
+        //{
+        //    if(currentDash < 50)
+        //    {
+        //        currentDash = 50;
+        //    }
+        //}
+
     }
 
     // BAR DASH BERKURANG ------------------------------------------------------------------
@@ -66,5 +75,16 @@ public class Fillbar : MonoBehaviour
         }
 
     }
-//-------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------
+    private void dashEvo()
+    {
+        if ((Move_CharUtama.instance._curentEvoIndex == 0 || Move_CharUtama.instance._curentEvoIndex == 1) && currentDash >= 50)
+        {
+            if (currentDash < 50)
+            {
+                currentDash = 50;
+                maxDash = currentDash;
+            }
+        }
+    }
 }

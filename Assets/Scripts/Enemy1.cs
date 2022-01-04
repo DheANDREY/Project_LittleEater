@@ -7,7 +7,7 @@ public class Enemy1 : MonoBehaviour
 {
     // public Transform[] patrolPoints;
     public GameObject Character;
-    private Rigidbody2D rigidBody2d;
+    private Rigidbody2D rb;
     public float speed;
     Transform currentPatrolPoint;
     int currentPatrolIndex;
@@ -23,15 +23,21 @@ public class Enemy1 : MonoBehaviour
 
     private float _stunCooldown;
 
-    private Transform target;
+    private Transform player;
 
     private Animator myAnim;
 
     public Animator StunE;
-    public GameObject stunFx;
+    public GameObject stunFx;    
     public SpriteRenderer sr;
 
-    public static Enemy2 instance;
+    private float timeBtwShoot;
+    public float startTimeBtwShoot;
+    public GameObject bullet;
+
+    private AudioSource auS;
+    public AudioClip stun;
+
 
     private void Awake()
     {
@@ -46,12 +52,11 @@ public class Enemy1 : MonoBehaviour
     {
         homePos = transform.position;
 
-        //currentPatrolIndex = 0;
-        //currentPatrolPoint = patrolPoints[currentPatrolIndex];
         attackCooldown = 0;
         myAnim = GetComponent<Animator>();
-        rigidBody2d = GetComponent<Rigidbody2D>();
-        target = FindObjectOfType<Move_CharUtama>().transform;
+        rb = GetComponent<Rigidbody2D>();
+        timeBtwShoot = startTimeBtwShoot;
+        auS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,7 +68,7 @@ public class Enemy1 : MonoBehaviour
             {
                 if (!sekali)
                 {
-                    GameObject fx = Instantiate(stunFx, new Vector3(rigidBody2d.position.x, rigidBody2d.position.y + 1, 0), Quaternion.identity) as GameObject;
+                    GameObject fx = Instantiate(stunFx, new Vector3(rb.position.x, rb.position.y + 1, 0), Quaternion.identity) as GameObject;
                     Debug.Log(stunFx);
                     fx.transform.SetParent(transform);
                     fx.transform.localScale = new Vector3(1, 1, 0);
@@ -98,12 +103,13 @@ public class Enemy1 : MonoBehaviour
                     if (attackCooldown <= 0)
                     {
                         attackCooldown = _attackDuration;
-                        HealthBarScript.health -= 4f;
+                        HealthBarScript.instance.hpBerkurang(5);                        
                         Debug.Log("attack");
+
                     }
                 }
             }
-            else if (enemyToPlayerDistance < 5f)
+            else if (enemyToPlayerDistance < 6f)
             {
                 // chase, kejer player
                 Vector3 enemyToPlayerDir = Character.transform.position - transform.position;
@@ -120,22 +126,37 @@ public class Enemy1 : MonoBehaviour
             }
         }
 
-        if (rigidBody2d.velocity.x > 0)
+        if (rb.velocity.x > 0)
         {
             sr.flipX = false;
         }
-        if (rigidBody2d.velocity.x < 0)
+        if (rb.velocity.x < 0)
         {
             sr.flipX = true;
+        }
+
+        if(timeBtwShoot <= 0)
+        {
+            GameObject h4 = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+
+            Destroy(h4, 7);
+
+            timeBtwShoot = startTimeBtwShoot;
+
+        }
+        else
+        {
+            timeBtwShoot -= Time.deltaTime;
         }
     }
 
     public void Stun()
     {
         Debug.Log("stun");
-        IsStunned = true;
-        _stunCooldown = _stunDuration;
+        IsStunned = true;   
+        _stunCooldown = _stunDuration; 
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        auS.PlayOneShot(stun);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
