@@ -17,17 +17,24 @@ public class portal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Move_CharUtama>() != null)
+        // TODO: check objective udah clear apa belum
+        if(true)
         {
-            if (isGamePaused)
+            if (collision.GetComponent<Move_CharUtama>() != null)
             {
-                noPortal();
+                if (isGamePaused)
+                {
+                    noPortal();
+                }
+                else
+                {
+                    _menuPortal();
+                }
             }
-            else
-            {
-                _menuPortal();
-            }
-            
+        }
+        else
+        {
+            // TODO: ga bisa masuk portal karena  ada objective yg belum kelar
         }
     }
 
