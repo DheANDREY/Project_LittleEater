@@ -25,10 +25,6 @@ public class MainMenu : MonoBehaviour
                 SceneManager.LoadScene("Credits");
                 break;
             case "CloseButton":
-                if(FindObjectOfType<MainMenuBGM>().gameObject != null)
-                {
-                    DestroyImmediate(FindObjectOfType<MainMenuBGM>().gameObject);
-                }
                 SceneManager.LoadScene("MainMenu");
                 break;
         }
