@@ -90,7 +90,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607034885945153733}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267530777bbdc2147accc4ad1b2173c2, type: 3}
   m_Name: 
@@ -109,7 +109,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.06041521, y: -0.17771661}
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b620cf33e2dbd464db594068317240f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabMakanan: {fileID: 6607034885945153733}
+  _prefabMakanan: {fileID: 6331716984206688779, guid: b47e2163965341a4ba56a80045951578,
+    type: 3}
 --- !u!50 &6607034885945153732
 Rigidbody2D:
   serializedVersion: 4

@@ -31,7 +31,8 @@ public class Coral : MonoBehaviour
         else if (_spawned == null)
         {
             _spawnCooldown = _spawnDuration;
-            _spawned = Instantiate(_prefabMakanan, transform.position, transform.rotation);
+            _spawned = Instantiate(_prefabMakanan, transform.position, Quaternion.identity);
+            _spawned.transform.SetParent(transform);
             _countToDestroy--;
             if (_countToDestroy <= 0)
             {

@@ -27,7 +27,7 @@ public class FoodBar : MonoBehaviour
     void Start()
     {
         mCurrentPercent = 0.0f;
-        mCurrentValue = 40;
+        mCurrentValue = 90;
         InvokeRepeating("Cek300", 0, 1.0f);
 
         _playerMove = player.GetComponent<Move_CharUtama>();
@@ -99,7 +99,7 @@ public class FoodBar : MonoBehaviour
             }
             else
             {
-                DecreaseFood(2);
+                DecreaseFood(3/2);
             }
         }
     }

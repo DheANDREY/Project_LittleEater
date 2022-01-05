@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6331716984206688782}
   - component: {fileID: 4998817492479819892}
   - component: {fileID: 8362086046128247342}
+  - component: {fileID: 8567006969502196193}
   m_Layer: 0
   m_Name: Coral
   m_TagString: food3_coral
@@ -94,3 +95,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8567006969502196193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331716984206688779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310fda9531431ed4c8cc4aafbd8778e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _valueMakanan: 4
