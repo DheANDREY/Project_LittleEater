@@ -12,6 +12,9 @@ public class NextTutorial1 : MonoBehaviour
             case "Next":
                 SceneManager.LoadScene("Tutorial2");
                 break;
+            case "Skip":
+                SceneManager.LoadScene("CharacterMove");
+                break;
         }
     }
 }
