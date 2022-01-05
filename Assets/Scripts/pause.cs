@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class pause : MonoBehaviour
 {
     public static bool isGamePaused = false;
+    public GameObject shop;
+    public GameObject shopExit;
     public GameObject buttonHandler;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject GalleryM;

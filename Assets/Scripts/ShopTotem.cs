@@ -5,13 +5,16 @@ using UnityEngine;
 public class ShopTotem : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField] GameObject shopMenu;
-    public GameObject buttonHandler;
+    private GameObject shopMenu;
+    private GameObject buttonHandler;
+    private GameObject exitButton;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        shopMenu = FindObjectOfType<cameraFollow>().ShopMenu;
+        shopMenu = FindObjectOfType<pause>().shop;
+        buttonHandler = FindObjectOfType<pause>().buttonHandler;
+        exitButton = FindObjectOfType<pause>().shopExit;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
