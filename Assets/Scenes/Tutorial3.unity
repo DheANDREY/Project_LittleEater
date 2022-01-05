@@ -1690,7 +1690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &620199744
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2115,7 +2115,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 55e147bf67a7d9a47bfa76c520cb51df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00486b306e2c6a545a9b2371f84e7799, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5023,11 +5023,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Kekuatan khusus Player untuk
-
-    melumpuhkan Musuh dengan
-
-    membuatnya membeku sesaat.'
+  m_Text: "Kekuatan khusus Player untuk\nbergerak cepat dalam area lingkaran dan \nmemakan
+    food apapun dihadapannya !"
 --- !u!222 &1782825741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5341,7 +5338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: POWER UP ICE CUBE
+  m_Text: POWER UP BITE BITE !
 --- !u!222 &1970391194
 CanvasRenderer:
   m_ObjectHideFlags: 0
