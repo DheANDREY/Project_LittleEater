@@ -10,8 +10,12 @@ public class pause : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject GalleryM;
     [SerializeField] GameObject _EncyMenu;
+    [SerializeField] GameObject BGMobjek;    [SerializeField] GameObject sfxMobjek;
+    [SerializeField] GameObject xBGM;        [SerializeField]GameObject xSfx;
+    [SerializeField] GameObject OBGM;        [SerializeField] GameObject OSfx;
 
-    // Update is called once per frame
+    public bool isBGMOn = true;
+    public bool isSfxOn = true;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,6 +28,24 @@ public class pause : MonoBehaviour
             {
                 PauseGame();
             }
+        }
+
+        if (isBGMOn)
+        {
+             bgmOn();
+        }
+        else
+        {
+            bgmOff();
+        }
+
+        if (isSfxOn)
+        {
+            sfxOn();
+        }
+        else
+        {
+            sfxOff();
         }
 
     }
@@ -80,12 +102,26 @@ public class pause : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
+    public void RestartMenu1()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+    }
     public void QuitGame()
     {
         if (FindObjectOfType<MainMenuBGM>().gameObject != null)
         {
             DestroyImmediate(FindObjectOfType<MainMenuBGM>().gameObject);
         }
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void toLobby()
+    {
+        SceneManager.LoadScene("LobbyLevel1");
+    }
+
+    public void toMainM()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -116,5 +152,35 @@ public class pause : MonoBehaviour
         buttonHandler.SetActive(true);
         Time.timeScale = 1f;
         isGamePaused = false;
+    }
+
+    public void bgmOn()
+    {
+        isBGMOn = true;
+        BGMobjek.SetActive(true);        
+        xBGM.SetActive(false);
+        OBGM.SetActive(true);
+    }
+    public void bgmOff()
+    {
+        isBGMOn = false;
+        BGMobjek.SetActive(false);
+        xBGM.SetActive(true);
+        OBGM.SetActive(false);
+    }
+
+    public void sfxOn()
+    {
+        isSfxOn = true;
+        sfxMobjek.SetActive(true);
+        xSfx.SetActive(false);
+        OSfx.SetActive(true);
+    }
+    public void sfxOff()
+    {
+        isSfxOn = false;
+        sfxMobjek.SetActive(false);
+        xSfx.SetActive(true);
+        OSfx.SetActive(false);
     }
 }

@@ -24,7 +24,7 @@ public class portal : MonoBehaviour
             {
                 if (isGamePaused)
                 {
-                    noPortal();
+                    //noPortal();
                 }
                 else
                 {
