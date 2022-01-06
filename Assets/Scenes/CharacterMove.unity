@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5867f7d398699884fb6e971f0b87fe85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotifSpawn: 0
 --- !u!1 &77557813
 GameObject:
   m_ObjectHideFlags: 0
@@ -20217,11 +20218,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -34981,11 +34982,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -36693,11 +36694,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -40138,6 +40139,12 @@ PrefabInstance:
       propertyPath: portal
       value: 
       objectReference: {fileID: 2822201255434985682, guid: ed0ab61c785f39e4f95998aa2c74ef94,
+        type: 3}
+    - target: {fileID: 7249667597857384632, guid: 1542eb8e90e103f498be151c2b60653d,
+        type: 3}
+      propertyPath: notif
+      value: 
+      objectReference: {fileID: 604114394717127990, guid: 7c451b9c6ab541e4b8a99c4e4967a168,
         type: 3}
     - target: {fileID: 7249667597857384637, guid: 1542eb8e90e103f498be151c2b60653d,
         type: 3}

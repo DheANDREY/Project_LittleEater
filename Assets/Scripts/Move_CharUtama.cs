@@ -96,7 +96,7 @@ public class Move_CharUtama : MonoBehaviour
             }
             anim[_curentEvoIndex].SetBool("isWalk", move != Vector3.zero);
             //------------------------------------------------------------------------------------------            
-            dash(); 
+            dash(); notifKurang();
             heal(); gen(); foodUp(); BiteSpawn();
 
             if(HealthBarScript.health <= 0)
@@ -357,7 +357,7 @@ public class Move_CharUtama : MonoBehaviour
         {
             GameObject h7 = Instantiate(notif, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity) as GameObject;
             h7.transform.SetParent(transform); //soC.powFreeze();
-            h7.transform.localScale = new Vector3(1, 1, 0);
+            //h7.transform.localScale = new Vector3(1, 1, 0);
             Destroy(h7, 2);
             portal.instance.isNotifSpawn = false;
         }
