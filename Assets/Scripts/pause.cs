@@ -15,6 +15,7 @@ public class pause : MonoBehaviour
     [SerializeField] GameObject BGMobjek;    [SerializeField] GameObject sfxMobjek;
     [SerializeField] GameObject xBGM;        [SerializeField]GameObject xSfx;
     [SerializeField] GameObject OBGM;        [SerializeField] GameObject OSfx;
+    public GameObject Bsong;
 
     public bool isBGMOn = true;
     public bool isSfxOn = true;
@@ -121,6 +122,10 @@ public class pause : MonoBehaviour
     {
         SceneManager.LoadScene("LobbyLevel1");
     }
+    public void toLobby2()
+    {
+        SceneManager.LoadScene("LobbyLevel2");
+    }
 
     public void toMainM()
     {
@@ -185,4 +190,19 @@ public class pause : MonoBehaviour
         xSfx.SetActive(true);
         OSfx.SetActive(false);
     }
+
+
+    public GameObject portalM;
+    public GameObject winPanel;
+    public SoundController soC;
+    
+    public void toWinPanel()
+    {
+        soC.bgmWin();
+        winPanel.SetActive(true);
+        portalM.SetActive(false);
+        isBGMOn = false;
+        Time.timeScale = 0f;
+    }
+    
 }

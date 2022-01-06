@@ -63,7 +63,11 @@ public class SoundController : MonoBehaviour
     {
         PlaySFX(kenaHit);
     }
-
+    public AudioClip WinSound;
+    public void bgmWin()
+    {
+        PlaySFX(WinSound);
+    }
     public void PlaySFX(AudioClip clip)
     {
         if(IsSFXOn)

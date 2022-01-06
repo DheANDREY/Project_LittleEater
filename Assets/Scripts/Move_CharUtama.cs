@@ -348,7 +348,20 @@ public class Move_CharUtama : MonoBehaviour
             Destroy(h4, 5);
             isIceSpawn = false;
         }
-    }    
+    }
+    public GameObject notif;
+    
+    public void notifKurang()
+    {
+        if (portal.instance.isNotifSpawn == true)
+        {
+            GameObject h7 = Instantiate(notif, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity) as GameObject;
+            h7.transform.SetParent(transform); //soC.powFreeze();
+            h7.transform.localScale = new Vector3(1, 1, 0);
+            Destroy(h7, 2);
+            portal.instance.isNotifSpawn = false;
+        }
+    }
 
     public int score;
     private int r;
