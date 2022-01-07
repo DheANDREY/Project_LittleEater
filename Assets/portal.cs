@@ -24,12 +24,12 @@ public class portal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // TODO: check objective udah clear apa belum
-        if(collision.GetComponent<Move_CharUtama>() != null && Move_CharUtama.instance.score >= 250)
+        if(collision.GetComponent<portal>() && Move_CharUtama.instance.score >= 250)
         {
-            //if (collision.GetComponent<Move_CharUtama>() != null)
-            //{
-                    _menuPortal();                
-            //}
+            if (collision.GetComponent<Move_CharUtama>() != null)
+            {
+                _menuPortal();                
+            }
         }
         else
         {
