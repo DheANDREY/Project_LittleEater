@@ -13,8 +13,6 @@ public class CutScene : MonoBehaviour
 
     void Start()
     {
-        BGM = FindObjectOfType<MainMenuBGM>().gameObject;
-        Destroy(BGM.gameObject);
         cutScene.Play();
         coroutine = Tutorial();
         StartCoroutine(coroutine);

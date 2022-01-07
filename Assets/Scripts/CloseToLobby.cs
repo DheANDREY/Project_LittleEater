@@ -9,11 +9,8 @@ public class CloseToLobby : MonoBehaviour
     {
         switch (this.gameObject.name)
         {
-            case "CloseButton":
-                SceneManager.LoadScene("LobbyLevel1");
-                break;
             case "Back":
-                SceneManager.LoadScene("LobbyLevel1");
+                SceneManager.LoadScene("MainMenu");
                 break;
             case "CloseToPlay":
                 SceneManager.LoadScene("CharacterMove");
