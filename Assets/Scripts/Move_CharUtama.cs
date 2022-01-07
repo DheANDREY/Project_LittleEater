@@ -229,7 +229,7 @@ public class Move_CharUtama : MonoBehaviour
                         fxE.transform.localScale = new Vector3(1, 1, 0);
                         soC.sfxbStun();
                         collider.GetComponent<Enemy2>().Stun();
-                        Destroy(hitVfx, 3);
+                        Destroy(fxE, 3);
                     }
                 }
         }
@@ -253,7 +253,7 @@ public class Move_CharUtama : MonoBehaviour
                         fxE.transform.localScale = new Vector3(1, 1, 0);
                         soC.sfxbStun();
                         collider.GetComponent<Enemy1>().Stun();
-                        Destroy(hitVfx, 3);
+                        Destroy(fxE, 3);
                     }
                 }
         }
@@ -277,7 +277,7 @@ public class Move_CharUtama : MonoBehaviour
                     fxE.transform.localScale = new Vector3(1, 1, 0);
                     soC.sfxbStun();
                     collider.GetComponent<Enemy3>().Stun();
-                    Destroy(hitVfx, 3);
+                    Destroy(fxE, 3);
                 }
             }
         }
@@ -355,7 +355,7 @@ public class Move_CharUtama : MonoBehaviour
     {
         if (portal.instance.isNotifSpawn == true)
         {
-            GameObject h7 = Instantiate(notif, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity) as GameObject;
+            GameObject h7 = Instantiate(notif, new Vector3(_rigidBody.position.x, _rigidBody.position.y + 1, 0), Quaternion.identity);
             h7.transform.SetParent(transform); //soC.powFreeze();
             //h7.transform.localScale = new Vector3(1, 1, 0);
             Destroy(h7, 2);

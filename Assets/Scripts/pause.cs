@@ -118,13 +118,12 @@ public class pause : MonoBehaviour
         }
         SceneManager.LoadScene("MainMenu");
     }
-    public void toLobby()
-    {
-        SceneManager.LoadScene("LobbyLevel1");
-    }
+    
+
     public void toLobby2()
     {
-        SceneManager.LoadScene("LobbyLevel2");
+        transferData1to2.objectActive = true;
+        SceneManager.LoadScene("MainMenu");                
     }
 
     public void toMainM()

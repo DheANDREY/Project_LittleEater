@@ -20,16 +20,16 @@ public class portal : MonoBehaviour
         instance = this;
     }
 
-    public bool isNotifSpawn;
+    public bool isNotifSpawn = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // TODO: check objective udah clear apa belum
-        if(collision.GetComponent<portal>() && Move_CharUtama.instance.score >= 250)
+        if(collision.GetComponent<Move_CharUtama>() != null && Move_CharUtama.instance.score >= 250)
         {
-            if (collision.GetComponent<Move_CharUtama>() != null)
-            {
+           // if (collision.GetComponent<Move_CharUtama>() != null)
+            //{
                 _menuPortal();                
-            }
+            //}
         }
         else
         {
