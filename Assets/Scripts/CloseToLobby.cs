@@ -10,14 +10,7 @@ public class CloseToLobby : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Back":
-                _mainMenu.SetActive(false);
-                Settings.SetActive(false);
-                Credits.SetActive(false);
-                Lobby1.SetActive(true);
-                Lobby2.SetActive(false);
-                Galleries.SetActive(false);
-                Encyclopedia.SetActive(false);
-                Shop.SetActive(false);
+                SceneManager.LoadScene("MainMenu");
                 break;
             case "CloseToPlay":
                 SceneManager.LoadScene("CharacterMove");
