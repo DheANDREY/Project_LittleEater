@@ -204,5 +204,12 @@ public class pause : MonoBehaviour
         isBGMOn = false;
         Time.timeScale = 0f;
     }
-    
+
+    public void noPortal()
+    {
+        portalM.SetActive(false);
+        Time.timeScale = 1f;
+        isGamePaused = false;
+    }
+
 }
